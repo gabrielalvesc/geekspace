@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { HighlightsComponent } from './components/highlights/highlights.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path:'', component:HighlightsComponent}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
