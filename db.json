@@ -9,7 +9,7 @@
             "size": "M",
             "color": "Black",
             "idStore": "1",
-            "picture":"https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/R926LU1YEA.jpg"
+            "picture":"https://static.simplo7.net/static/9783/sku/presentes-dia-dos-pais-camiseta-dia-dos-pais-star-wars-darth-vader-e-luke-1500494040519.jpg"
         },
         {
             "idProduct": 2,
@@ -18,25 +18,25 @@
             "specification": "Alça reforçada",
             "price": "69,99",
             "idStore": "1",
-            "picture":"https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/R926LU1YEA.jpg"
+            "picture":"https://cdn.awsli.com.br/400x400/510/510818/produto/2319915702db0aff56.jpg"
         },
         {
-            "idProduct": 2,
-            "name": "Caneca The Simpsons",
-            "description": "Caneca The Simpsons Bart Simpson",
-            "specification": "Alça reforçada",
-            "price": "69,99",
+            "idProduct": 3,
+            "name": "Chaveiro Spider-Man",
+            "description": "Chaveiro Spider-Man aço inox",
+            "specification": "Tamanho - 8cm",
+            "price": "24,99",
             "idStore": "1",
-            "picture":"https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/R926LU1YEA.jpg"
+            "picture":"https://images-americanas.b2w.io/produtos/01/00/oferta/52254/2/52254264_1GG.jpg"
         },
         {
-            "idProduct": 2,
-            "name": "Caneca The Simpsons",
-            "description": "Caneca The Simpsons Bart Simpson",
-            "specification": "Alça reforçada",
-            "price": "69,99",
+            "idProduct": 4,
+            "name": "Adesivo GOT",
+            "description": "Adesivo house Stark",
+            "specification": "Cola super-bond",
+            "price": "9,99",
             "idStore": "1",
-            "picture":"https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/R926LU1YEA.jpg"
+            "picture":"http://www.ateliedepapelarroz.com.br/imagem/index/15455547/G/game_of_throne1.jpg"
         }
     ],
     

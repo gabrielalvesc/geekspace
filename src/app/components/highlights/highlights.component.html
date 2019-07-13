@@ -1,9 +1,33 @@
-<!-- As a link -->
-<nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
-</nav>
+<div class="container mt-4">
 
-<!-- As a heading -->
-<nav class="navbar navbar-light bg-light">
-  <span class="navbar-brand mb-0 h1">Navbar</span>
-</nav>
+  <div class="row">
+    <div class="col-md-4">
+      <h1 class="destaque">DESTAQUES</h1>
+    </div>
+  </div>
+
+  <div class="row ">
+
+    <div *ngFor="let product of products" class="col-md-3">
+
+      <div class="card mt-4" style="width: 16rem; border: none">
+        <img class="card-img-top" src="{{product.picture}}" style="height: 270px" alt="Card image cap">
+        <div class="card-body" style="padding-bottom: 10px;">
+          <h5 class="card-title product-title">{{product.name}}</h5>
+          <h4 class="product-price">R$ {{product.price}}</h4>
+          <div class="row">
+            <div class="col-md-12">
+              <a href="#" class="btn btn-outline-success btn-want">EU QUERO!</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    
+
+  </div>
+
+
+
+</div>
