@@ -1,0 +1,31 @@
+{
+    "products": [
+        {
+            "idProduct": 1,
+            "name": "Camisa Star Wars",
+            "description": "Camisa Stars wars edition limited",
+            "specification": "100% algodão",
+            "price": "99,99",
+            "size": "M",
+            "color": "Black",
+            "idStore": "1"
+        },
+        {
+            "idProduct": 2,
+            "name": "Caneca The Simpsons",
+            "description": "Caneca The Simpsons Bart Simpson",
+            "specification": "Alça reforçada",
+            "price": "69,99",
+            "idStore": "1"
+        }
+    ],
+    
+    "stores": [
+        {
+            "idStores": 1,
+            "name": "Geek STORE",
+            "email": "gabriel.alves@dce.ufpb.br",
+            "cnpj": "1111111111111"
+        }
+    ]
+}
