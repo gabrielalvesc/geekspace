@@ -1,7 +1,9 @@
-<button (click)="getProducts()">Listar</button>
+<!-- As a link -->
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+</nav>
 
-<ul>
-  <li *ngFor="let product of products">
-    {{product.name}} | {{product.description}} | {{product.price}}
-  </li>
-</ul>
+<!-- As a heading -->
+<nav class="navbar navbar-light bg-light">
+  <span class="navbar-brand mb-0 h1">Navbar</span>
+</nav>
