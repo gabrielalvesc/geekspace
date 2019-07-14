@@ -1,0 +1,37 @@
+.destaque {
+    border-bottom: 4px solid black;
+    font-family: Din;
+}
+
+.product-title {
+    font-size: 24px;
+    color: #575757;
+    /* margin-bottom: -5px; */
+    font-family: Din;
+}
+
+.product-price {
+    font-size: 40px;
+    color:black;
+    font-weight: bold;
+    font-family: Din;
+}
+
+.btn-want {
+    border: 2px solid #00D510;
+    color: #575757;
+    width: 100%;
+    font-family: Din;
+    font-size: 30px;
+    height: 50px;
+}
+
+.btn-want:hover {
+    background-color: #00D510;
+    color: white;
+}
+
+.highlights {
+    margin-left: auto;
+    margin-right: auto;
+}
