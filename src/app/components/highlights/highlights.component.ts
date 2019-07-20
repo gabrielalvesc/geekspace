@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 import { Product } from 'src/app/models/product.model';
-import { CartItem } from 'src/app/models/cart-item.model';
 
 @Component({
   selector: 'app-highlights',
