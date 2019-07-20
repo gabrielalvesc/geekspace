@@ -6,13 +6,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HighlightsComponent } from './components/highlights/highlights.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HighlightsComponent
+    HighlightsComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
