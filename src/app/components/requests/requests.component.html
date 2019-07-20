@@ -1,6 +1,9 @@
 <div class="mt-3">
   <h1>Meus pedidos</h1>
 </div>
+
+<button (click)="add()">add</button>
+
 <ng-container *ngIf="requests.length == 0; else listTemplate">
   <div class="col-md-8 col-sm-12 offset-md-2">
     <div class="alert alert-warning text-center" role="alert">
@@ -13,9 +16,26 @@
 </ng-container>
 <ng-template #listTemplate>
   <div *ngFor="let request of requests">
-    <div class="card shadow">
+    <div class="card shadow mb-2">
       <div class="card-body">
-        <span style="font-size: 20px">{{request.name}}</span>
+        <div class="row">
+          <div class="col-md-1">
+            <img src="{{request.product.picture}}" class="img-card" style="width: 70px; height: 80px">
+          </div>
+          <div class="col-md-3">
+            <div style="font-size: 30px">{{request.product.name}}</div>
+            <div style="font-size: 30px">R$ {{request.product.price}} x {{request.quantity}} <span
+                *ngIf="request.quantity > 1">unidades</span> <span *ngIf="request.quantity == 1">unidade</span> </div>
+          </div>
+          <div class="col-md-3">
+            <div style="font-size: 30px">{{request.product.store.name}}</div>
+            <div style="font-size: 20px">{{request.product.store.phone}}</div>
+          </div>
+          <div class="col-md-4 mt-2 text-center">
+            <a href="#" class="btn-request">ACOMPANHAR PEDIDO</a>
+            <!-- <a href="#" class="btn btn-danger">ACOMPANHAR PEDIDO</a> -->
+          </div>
+        </div>
       </div>
     </div>
   </div>
