@@ -15,6 +15,7 @@ import { RequestsComponent } from './components/requests/requests.component';
 import { FavoritesComponent } from './components/favorites/favorites.component';
 import { RequestsService } from './services/requests.service';
 import { FavoritesService } from './services/favorites.service';
+import { NewProductComponent } from './components/new-product/new-product.component';
 
 
 
@@ -27,7 +28,8 @@ import { FavoritesService } from './services/favorites.service';
     HeaderComponent,
     DashboardComponent,
     RequestsComponent,
-    FavoritesComponent
+    FavoritesComponent,
+    NewProductComponent
   ],
   imports: [
     BrowserModule,
