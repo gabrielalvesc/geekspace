@@ -6,7 +6,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HighlightsComponent } from './components/highlights/highlights.component';
-import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import { ProductService } from './services/product.service';
+import { ShoppingCartService } from './services/shopping-cart.service';
 
 
 
@@ -22,7 +24,7 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
     HttpClientModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [ProductService, ShoppingCartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

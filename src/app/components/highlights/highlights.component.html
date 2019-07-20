@@ -15,7 +15,7 @@
           <h4 class="product-price">R$ {{product.price}}</h4>
           <div class="row">
             <div class="col-md-12">
-              <a href="#" class="btn btn-outline-success btn-want">EU QUERO!</a>
+              <a href="#" class="btn btn-outline-success btn-want" (click)="addItem(product)" [routerLink]="['/carrinho']" routerLinkActive="router-link-active" >EU QUERO!</a>
             </div>
           </div>
         </div>

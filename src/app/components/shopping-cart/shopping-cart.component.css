@@ -1,0 +1,43 @@
+#carrinho{
+    font-family: Din;
+}
+
+
+img{
+    width: 80px;
+    height: 80px;
+}
+
+.inputQtd{
+    border-top: none;
+    border-right: none;
+    border-left: none;
+
+    border-color: black;
+
+    width: 50px;
+}
+
+.inputCep{
+    border-top: none;
+    border-right: none;
+    border-left: none;
+
+    border-color: black;
+}
+
+.titles{
+    font-size: 25px;
+}
+
+.btn-finished{
+    margin-top: 10%;
+    background-color: #222222;
+    color: yellow;
+
+    border-radius: 5px 5px 5px 5px;
+
+    width: 120px;
+    height: 35px;
+
+}

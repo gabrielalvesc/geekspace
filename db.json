@@ -5,7 +5,7 @@
             "name": "Camisa Star Wars",
             "description": "Camisa Stars wars edition limited",
             "specification": "100% algodão",
-            "price": "99,99",
+            "price": 99.99,
             "size": "M",
             "color": "Black",
             "idStore": "1",
