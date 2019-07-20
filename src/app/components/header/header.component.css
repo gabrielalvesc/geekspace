@@ -8,56 +8,88 @@
 /*Primeira coluna*/
 .brand{
     color: white;
-    font-size: 10px;
+    font-size: 15px;
+    font-family: Din;
     margin-left: 50px;
     margin-right:50px;  
 }
 a.brand:link{
     font-size: 80px;
+    font-family: AppleColorEmoji;    
     color: #FFD933;
     text-decoration: none;  
 }
 a.brand:visited{
-    font-size: 73px;
+    font-size: 83px;
     color: #FFD933;
 }
 a.brand:hover{
-    font-size: 73px;
+    font-family: AppleColorEmoji;
+    font-size: 80px;
     color: #FFD933;
 }
 a.brand:active{
-    font-size: 73px;
+    font-size: 80px;
     color: #FFD933;
 }
 
 /*Segunda coluna*/
 .pesquisar{
     padding-top:47px;  
+    width: 500px;
 
 }
+
 
 /*Terceira coluna*/
-.conta{
+.separator{
+    border-left: #FFD933 solid 1px;
+}
+
+.account{
+   padding-top: 50px;
+}
+.accounttxt
+a.accounttxt:link{   
     color: #FFD933;
-    padding-top: 55px;
-    padding-left: 50px;
-    border: red solid 5px;
-    
+    text-decoration: none;  
 }
-.separador{
-    border-left: #FFD933 solid 3px;
+a.accounttxt:visited{
+   
+    color: #FFD933;
 }
-.nav{
-    
-    margin-left: px;
-    padding-left: 100px;
+a.accounttxt:hover{
+    color: #FFD933;
+}
+a.accounttxt:active{
+    color: #FFD933;
 }
 
 /*Segunda linha*/
 /*Todas as colunas*/
 .yellowBackground{
+    width: 100%;
     background-color: #FFD933;
-    height: 50px;
+    height: 70px;
+    text-align: center;
+    
+    
+    
+}
+
+a.bar:link{   
+    color: black;
+    text-decoration: none;  
+}
+a.bar:visited{
+   
+    color:black;
+}
+a.bar:hover{
+    color:black;
+}
+a.bar:active{
+    color:black;
 }
 
 
@@ -67,17 +99,12 @@ a.brand:active{
 
 
 
-.row{
-    border: 5px solid red;
+
+
+
+
+
+@font-face {
+    font-family: Din;
+    src: url(../../../assets/fonts/DINCondensed-Bold.ttf);
 }
-.col{
-    border: solid red 10px;
-}
-
-
-
-
-
-
-
-
