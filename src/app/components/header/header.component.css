@@ -1,0 +1,110 @@
+/*Primeira linha*/
+/*Todas as colunas coluna*/
+.imageBackground{
+    background-image: url("../../../assets/images/header.png");
+    height: 175px;
+}
+
+/*Primeira coluna*/
+.brand{
+    color: white;
+    font-size: 15px;
+    font-family: Din;
+    margin-left: 50px;
+    margin-right:50px;  
+}
+a.brand:link{
+    font-size: 80px;
+    font-family: AppleColorEmoji;    
+    color: #FFD933;
+    text-decoration: none;  
+}
+a.brand:visited{
+    font-size: 83px;
+    color: #FFD933;
+}
+a.brand:hover{
+    font-family: AppleColorEmoji;
+    font-size: 80px;
+    color: #FFD933;
+}
+a.brand:active{
+    font-size: 80px;
+    color: #FFD933;
+}
+
+/*Segunda coluna*/
+.pesquisar{
+    padding-top:47px;  
+    width: 500px;
+
+}
+
+
+/*Terceira coluna*/
+.separator{
+    border-left: #FFD933 solid 1px;
+}
+
+.account{
+   padding-top: 50px;
+}
+.accounttxt
+a.accounttxt:link{   
+    color: #FFD933;
+    text-decoration: none;  
+}
+a.accounttxt:visited{
+   
+    color: #FFD933;
+}
+a.accounttxt:hover{
+    color: #FFD933;
+}
+a.accounttxt:active{
+    color: #FFD933;
+}
+
+/*Segunda linha*/
+/*Todas as colunas*/
+.yellowBackground{
+    width: 100%;
+    background-color: #FFD933;
+    height: 70px;
+    text-align: center;
+    
+    
+    
+}
+
+a.bar:link{   
+    color: black;
+    text-decoration: none;  
+}
+a.bar:visited{
+   
+    color:black;
+}
+a.bar:hover{
+    color:black;
+}
+a.bar:active{
+    color:black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@font-face {
+    font-family: Din;
+    src: url(../../../assets/fonts/DINCondensed-Bold.ttf);
+}
