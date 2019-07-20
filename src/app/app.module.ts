@@ -9,6 +9,11 @@ import { HighlightsComponent } from './components/highlights/highlights.componen
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { ProductService } from './services/product.service';
 import { ShoppingCartService } from './services/shopping-cart.service';
+import { HeaderComponent } from './components/header/header.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { RequestsComponent } from './components/requests/requests.component';
+import { FavoritesComponent } from './components/favorites/favorites.component';
+
 
 
 
@@ -17,6 +22,10 @@ import { ShoppingCartService } from './services/shopping-cart.service';
     AppComponent,
     HighlightsComponent,
     ShoppingCartComponent
+    HeaderComponent
+    DashboardComponent,
+    RequestsComponent,
+    FavoritesComponent
   ],
   imports: [
     BrowserModule,

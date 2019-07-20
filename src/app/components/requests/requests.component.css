@@ -1,0 +1,18 @@
+.alert-warning {
+    font-size: 30px;
+}
+
+.img-card {
+    width: 10px;
+    height: 10px;
+}
+
+.btn-request {
+    background-color: #222222;
+    color: #FFD933;
+    border-radius: 4px;
+    padding: 15px 50px 15px 50px;
+    font-size: 22px;
+    text-align: center;
+    text-decoration: none;
+}
