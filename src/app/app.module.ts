@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,6 +13,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { RequestsComponent } from './components/requests/requests.component';
 import { FavoritesComponent } from './components/favorites/favorites.component';
+import { RequestsService } from './services/requests.service';
+import { FavoritesService } from './services/favorites.service';
 
 
 
@@ -21,8 +23,8 @@ import { FavoritesComponent } from './components/favorites/favorites.component';
   declarations: [
     AppComponent,
     HighlightsComponent,
-    ShoppingCartComponent
-    HeaderComponent
+    ShoppingCartComponent,
+    HeaderComponent,
     DashboardComponent,
     RequestsComponent,
     FavoritesComponent
@@ -33,7 +35,12 @@ import { FavoritesComponent } from './components/favorites/favorites.component';
     HttpClientModule,
     BrowserAnimationsModule
   ],
-  providers: [ProductService, ShoppingCartService],
+  providers: [
+    ProductService,
+    ShoppingCartService,
+    RequestsService,
+    FavoritesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
