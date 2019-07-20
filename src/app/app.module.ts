@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { HighlightsComponent } from './components/highlights/highlights.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { RequestsComponent } from './components/requests/requests.component';
+import { FavoritesComponent } from './components/favorites/favorites.component';
 
 
 
@@ -16,7 +17,8 @@ import { RequestsComponent } from './components/requests/requests.component';
     AppComponent,
     HighlightsComponent,
     DashboardComponent,
-    RequestsComponent
+    RequestsComponent,
+    FavoritesComponent
   ],
   imports: [
     BrowserModule,

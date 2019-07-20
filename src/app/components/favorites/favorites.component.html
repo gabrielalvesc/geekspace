@@ -1,21 +1,21 @@
 <div class="mt-3">
-  <h1>Meus pedidos</h1>
+  <h1>Meus favoritos</h1>
 </div>
-<ng-container *ngIf="requests.length == 0; else listTemplate">
+<ng-container *ngIf="favorites.length == 0; else listTemplate">
   <div class="col-md-8 col-sm-12 offset-md-2">
     <div class="alert alert-warning text-center" role="alert">
       <i class="fas fa-exclamation-triangle"></i>
       <span>
-        Você ainda não possui pedidos
+        Você ainda não possui favoritos
       </span>
     </div>
   </div>
 </ng-container>
 <ng-template #listTemplate>
-  <div *ngFor="let request of requests">
+  <div *ngFor="let favorite of favorites">
     <div class="card shadow">
       <div class="card-body">
-        <span style="font-size: 20px">{{request.name}}</span>
+        <span style="font-size: 20px">{{favorite.name}}</span>
       </div>
     </div>
   </div>
