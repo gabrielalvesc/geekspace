@@ -13,15 +13,11 @@ export class RequestsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log(this.requestsService.getRequests().length)
+
   }
 
   get requests(): any[]{
     return this.requestsService.getRequests();
-  }
-
-  print() {
-    console.log(this.requestsService.getRequests())
   }
 
 }

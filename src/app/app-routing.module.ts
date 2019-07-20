@@ -3,12 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { HighlightsComponent } from './components/highlights/highlights.component';
 import { RequestsComponent } from './components/requests/requests.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { FavoritesComponent } from './components/favorites/favorites.component';
 
 const routes: Routes = [
   {path:'', component:HighlightsComponent},
   {path:'dashboard', component:DashboardComponent,
   children:[
-    {path:'meus-pedidos', component:RequestsComponent}
+    {path:'meus-pedidos', component:RequestsComponent},
+    {path:'meus-favoritos', component:FavoritesComponent}
   ]}
 ];
 
