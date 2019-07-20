@@ -5,7 +5,7 @@
     <div class="border-right" id="sidebar-wrapper">
       <div class="sidebar-heading" style="border-bottom: 1px solid #c1c1c1;">MINHA CONTA</div>
       <div class="list-group list-group-flush">
-        <a href="#" class="list-group-item list-group-item-action"><i class="fas fa-gift"></i>Meus pedidos</a>
+        <a [routerLink]="[ 'meus-pedidos' ]" class="list-group-item list-group-item-action"><i class="fas fa-gift"></i>Meus pedidos</a>
         <a href="#" class="list-group-item list-group-item-action"><i class="fas fa-heart"></i>Meus favoritos</a>
         <a href="#" class="list-group-item list-group-item-action"><i class="fas fa-sign-out-alt"></i>Sair</a>
       </div>
@@ -20,7 +20,7 @@
         </div>
         <div id="dash-content" class="mb-3">
             <div class="container-fluid mt-2">
-              
+              <router-outlet></router-outlet>      
             </div>
         </div>
       </div>
