@@ -7,7 +7,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HighlightsComponent } from './components/highlights/highlights.component';
 import { HeaderComponent } from './components/header/header.component';
-
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { RequestsComponent } from './components/requests/requests.component';
+import { FavoritesComponent } from './components/favorites/favorites.component';
 
 
 
@@ -16,6 +18,9 @@ import { HeaderComponent } from './components/header/header.component';
     AppComponent,
     HighlightsComponent,
     HeaderComponent
+    DashboardComponent,
+    RequestsComponent,
+    FavoritesComponent
   ],
   imports: [
     BrowserModule,
