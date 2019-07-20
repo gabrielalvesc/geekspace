@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HighlightsComponent } from './components/highlights/highlights.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { RequestsComponent } from './components/requests/requests.component';
 
 
 
@@ -14,7 +15,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
   declarations: [
     AppComponent,
     HighlightsComponent,
-    DashboardComponent
+    DashboardComponent,
+    RequestsComponent
   ],
   imports: [
     BrowserModule,
