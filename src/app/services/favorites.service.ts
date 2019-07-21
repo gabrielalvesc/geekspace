@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { Product } from '../models/product.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FavoritesService {
 
-  favorites: any[] = [
+  favorites: Product[] = [
 
   ]
 
@@ -13,5 +14,9 @@ export class FavoritesService {
 
   getFavorites() {
     return this.favorites;
+  }
+
+  addFavorite(product: Product) {
+    this.favorites.push(product);
   }
 }
