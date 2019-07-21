@@ -10,23 +10,17 @@ import { Product } from 'src/app/models/product.model';
 })
 export class HighlightsComponent implements OnInit {
 
-  products: any[];
-
   constructor(
     private productService: ProductService,
     private cartService: ShoppingCartService,
   ) { }
 
   ngOnInit() {
-    this.getProducts();
+    // this.getProducts();
   }
 
-  getProducts() {
-    this.productService.getProducts().subscribe(products => {
-        this.products = products;
-        console.log(this.products);
-      }
-    );
+  get products(): Product[] {
+    return this.productService.getProducts()
   }
 
   addItem(item: Product) {
