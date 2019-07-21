@@ -6,23 +6,24 @@
     </div>
   </div>
 
-  <div class="row ">
+  <div class="row" align="center">
     <div *ngFor="let product of products" class="col-md-3">
       <div class="card mt-4" style="width: 16rem; border: none">
-        <img class="card-img-top" src="{{product.picture}}" style="height: 270px" alt="Card image cap">
+        <img class="card-img-top" src="{{product.picture}}" style="height: 270px;" alt="Card image cap">
         <div class="card-body" style="padding-bottom: 10px;">
-          <h5 class="card-title product-title">{{product.name}}</h5>
-          <h4 class="product-price">R$ {{product.price}}</h4>
+          <h5 class="card-title product-title text-left">{{product.name}}</h5>
+          <h4 class="product-price text-left">R$ {{product.price}}</h4>
           <div class="row">
             <div class="col-md-12">
-              <a href="#" class="btn btn-outline-success btn-want" (click)="addItem(product)" [routerLink]="['/carrinho']" routerLinkActive="router-link-active" >EU QUERO!</a>
+              <a href="#" class="btn btn-outline-success btn-want" (click)="addItem(product)"
+                [routerLink]="['/carrinho']" routerLinkActive="router-link-active">EU QUERO!</a>
             </div>
           </div>
         </div>
       </div>
 
     </div>
-    
+
 
   </div>
 

@@ -16,6 +16,7 @@ import { FavoritesComponent } from './components/favorites/favorites.component';
 import { RequestsService } from './services/requests.service';
 import { FavoritesService } from './services/favorites.service';
 import { NewProductComponent } from './components/new-product/new-product.component';
+import { FormProductComponent } from './components/form-product/form-product.component';
 
 
 
@@ -30,6 +31,7 @@ import { NewProductComponent } from './components/new-product/new-product.compon
     RequestsComponent,
     FavoritesComponent,
     NewProductComponent
+    FormProductComponent
   ],
   imports: [
     BrowserModule,
