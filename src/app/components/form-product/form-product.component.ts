@@ -7,12 +7,12 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class FormProductComponent implements OnInit {
 
-  @Input() tipo;
+  // @Input() tipo;
 
   constructor() { }
 
   ngOnInit() {
-    console.log(this.tipo)
+    // console.log(this.tipo)
   }
 
 }
