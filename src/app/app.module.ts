@@ -15,6 +15,7 @@ import { RequestsComponent } from './components/requests/requests.component';
 import { FavoritesComponent } from './components/favorites/favorites.component';
 import { RequestsService } from './services/requests.service';
 import { FavoritesService } from './services/favorites.service';
+import { NewProductComponent } from './components/new-product/new-product.component';
 import { FormProductComponent } from './components/form-product/form-product.component';
 
 
@@ -29,6 +30,7 @@ import { FormProductComponent } from './components/form-product/form-product.com
     DashboardComponent,
     RequestsComponent,
     FavoritesComponent,
+    NewProductComponent
     FormProductComponent
   ],
   imports: [
