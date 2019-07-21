@@ -1,11 +1,10 @@
 .identation{
     margin-top:70px; 
     font-size: 20px;
+
 }
 .field{
     background-color: #FFE884;
-    width: 100px;
-    height: 100px;
     
 }
 img{
@@ -13,8 +12,4 @@ img{
     width: 50px;
     height: 50px;
 
-}
-
-.w{
-    border: 3px solid palevioletred;
 }
