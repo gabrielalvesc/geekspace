@@ -18,5 +18,15 @@ export class FavoritesService {
 
   addFavorite(product: Product) {
     this.favorites.push(product);
+    console.log(this.favorites);
+  }
+
+  removeFavorite(id:number) {
+    this.favorites.forEach(e => {
+      if (e.idProduct === id) {
+        var index = this.favorites.indexOf(e)
+        this.favorites.slice(index, 1);
+      }
+    });
   }
 }

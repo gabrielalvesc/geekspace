@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { GEEK_API } from './geek.api';
 import { Product } from '../models/product.model';
 import { Store } from '../models/store.model';
+import { Observable } from 'rxjs';
 
 
 
@@ -76,7 +77,7 @@ export class ProductService {
     return this.products;
   }
 
-  getById(id: number): Product{
+  getById(id: number):Product {
     return this.products.filter(todo => todo.idProduct === id).pop()
   }
 
