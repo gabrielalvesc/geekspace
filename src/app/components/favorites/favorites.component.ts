@@ -8,6 +8,8 @@ import { FavoritesService } from 'src/app/services/favorites.service';
 })
 export class FavoritesComponent implements OnInit {
 
+  // productForm: string = '';
+
   constructor(
     private favoritesService: FavoritesService
   ) { }
@@ -19,5 +21,9 @@ export class FavoritesComponent implements OnInit {
   get favorites(): any[] {
     return this.favoritesService.getFavorites();
   }
+
+  // product(tipo: any) {
+  //   this.productForm = tipo;
+  // }
 
 }
