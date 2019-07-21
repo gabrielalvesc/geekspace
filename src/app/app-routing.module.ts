@@ -5,10 +5,12 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
 import { RequestsComponent } from './components/requests/requests.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { FavoritesComponent } from './components/favorites/favorites.component';
+import { ShowProductComponent } from './components/show-product/show-product.component';
 
 const routes: Routes = [
   {path:'', component:HighlightsComponent},
   {path: 'carrinho', component: ShoppingCartComponent},
+  {path: 'produto/:id', component:ShowProductComponent},
   {path:'dashboard', component:DashboardComponent,
   children:[
     {path:'meus-pedidos', component:RequestsComponent},

@@ -1,0 +1,92 @@
+.container {
+    background-color: white;
+    margin-top: 5%;
+    font-family: DIN;
+    margin-bottom: 5%;
+    border-radius: 5px;
+}
+
+.title {
+    font-size: 57px;
+    color: #575757;
+}
+
+.price {
+    font-size: 57px;
+}
+
+.quantity {
+    font-size: 25px;
+    color: #575757;
+}
+
+.btn-quantity-less {
+    border: 1px solid #707070;
+    background-color: white;
+    color: #707070;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-right: none;
+}
+
+
+.show-quantity {
+    border: 1px solid #707070;
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.btn-quantity-more {
+    border: 1px solid #707070;
+    background-color: white;
+    color: #707070;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-left: none;
+}
+
+.stock {
+    color: #707070;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+.sub-total {
+    font-size: 30px;
+    color: #575757;
+}
+
+.btn-comprar {
+    background-color: #222222;
+    color: #FFD933;
+    border-radius: 4px;
+    padding: 10px 30px 10px 30px;
+    font-size: 22px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn-carrinho {
+    border: 2px solid #FFD933;
+    color: #222222;
+    border-radius: 4px;
+    padding: 10px 30px 10px 30px;
+    font-size: 22px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.description {
+    border-bottom: 1px solid #575757;
+    font-size: 30px;
+    color: #575757;
+}
+
+
+

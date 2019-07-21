@@ -16,6 +16,7 @@ import { FavoritesComponent } from './components/favorites/favorites.component';
 import { RequestsService } from './services/requests.service';
 import { FavoritesService } from './services/favorites.service';
 import { FormProductComponent } from './components/form-product/form-product.component';
+import { ShowProductComponent } from './components/show-product/show-product.component';
 
 
 
@@ -29,7 +30,8 @@ import { FormProductComponent } from './components/form-product/form-product.com
     DashboardComponent,
     RequestsComponent,
     FavoritesComponent,
-    FormProductComponent
+    FormProductComponent,
+    ShowProductComponent
   ],
   imports: [
     BrowserModule,

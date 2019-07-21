@@ -1,0 +1,53 @@
+<div class="container pt-5 pb-5">
+  <div class="row">
+    <div class="col-md-6">
+      <img src="{{product.picture}}" class="img-fluid">
+    </div>
+
+    <div class="col-md-6">
+      <div class="row">
+        <div class="col-md-10">
+          <div class="title">{{product.name}}</div>
+        </div>
+        <div class="col-md-2">
+          <a (click)="addFavorite()"><i id="heart" style="font-size: 30px; color: #FFD933" class="far fa-heart"></i></a>
+        </div> 
+      </div>
+      <div class="price">R$ {{product.price}}</div>
+      <div>
+
+        <div>
+          <span class="quantity">Quantidade:&nbsp;</span>
+          <button type="button" (click)="less()" class="btn-quantity-less">-</button>
+          <span class="show-quantity">{{quantity}}</span>
+          <button type="button" (click)="more()" class="btn-quantity-more">+</button>
+          <span class="stock">({{product.stock}} unidades disponíveis)</span>
+        </div>
+
+        <div class="mt-3">
+          <span class="sub-total"><strong>SUB-TOTAL: </strong>R$ {{subTotal | number : '1.2-2'}}</span>
+        </div>
+
+        <div class="row mt-3">
+          <div class="container">
+            <a href="#" class="btn-comprar btn col-sm-12 col-md-4">COMPRAR</a>&nbsp;
+            <span class="col-md-1"></span>
+            <a href="#" class="btn-carrinho btn col-sm-12 col-md-6">ADICIONAR NO CARRINHO</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-md-5">
+      <h4 class="description">Descrição</h4>
+      <p style="font-size: 25px; color:#575757">{{product.description}}</p>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-5">
+      <h4 class="description">Especificações</h4>
+      <p style="font-size: 25px; color:#575757">{{product.specification}}</p>
+    </div>
+  </div>
+</div>
