@@ -30,7 +30,7 @@ import { FormProductComponent } from './components/form-product/form-product.com
     DashboardComponent,
     RequestsComponent,
     FavoritesComponent,
-    NewProductComponent
+    NewProductComponent,
     FormProductComponent
   ],
   imports: [
