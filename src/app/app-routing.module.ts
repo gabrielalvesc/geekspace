@@ -6,6 +6,7 @@ import { RequestsComponent } from './components/requests/requests.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { FavoritesComponent } from './components/favorites/favorites.component';
 import { ShowProductComponent } from './components/show-product/show-product.component';
+import { NewProductComponent } from './components/new-product/new-product.component';
 
 const routes: Routes = [
   {path:'', component:HighlightsComponent},
@@ -14,7 +15,8 @@ const routes: Routes = [
   {path:'dashboard', component:DashboardComponent,
   children:[
     {path:'meus-pedidos', component:RequestsComponent},
-    {path:'meus-favoritos', component:FavoritesComponent}
+    {path:'meus-favoritos', component:FavoritesComponent},
+    {path:'novo-produto', component:NewProductComponent}
   ]}
 
 ];
