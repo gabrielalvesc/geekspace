@@ -22,6 +22,17 @@
 
         <tbody>
 
+
+          <div *ngIf="items.length == 0" class="col-md-12 col-sm-12 offset-md-2">
+            <div class="alert alert-warning text-center" role="alert">
+              <i class="fas fa-exclamation-triangle"></i>
+              <span>
+                Você ainda não possui nenhum produto no carrinho.
+              </span>
+            </div>
+          </div>
+
+
           <tr class="col-md-6 mb-3" *ngFor="let item of items">
             <td class="col-md-2">
               <img src="{{item.product.picture}}">
