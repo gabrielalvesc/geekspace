@@ -1,5 +1,6 @@
 #carrinho{
     font-family: Din;
+    margin-top: 5%;
 }
 
 
@@ -15,7 +16,7 @@ img{
 
     border-color: black;
 
-    width: 50px;
+    /* width: 40px; */
 }
 
 .inputCep{
@@ -30,14 +31,12 @@ img{
     font-size: 25px;
 }
 
-.btn-finished{
-    margin-top: 10%;
+.btn-finished {
     background-color: #222222;
-    color: yellow;
-
-    border-radius: 5px 5px 5px 5px;
-
-    width: 120px;
-    height: 35px;
-
+    color: #FFD933;
+    border-radius: 4px;
+    padding: 10px 30px 10px 30px;
+    font-size: 22px;
+    text-align: center;
+    text-decoration: none;
 }

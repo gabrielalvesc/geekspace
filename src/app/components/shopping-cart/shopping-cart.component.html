@@ -1,56 +1,69 @@
 <div class="container" id="carrinho">
   <h1>CARRINHO DE COMPRAS</h1>
 
+
+
   <div class="row">
 
     <!-- Column 1 Items -->
-    <div class="col-md-7">
+    <div class="col-md-8">
 
       <table>
 
         <thead>
-          <th class="col-md-6">Item</th>
+          <th class="col-md-2">Item</th>
           <th class="col-md-2">Preço</th>
-          <th class="col-md-2">Qtd</th>
-          <th class="col-md-2">Subtotal</th>
+          <th class="col-md-1">Qtd</th>
+          <th class="col-md-1">Subtotal</th>
+          <th class="col-md-1"></th>
         </thead>
 
         <hr>
 
-        <thead>
+        <tbody>
 
-          <th class="col-md-6" *ngFor="let item of items()">
-            <img src="{{item.picture}}">
+          <tr class="col-md-6 mb-3" *ngFor="let item of items">
+            <td class="col-md-2">
+              <img src="{{item.product.picture}}">
 
-            <span>{{item.name}}</span>
-          </th>
+              <span class="ml-4" style="font-size: 20px">{{item.product.name}}</span>
+            </td>
 
-          <th class="col-md-2">
-            <span>{{item?.price}}</span>
-          </th>
-          {{item | json}}
-          <th class="col-md-2">
-            <input #qtd class="inputQtd" type="number" min="0" max="20" value="0" required>
-          </th>
+            <td class="col-md-2">
+              <span>R$ {{item?.product.price}}</span>
+            </td>
 
-          <th class="col-md-1">
-            <span>{{ value() }}</span>
-          </th>
+            <td class="col-md-1">
+              <input #qtd (change)="quantity(qtd.value, item.product.idProduct)" class="inputQtd" type="number" min="1"
+                max="{{item.product.stock}}" value="{{item.quantity}}" required>
+            </td>
 
-          <th class="col-md-1">
-            <i class="material-icons" (click)="removeItem(item)">
-              remove_shopping_cart
-            </i>
-          </th>
+            <td class="col-md-1">
+              <span>R$ {{item.product.price * item.quantity  | number : '1.2-2'}}</span>
+              <!-- <input #subTotal (change)="total(value)" type="number" value="{{item.product.price * item.quantity  | number : '1.2-2'}}" disabled> -->
+            </td>
 
-        </thead>
+            <td class="col-md-1">
+              <a (click)="removeItem(item)">
+                <i placement="top" ngbTooltip="Remover" style="color:black" class="material-icons">
+                  remove_shopping_cart
+                </i>
+              </a>
+            </td>
+          </tr>
+
+
+
+
+
+        </tbody>
       </table>
 
 
     </div>
 
     <!-- Column 2 Shipping-->
-    <div class="col-md-5">
+    <div class="col-md-4">
       <span class="titles">
         Consultar valor do frete
       </span>
@@ -63,14 +76,16 @@
       <br>
 
       <div class="form-check">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+        <input checked #pac (click)="frete('pac')" class="form-check-input" type="radio" name="exampleRadios"
+          id="exampleRadios1" value="52.85">
         <label class="form-check-label" for="exampleRadios1">
           PAC - 12 dia(s) úteis R$52,85
         </label>
 
         <br>
 
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+        <input #sedex (click)="frete('sedex')" class="form-check-input" type="radio" name="exampleRadios"
+          id="exampleRadios1" value="72.85">
         <label class="form-check-label" for="exampleRadios1">
           Sedex - 7 dia(s) úteis R$72,85
         </label>
@@ -78,18 +93,18 @@
 
       <hr>
       <span>
-        Subtotal R$ 150,00
+        Subtotal R$ {{total | number : '1.2-2'}}
       </span>
 
       <hr>
 
-      <span>
-        Total do pedido R$200,00
+      <span style="font-size: 25px">
+        Total do pedido R$ {{total + valorFrete | number : '1.2-2'}} (Com frete)
       </span>
       <br>
 
-      <div>
-        <button class="btn-finished" type="button">FINALIZAR PEDIDO</button>
+      <div class="mt-2">
+        <a href="#" class="btn-finished btn">FINALIZAR PEDIDO</a>
       </div>
 
     </div><!-- Column 2 end -->

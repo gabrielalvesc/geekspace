@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 import { Product } from 'src/app/models/product.model';
+import { Cart } from 'src/app/models/cart.model';
 
 @Component({
   selector: 'app-highlights',
@@ -24,7 +25,8 @@ export class HighlightsComponent implements OnInit {
   }
 
   addItem(item: Product) {
-    this.cartService.addItem(item);
+    let itemCart = new Cart(item, 1, item.price * 1);
+    this.cartService.addItem(itemCart);
   }
 
 }
