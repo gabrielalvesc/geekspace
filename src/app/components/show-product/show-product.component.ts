@@ -5,6 +5,9 @@ import { ProductService } from 'src/app/services/product.service';
 
 import { switchMap, debounceTime, catchError } from 'rxjs/operators';
 import { FavoritesService } from 'src/app/services/favorites.service';
+import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
+import { Cart } from 'src/app/models/cart.model';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -24,7 +27,9 @@ export class ShowProductComponent implements OnInit, AfterViewInit {
     private route: ActivatedRoute,
     private productService: ProductService,
     private elementRef: ElementRef,
-    private favoriteService: FavoritesService
+    private favoriteService: FavoritesService,
+    private cartService: ShoppingCartService,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit() {
@@ -35,7 +40,7 @@ export class ShowProductComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = '#F5F5F5';
+    // this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = '#F5F5F5';
   }
 
   loadBook(id: number): Promise<Product> {
@@ -68,12 +73,18 @@ export class ShowProductComponent implements OnInit, AfterViewInit {
       heart.classList.add('fas');
       heart.classList.remove('far');
       this.favoriteService.addFavorite(this.product);
-      this.router.navigate(['dashboard/meus-favoritos'])
+      this.toastr.info('Esse produto foi adicionado na sua lista de favoritos', 'Adicionado aos favoritos')
     } else if (heart.classList.contains('fas')) {
       heart.classList.add('far');
       heart.classList.remove('fas');
       this.favoriteService.removeFavorite(this.product.idProduct);
     }
+  }
+
+  addCart() {
+    let item = new Cart(this.product, this.quantity, this.product.price * this.quantity);
+    this.cartService.addItem(item);
+    this.router.navigate(['/carrinho'])
   }
 
 }
