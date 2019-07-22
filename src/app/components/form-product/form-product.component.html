@@ -1,9 +1,101 @@
-<div *ngIf="tipo == 'camisa'">
-  <h1>Indique as características principais do produto</h1>
-  <br>
+<div class="mt-5" *ngIf="tipo != 'camisa'">
   <h1>Complete os dados</h1>
   <br>
-  *Dados obrigatórios
+  <div class="row">
+
+
+    <!--Primeira Coluna-->
+    <div class="col-6">
+
+
+      <!--Primeira Linha-->
+      <div class="row">
+
+        <!--Quantidade-->
+        <div class="col">
+          <div class="form-group">
+            <label for="formGroupExampleInput">Quantidade</label>
+            <input type="number" min="0" class="form-control form" id="formGroupExampleInput">
+          </div>
+        </div>
+      </div>
+
+      <!--Terceira Linha-->
+
+      <!--Fotos-->
+      <div class="row">
+        <div class="col">
+          Adicione fotos
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="formGroupExampleInput">Preço (R$)</label>
+            <input type="text" class="form-control form" id="formGroupExampleInput">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="formGroupExampleInput">Descrição</label>
+            <input type="number" min="0" class="form-control form" id="formGroupExampleInput">
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!--Segunda Coluna-->
+    <div class="col-6">
+
+      <!--Primeira Linha-->
+      <div class="row">
+
+        <!--Tipo-->
+        <div class="col">
+          <div class="form-group">
+            <label for="formGroupExampleInput">Digite o titulo</label>
+            <input type="text" class="form-control form" id="formGroupExampleInput">
+          </div>
+        </div>
+
+        <!--Gênero-->
+        <div class="col">
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Gênero</label>
+            <select class="form-control form" id="exampleFormControlSelect1">
+              <option>Masculino</option>
+              <option>Feminino</option>
+            </select>
+          </div>
+        </div>
+
+      </div>
+
+      <!--Terceira Linha-->
+      <div class="row">
+        <div class="col">
+          Indique a condição do seu produto
+
+          <div class="row pl-4">
+            <INPUT TYPE="radio" NAME="situacao" VALUE="novo"> Novo
+          </div>
+          <div class="row pl-4">
+            <INPUT TYPE="radio" NAME="situacao" VALUE="usado"> Usado
+          </div>
+        </div>
+      </div>
+
+      <div class="buttom">
+        <button>Cancelar</button>
+        <button type="submit">Anunciar</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 
@@ -13,19 +105,9 @@
 
 
 
-
-
-
-
-
-
-
-
-<div class="mt-5" *ngIf="tipo != 'camisa'">
+<div class="mt-5" *ngIf="tipo == 'camisa'">
   <h1>Complete os dados</h1>
   <br>
-  <span>*Dados obrigatórios</span>
-
 
   <div class="row">
 
@@ -130,35 +212,26 @@
 
       </div>
 
-      <!--Segunda Linha-->
-      <div class="row">
-        <div class="col">
-          <div class="form-group">
-            <label for="formGroupExampleInput">Descrição</label>
-            <input type="text" class="form-control form" id="formGroupExampleInput">
-          </div>
-        </div>
 
-      </div>
 
       <!--Terceira Linha-->
       <div class="row">
         <div class="col">
           Indique a condição do seu produto
-          
+
           <div class="row pl-4">
-              <INPUT TYPE="radio" NAME="situacao" VALUE="novo"> Novo
+            <INPUT TYPE="radio" NAME="situacao" VALUE="novo"> Novo
           </div>
           <div class="row pl-4">
-              <INPUT TYPE="radio" NAME="situacao" VALUE="usado"> Usado 
+            <INPUT TYPE="radio" NAME="situacao" VALUE="usado"> Usado
           </div>
         </div>
       </div>
 
-        <div class="buttom">
-            <button>Cancelar</button>
-            <button type="submit">Anunciar</button>
-        </div>
+      <div class="buttom">
+        <button>Cancelar</button>
+        <button type="submit">Anunciar</button>
+      </div>
     </div>
   </div>
 </div>
