@@ -20,7 +20,7 @@
         </div>
       </div>
 
-      <!--Terceira Linha-->
+      <!--Segunda Linha-->
 
       <!--Fotos-->
       <div class="row">
@@ -29,7 +29,10 @@
         </div>
       </div>
 
+      <!--Terceira Linha-->
       <div class="row">
+
+        <!--Preco-->
         <div class="col">
           <div class="form-group">
             <label for="formGroupExampleInput">Preço (R$)</label>
@@ -38,7 +41,10 @@
         </div>
       </div>
 
+      <!--Quarta Linha-->
       <div class="row">
+
+        <!--Descricao-->
         <div class="col">
           <div class="form-group">
             <label for="formGroupExampleInput">Descrição</label>
@@ -49,13 +55,17 @@
     </div>
 
 
+
+
+
+
     <!--Segunda Coluna-->
     <div class="col-6">
 
       <!--Primeira Linha-->
       <div class="row">
 
-        <!--Tipo-->
+        <!--Titulo-->
         <div class="col">
           <div class="form-group">
             <label for="formGroupExampleInput">Digite o titulo</label>
@@ -76,7 +86,7 @@
 
       </div>
 
-      <!--Terceira Linha-->
+      <!--Segunda Linha-->
       <div class="row">
         <div class="col">
           Indique a condição do seu produto
@@ -122,36 +132,29 @@
         <!--Cor-->
         <div class="col">
           <div class="form-group">
-            <label for="formGroupExampleInput">Cor</label>
+            <label for="formGroupExampleInput">Título</label>
             <input type="text" class="form-control form" id="formGroupExampleInput">
           </div>
         </div>
 
-        <!--Tipo de tecido-->
-        <div class="col">
-          <div class="form-group">
-            <label for="formGroupExampleInput">Tipo de tecido</label>
-            <input type="text" class="form-control form" id="formGroupExampleInput">
-          </div>
-        </div>
       </div>
 
       <!--Segunda Linha-->
       <div class="row">
 
-        <!--Tamanho-->
-        <div class="col">
-          <div class="form-group">
-            <label for="formGroupExampleInput">Tamanho</label>
-            <input type="text" class="form-control form" id="formGroupExampleInput">
-          </div>
-        </div>
-
         <!--Quantidade-->
         <div class="col">
           <div class="form-group">
             <label for="formGroupExampleInput">Quantidade</label>
-            <input type="number" min="0" class="form-control form" id="formGroupExampleInput">
+            <input type="number" min="1" value="1" class="form-control form" id="formGroupExampleInput">
+          </div>
+        </div>
+
+        <!--Preço-->
+        <div class="col">
+          <div class="form-group">
+            <label for="formGroupExampleInput">Preço</label>
+            <input type="text" class="form-control form" id="formGroupExampleInput">
           </div>
         </div>
       </div>
@@ -161,25 +164,20 @@
       <!--Fotos-->
       <div class="row">
         <div class="col">
-          Adicione fotos
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col">
           <div class="form-group">
-            <label for="formGroupExampleInput">Preço (R$)</label>
+            <label for="formGroupExampleInput">Cor</label>
             <input type="text" class="form-control form" id="formGroupExampleInput">
           </div>
-        </div>
-      </div>
 
-      <div class="row">
+        </div>
+
         <div class="col">
-          <div class="form-group">
-            <label for="formGroupExampleInput">Descrição</label>
-            <input type="number" min="0" class="form-control form" id="formGroupExampleInput">
-          </div>
+          <label> Gênero</label>
+          <select class="custom-select" id="inputGroupSelect01">
+            <option selected> Masculino </option>
+            <option value="1">Feminino</option>
+
+          </select>
         </div>
       </div>
     </div>
@@ -191,47 +189,35 @@
       <!--Primeira Linha-->
       <div class="row">
 
-        <!--Tipo-->
+        <!--Descrição-->
         <div class="col">
           <div class="form-group">
-            <label for="formGroupExampleInput">Digite o titulo</label>
+            <label for="formGroupExampleInput">Descrição</label>
             <input type="text" class="form-control form" id="formGroupExampleInput">
           </div>
         </div>
+      </div>
 
-        <!--Gênero-->
+      <div class="row">
+
+        <!--Descrição-->
         <div class="col">
           <div class="form-group">
-            <label for="exampleFormControlSelect1">Gênero</label>
-            <select class="form-control form" id="exampleFormControlSelect1">
-              <option>Masculino</option>
-              <option>Feminino</option>
-            </select>
-          </div>
-        </div>
-
-      </div>
-
-
-
-      <!--Terceira Linha-->
-      <div class="row">
-        <div class="col">
-          Indique a condição do seu produto
-
-          <div class="row pl-4">
-            <INPUT TYPE="radio" NAME="situacao" VALUE="novo"> Novo
-          </div>
-          <div class="row pl-4">
-            <INPUT TYPE="radio" NAME="situacao" VALUE="usado"> Usado
+            <label for="formGroupExampleInput">Especificação</label>
+            <input type="text" class="form-control form" id="formGroupExampleInput">
           </div>
         </div>
       </div>
 
-      <div class="buttom">
-        <button>Cancelar</button>
-        <button type="submit">Anunciar</button>
+
+
+     
+
+      <div class="buttom row container" style="margin-top: 8%;">
+        <button class="btn btn-link">Cancelar</button>
+        <button  class="ml-auto" type="submit">Anunciar</button>
       </div>
+
     </div>
   </div>
 </div>
