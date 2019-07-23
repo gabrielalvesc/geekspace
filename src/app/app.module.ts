@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HighlightsComponent } from './components/highlights/highlights.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
@@ -35,6 +36,8 @@ import { FormProductComponent } from './components/form-product/form-product.com
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule
