@@ -1,0 +1,11 @@
+.container{
+    font-family: DIN
+}
+
+.divisor{
+    margin-top: -60%;
+    width: 0px;
+    height: 300px;
+    color: #d1d1d1;
+    border: 1px solid #d1d1d1;
+}

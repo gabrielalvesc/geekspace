@@ -1,0 +1,34 @@
+input{
+    border-radius: 0px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-color:#222222;
+}
+
+.btn-submited {
+    background-color: #222222;
+    color: #ffd933;
+    border-radius: 5px 5px 5px 5px;
+    width: 120px;
+    height: 35px; 
+    float: right;
+    
+}
+
+.textcolor{
+    color: #575757;
+}
+
+
+@media screen and (min-width: 470px){
+    .form-check{
+        margin-top: 20px;
+    }    
+}
+
+
+
+
+
+
