@@ -30,8 +30,6 @@ export class LoginComponent implements OnInit {
 
   onSubmit(f:any){
     this.authService.login(f.email, f.password);
-    this.router.navigate(["/dashboard"])
-
   }
 
 }

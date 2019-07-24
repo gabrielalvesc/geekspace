@@ -31,7 +31,7 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(f: any){
-    let user= new User(f.email, f.password, f.name, f.lastName)
+    let user= new User(f.email, f.password, f.name, f.lastName, "cliente")
     this.userService.addUser(user);
   }
 
