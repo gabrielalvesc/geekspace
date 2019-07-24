@@ -23,6 +23,7 @@ import { ShowProductComponent } from './components/show-product/show-product.com
 import { LoginComponent } from './components/login/login.component';
 import { AccountComponent } from './components/account/account.component';
 import { RegisterComponent } from './components/register/register.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -49,6 +50,8 @@ import { RegisterComponent } from './components/register/register.component';
     HttpClientModule,
     BrowserAnimationsModule,
     NgbModule,
+    FormsModule,
+    ReactiveFormsModule,
     ToastrModule.forRoot({
       timeOut: 5000,
       positionClass: 'toast-bottom-full-width',
@@ -56,6 +59,7 @@ import { RegisterComponent } from './components/register/register.component';
       progressBar: true,
       closeButton: true
     }),
+
   ],
   providers: [
     ProductService,
