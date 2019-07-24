@@ -8,7 +8,7 @@
     <!-- Column 1 Items -->
     <div class="col-md-8">
 
-      <table>
+      <table class="table">
 
         <thead>
           <th class="col-md-2">Item</th>
@@ -18,9 +18,18 @@
           <th class="col-md-1"></th>
         </thead>
 
-        <hr>
-
         <tbody>
+
+
+          <div *ngIf="items.length == 0" class="col-md-12 col-sm-12 offset-md-2" style="margin-top: 5%;">
+            <div class="alert alert-warning text-center" role="alert">
+              <i class="fas fa-exclamation-triangle"></i>
+              <span>
+                Você ainda não possui nenhum produto no carrinho.
+              </span>
+            </div>
+          </div>
+
 
           <tr class="col-md-6 mb-3" *ngFor="let item of items">
             <td class="col-md-2">
@@ -71,11 +80,14 @@
       <div>
         <label for="cep">CEP</label>
         <br>
-        <input name="cep" class="inputCep" type="text">
+        <input name="cep" class="inputCep" type="text" placeholder="Serviço indisponível" disabled>
       </div>
       <br>
 
-      <div class="form-check">
+      <span class="badge badge-success text-white" >FRETE GRÁTIS</span>
+
+      <!--
+        <div class="form-check">
         <input checked #pac (click)="frete('pac')" class="form-check-input" type="radio" name="exampleRadios"
           id="exampleRadios1" value="52.85">
         <label class="form-check-label" for="exampleRadios1">
@@ -91,15 +103,19 @@
         </label>
       </div>
 
-      <hr>
+       <hr>
       <span>
         Subtotal R$ {{total | number : '1.2-2'}}
       </span>
+      -->
+
+
+     
 
       <hr>
 
       <span style="font-size: 25px">
-        Total do pedido R$ {{total + valorFrete | number : '1.2-2'}} (Com frete)
+        Total do pedido R$ {{total | number : '1.2-2'}}
       </span>
       <br>
 

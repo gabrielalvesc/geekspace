@@ -50,14 +50,14 @@ export class ShoppingCartComponent implements OnInit {
   get total () {
     return this.shoppingCartService.total();
   }
-
+  /*
   frete(frete:any){
     if(frete == 'pac') {
       this.valorFrete = 52.85;
     } else if (frete == 'sedex') {
       this.valorFrete = 72.85;
     }
-  }
+  }*/
 
 
 }
