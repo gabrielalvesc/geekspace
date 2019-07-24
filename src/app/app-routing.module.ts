@@ -7,11 +7,14 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { FavoritesComponent } from './components/favorites/favorites.component';
 import { ShowProductComponent } from './components/show-product/show-product.component';
 import { NewProductComponent } from './components/new-product/new-product.component';
+import { LoginComponent } from './components/login/login.component';
+import { AccountComponent } from './components/account/account.component';
 
 const routes: Routes = [
   {path:'', component:HighlightsComponent},
   {path: 'carrinho', component: ShoppingCartComponent},
   {path: 'produto/:id', component:ShowProductComponent},
+  {path: 'conta', component: AccountComponent},
   {path:'dashboard', component:DashboardComponent,
   children:[
     {path:'meus-pedidos', component:RequestsComponent},

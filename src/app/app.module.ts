@@ -20,6 +20,9 @@ import { FavoritesService } from './services/favorites.service';
 import { NewProductComponent } from './components/new-product/new-product.component';
 import { FormProductComponent } from './components/form-product/form-product.component';
 import { ShowProductComponent } from './components/show-product/show-product.component';
+import { LoginComponent } from './components/login/login.component';
+import { AccountComponent } from './components/account/account.component';
+import { RegisterComponent } from './components/register/register.component';
 
 
 
@@ -35,7 +38,10 @@ import { ShowProductComponent } from './components/show-product/show-product.com
     FavoritesComponent,
     FormProductComponent,
     ShowProductComponent,
-    NewProductComponent
+    NewProductComponent,
+    LoginComponent,
+    AccountComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
