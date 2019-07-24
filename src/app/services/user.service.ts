@@ -8,7 +8,8 @@ import { ToastrService } from 'ngx-toastr';
 export class UserService {
 
   users: User[] = [
-    new User("admin@geek.com", "geek123", "Admin", "", "admin", 1)
+    new User("admin@geek.com", "geek123", "Admin", "", "admin", 1),
+    new User("rvillar@gmail.com", "rvillar123", "Rodrigo", "Villar", "Cliente", 2)
   ];
   id: number = 500;
 
