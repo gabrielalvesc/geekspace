@@ -32,11 +32,11 @@ img{
 }
 
 .btn-finished {
+    height: 40px;
+
     background-color: #222222;
     color: #FFD933;
-    border-radius: 4px;
-    padding: 10px 30px 10px 30px;
+    border-radius: 5px;
     font-size: 22px;
     text-align: center;
-    text-decoration: none;
 }
