@@ -24,6 +24,7 @@ import { LoginComponent } from './components/login/login.component';
 import { AccountComponent } from './components/account/account.component';
 import { RegisterComponent } from './components/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthGuard } from './security/auth.guard';
 
 
 
@@ -65,7 +66,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ProductService,
     ShoppingCartService,
     RequestsService,
-    FavoritesService
+    FavoritesService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

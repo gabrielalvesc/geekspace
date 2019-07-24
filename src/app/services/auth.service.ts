@@ -1,26 +1,43 @@
 import { Injectable } from '@angular/core';
+import { UserService } from './user.service';
+import { User } from '../models/user.model';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  name: string = "admin";
-  password: string = "password";
+  constructor(
+    private userService: UserService,
+    private toastr: ToastrService,
+    private router: Router
+  ) { }
 
-  constructor() { }
-
-  login (name: string, password: string){
-    if (this.name == name && this.password == password) {
-      localStorage.setItem('user', name);
-    }
-    else {
-      console.log("Não logou")
+  login (email: string, password: string){
+    let user:User = this.userService.getByEmail(email);
+    if(user != null) {
+      if (user.password == password) {
+        localStorage.setItem('user', email)
+        this.router.navigate(['/dashboard'])
+      } else {
+        this.toastr.error('Acesso negado', 'Tente novamente!')
+      }
+    } else {
+      this.toastr.error('Usuário inválido', 'Tente novamente!')
     }
   }
 
   getUser() {
-    var user = localStorage.getItem('user');
-    console.log(user);
+    return localStorage.getItem('user');
+  }
+
+  isLoggedIn():boolean {
+    if(this.getUser() != null) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }

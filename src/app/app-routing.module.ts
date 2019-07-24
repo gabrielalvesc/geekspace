@@ -9,13 +9,14 @@ import { ShowProductComponent } from './components/show-product/show-product.com
 import { NewProductComponent } from './components/new-product/new-product.component';
 import { LoginComponent } from './components/login/login.component';
 import { AccountComponent } from './components/account/account.component';
+import { AuthGuard } from './security/auth.guard';
 
 const routes: Routes = [
   {path:'', component:HighlightsComponent},
   {path: 'carrinho', component: ShoppingCartComponent},
   {path: 'produto/:id', component:ShowProductComponent},
   {path: 'conta', component: AccountComponent},
-  {path:'dashboard', component:DashboardComponent,
+  {path:'dashboard', component:DashboardComponent, canActivate:[AuthGuard], 
   children:[
     {path:'meus-pedidos', component:RequestsComponent},
     {path:'meus-favoritos', component:FavoritesComponent},
