@@ -29,4 +29,6 @@ export class HighlightsComponent implements OnInit {
     this.cartService.addItem(itemCart);
   }
 
+
+
 }
