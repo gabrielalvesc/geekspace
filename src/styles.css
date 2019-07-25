@@ -4,6 +4,11 @@
 
 
 @font-face {
+    font-family: GrotesqueMT Light;
+    src: url('./assets/fonts/GrotesqueMT-Light.otf');
+}
+
+@font-face {
     font-family: Din;
     src: url('./assets/fonts/DINCondensed-Bold.ttf');
 }

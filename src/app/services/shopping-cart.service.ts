@@ -9,7 +9,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ShoppingCartService {
 
-  // store: Store = new Store(new Array<Product>(), "Nerd Shop", "111.111.111.1111", "contato@nerdshop.com", "(83) 91829-1280", 99);
+  store: Store = new Store(new Array<Product>(), "Nerd Shop", "111.111.111.1111", "contato@nerdshop.com", "(83) 91829-1280", 99);
   // product3 = new Product(
   //   "Chaveiro Spider-Man",
   //   "Chaveiro Spider-Man aço inox",
@@ -23,24 +23,26 @@ export class ShoppingCartService {
   //   4
   // )
 
-  // product1 = new Product(
-  //   "Camisa Star Wars",
-  //   "Camisa Stars wars edition limited",
-  //   "100% algodão",
-  //   99.99,
-  //   "M",
-  //   "Black",
-  //   10,
-  //   "https://static.simplo7.net/static/9783/sku/presentes-dia-dos-pais-camiseta-dia-dos-pais-star-wars-darth-vader-e-luke-1500494040519.jpg",
-  //   this.store,
-  //   14
-  // )
+  product1 = new Product(
+    "Camisa Star Wars",
+    "Camisa Stars wars edition limited",
+    "100% algodão",
+    99.99,
+    "M",
+    "Black",
+    10,
+    "https://static.simplo7.net/static/9783/sku/presentes-dia-dos-pais-camiseta-dia-dos-pais-star-wars-darth-vader-e-luke-1500494040519.jpg",
+    this.store,
+    14
+  )
   
   // TESTE CARRINHO
-  // item = new Cart(this.product1, 1, this.product1.price * 1)
+  item = new Cart(this.product1, 1, this.product1.price * 1)
   // item2 = new Cart(this.product3, 1, this.product3.price * 1)
 
-  items: Cart[] = [];
+  items: Cart[] = [
+    this.item
+  ];
 
 
   constructor(
