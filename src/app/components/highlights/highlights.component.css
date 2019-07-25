@@ -56,12 +56,3 @@
     border: 1px 1px 1px 1px;
     border-color: #222222;
 }
-
-[data-anime]{
-    opacity: 0;
-    transition: .3s;
-}
-
-[data-anime="left"]{
-    transform: translate3d(-200px, 0, 0);
-}
