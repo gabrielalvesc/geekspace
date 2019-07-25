@@ -14,6 +14,7 @@ export class FormProductComponent implements OnInit {
    @Input() tipo;
 
   productForm: FormGroup;
+  productForm2:FormGroup;
   
   
 
@@ -23,17 +24,28 @@ export class FormProductComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-     this.productForm = this.formBuilder.group({ 
-       name: ['', Validators.required],
-       quantity: ['', Validators.required],
-       price: ['', Validators.required],
-       color: ['', Validators.required],
-       genre: ['', Validators.required],
-       specification: ['', Validators.required],
-       description: ['', Validators.required],
-       picture:['',Validators.required],
+    
+      this.productForm = this.formBuilder.group({ 
+        name: ['', Validators.required],
+        quantity: ['', Validators.required],
+        price: ['', Validators.required],
+        color: ['', Validators.required],
+        genre: ['', Validators.required],
+        specification: ['', Validators.required],
+        description: ['', Validators.required],
+        picture:['',Validators.required],
+ 
+      }) 
 
-     })
+      this.productForm2 = this.formBuilder.group({ 
+        name: ['', Validators.required],
+        quantity: ['', Validators.required],
+        price: ['', Validators.required],
+        specification: ['', Validators.required],
+        description: ['', Validators.required],
+        picture:['',Validators.required],
+ 
+      }) 
   }
 
   onSubmit(f:any){
@@ -42,5 +54,4 @@ export class FormProductComponent implements OnInit {
     this.productService.addProduct(product)
     console.log(this.productService.getProducts.toString)
   }
-
 }

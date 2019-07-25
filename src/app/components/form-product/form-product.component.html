@@ -1,112 +1,152 @@
 <div class="mt-5" *ngIf="tipo != 'camisa'">
   <h1>Complete os dados</h1>
   <br>
-  <div class="row">
+
+  <form [formGroup]="productForm2" (ngSubmit)="onSubmit(productForm2.value)">
+    <div class="row">
 
 
-    <!--Primeira Coluna-->
-    <div class="col-6">
+      <!--Primeira Coluna-->
+      <div class="col-6"> 
 
 
-      <!--Primeira Linha-->
-      <div class="row">
+        <!--Primeira Linha-->
+        <div class="row">
+
+          <!--Titulo-->
+          <div class="col">
+            <div class="form-group">
+              <label for="formGroupExampleInput">Título</label>
+              <input formControlName="name" type="text" min="0" class="form-control form" id="formGroupExampleInput">
+            </div>
+          </div>
+        </div>
+
+        <!--Segunda Linha-->
 
         <!--Quantidade-->
-        <div class="col">
-          <div class="form-group">
-            <label for="formGroupExampleInput">Quantidade</label>
-            <input type="number" min="0" class="form-control form" id="formGroupExampleInput">
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="formGroupExampleInput">Quantidade</label>
+              <input formControlName="quantity" type="number" min="1" value="1" class="form-control form" id="formGroupExampleInput">
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="form-group">
+              <label for="formGroupExampleInput">Preço (R$)</label>
+              <input formControlName="price" type="number" class="form-control form" id="formGroupExampleInput">
+            </div>
           </div>
         </div>
+
+
+
+
       </div>
 
-      <!--Segunda Linha-->
 
-      <!--Fotos-->
-      <div class="row">
-        <div class="col">
-          Adicione fotos
+
+
+
+
+      <!--Segunda Coluna-->
+      <div class="col-6">
+
+        <!--Primeira Linha-->
+        <div class="row">
+
+          <!--Titulo-->
+          <div class="col">
+            <div class="form-group">
+              <label for="formGroupExampleInput">Descrição</label>
+              <input formControlName="description" type="text" class="form-control form" id="formGroupExampleInput">
+            </div>
+          </div>
+
+
+
         </div>
-      </div>
 
-      <!--Terceira Linha-->
-      <div class="row">
+        <!--Segunda Linha-->
+        <div class="row">
+          <div class="col">
 
-        <!--Preco-->
-        <div class="col">
-          <div class="form-group">
-            <label for="formGroupExampleInput">Preço (R$)</label>
-            <input type="text" class="form-control form" id="formGroupExampleInput">
+            <div class="form-group">
+              <label for="formGroupExampleInput">Especificação</label>
+              <input formControlName="specification"   type="text" class="form-control form" id="formGroupExampleInput">
+            </div>
+
+
+
           </div>
         </div>
-      </div>
 
-      <!--Quarta Linha-->
-      <div class="row">
-
-        <!--Descricao-->
-        <div class="col">
-          <div class="form-group">
-            <label for="formGroupExampleInput">Descrição</label>
-            <input type="number" min="0" class="form-control form" id="formGroupExampleInput">
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="formGroupExampleInput">Link da imagem </label>
+              <input formControlName="picture" type="text" class="form-control form" id="formGroupExampleInput"
+                placeholder="https://www.">
+            </div>
           </div>
+
+        </div>
+
+        <div class="buttom row container" style="margin-top: 8%;">
+          <button class="btn btn-link">Cancelar</button>
+          <button [disabled]="!productForm2" class="ml-auto anunciar" type="submit">Anunciar</button>
         </div>
       </div>
     </div>
+  </form>
 
 
-
-
-
-
-    <!--Segunda Coluna-->
-    <div class="col-6">
-
-      <!--Primeira Linha-->
-      <div class="row">
-
-        <!--Titulo-->
-        <div class="col">
-          <div class="form-group">
-            <label for="formGroupExampleInput">Digite o titulo</label>
-            <input type="text" class="form-control form" id="formGroupExampleInput">
-          </div>
-        </div>
-
-        <!--Gênero-->
-        <div class="col">
-          <div class="form-group">
-            <label for="exampleFormControlSelect1">Gênero</label>
-            <select class="form-control form" id="exampleFormControlSelect1">
-              <option>Masculino</option>
-              <option>Feminino</option>
-            </select>
-          </div>
-        </div>
-
-      </div>
-
-      <!--Segunda Linha-->
-      <div class="row">
-        <div class="col">
-          Indique a condição do seu produto
-
-          <div class="row pl-4">
-            <INPUT TYPE="radio" NAME="situacao" VALUE="novo"> Novo
-          </div>
-          <div class="row pl-4">
-            <INPUT TYPE="radio" NAME="situacao" VALUE="usado"> Usado
-          </div>
-        </div>
-      </div>
-
-      <div class="buttom">
-        <button>Cancelar</button>
-        <button type="submit">Anunciar</button>
-      </div>
-    </div>
-  </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -119,7 +159,7 @@
   <h1>Complete os dados</h1>
   <br>
 
-  <form [formGroup]="productForm"  (ngSubmit)="onSubmit(productForm.value)">
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit(productForm.value)">
     <div class="row">
 
       <!--Primeira Coluna-->
@@ -128,7 +168,7 @@
         <!--Primeira Linha-->
         <div class="row">
 
-          <!--Cor-->
+          <!--Titulo-->
           <div class="col">
             <div class="form-group">
               <label for="formGroupExampleInput">Título</label>
@@ -153,14 +193,13 @@
           <!--Preço-->
           <div class="col">
             <div class="form-group">
-              <label for="formGroupExampleInput">Preço</label>
-              <input formControlName="price" type="text" class="form-control form" id="formGroupExampleInput">
+              <label for="formGroupExampleInput">Preço (R$)</label>
+              <input formControlName="price" type="number" class="form-control form" id="formGroupExampleInput">
             </div>
           </div>
         </div>
 
         <!--Terceira Linha-->
-
         <!--COR-->
         <div class="row">
           <div class="col">
@@ -171,6 +210,7 @@
 
           </div>
 
+          <!--Genero-->
           <div class="col">
             <label> Gênero</label>
             <select formControlName="genre" class="custom-select" id="inputGroupSelect01">
@@ -198,6 +238,7 @@
           </div>
         </div>
 
+        <!--Segunda Linha-->
         <div class="row">
 
           <!--Descrição-->
@@ -209,6 +250,7 @@
           </div>
         </div>
 
+        <!--Terceira Linha-->
         <div class="row">
 
           <!--Imagem-->
@@ -224,10 +266,10 @@
 
 
 
-
+        <!--Botões-->
         <div class="buttom row container" style="margin-top: 8%;">
           <button class="btn btn-link">Cancelar</button>
-          <button [disabled]="!productForm" class="ml-auto" type="submit">Anunciar</button>
+          <button [disabled]="!productForm" class="ml-auto anunciar" type="submit">Anunciar</button>
         </div>
 
       </div>
