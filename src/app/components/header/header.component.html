@@ -3,7 +3,7 @@
   <nav class="navbar navbar-expand-md imageBackground">
     <div class="container">
       <div class="d-flex w-50">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" [routerLink]="['/']">
           <img class="logo" src="../../../assets/images/geekspacelogo-01.png">
         </a>
 
@@ -29,7 +29,8 @@
 
       <div class="collapse navbar-collapse w-50 justify-content-end" id="navbarNav">
 
-        <a class="myacc-text" href="#">MINHA CONTA</a>
+        <a *ngIf="isLoggedIn" [routerLink]="['/dashboard/meus-pedidos']" class="myacc-text" >MINHA CONTA</a>
+        <a *ngIf="!isLoggedIn" [routerLink]="['/conta']" class="myacc-text" >MINHA CONTA</a>
 
         <hr>
 
