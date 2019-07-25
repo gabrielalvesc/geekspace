@@ -2,22 +2,14 @@
     font-family: Din;
 }
 
-/*Todas as colunas coluna*/
-.imageBackground{
+#header .imageBackground{
     background-image: url("../../../assets/images/header.png");
     height: 175px;
 }
 
-/*Primeira coluna*/
-.brand{
-    font-size: 80px;
-    color: #FFD933;
-}
-
-.divider{
-    width: 1px;
-    height: 50px;
-    background-color: #FFD933;
+#header .logo{
+    width: 200px;
+    height: auto;
 }
 
 hr{ 
