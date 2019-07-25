@@ -9,7 +9,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class HeaderComponent implements OnInit {
 
-  isLoggedIn:boolean;
+  isLoggedIn: boolean;
 
   constructor(
     private authService: AuthService
