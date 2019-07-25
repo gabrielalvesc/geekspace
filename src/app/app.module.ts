@@ -25,6 +25,7 @@ import { AccountComponent } from './components/account/account.component';
 import { RegisterComponent } from './components/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthGuard } from './security/auth.guard';
+import { FinishComponent } from './components/finish/finish.component';
 
 
 
@@ -43,7 +44,8 @@ import { AuthGuard } from './security/auth.guard';
     NewProductComponent,
     LoginComponent,
     AccountComponent,
-    RegisterComponent
+    RegisterComponent,
+    FinishComponent
   ],
   imports: [
     BrowserModule,

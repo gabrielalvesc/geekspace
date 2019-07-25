@@ -10,6 +10,7 @@ import { NewProductComponent } from './components/new-product/new-product.compon
 import { LoginComponent } from './components/login/login.component';
 import { AccountComponent } from './components/account/account.component';
 import { AuthGuard } from './security/auth.guard';
+import { FinishComponent } from './components/finish/finish.component';
 
 const routes: Routes = [
   {path:'', component:HighlightsComponent},
@@ -21,8 +22,8 @@ const routes: Routes = [
     {path:'meus-pedidos', component:RequestsComponent},
     {path:'meus-favoritos', component:FavoritesComponent},
     {path:'novo-produto', component:NewProductComponent}
-  ]}
-
+  ]},
+  {path: 'finalizar-pedido', component: FinishComponent, canActivate:[AuthGuard]}
 ];
 
 @NgModule({
