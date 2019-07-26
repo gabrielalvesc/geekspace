@@ -2,7 +2,7 @@
     font-family: Din;
 }
 
-body{
+section{
     background-image: url('../../assets/images/fundo.png');
     background-attachment: fixed;
     background-size: cover;
