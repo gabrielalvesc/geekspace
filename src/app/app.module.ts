@@ -6,6 +6,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HighlightsComponent } from './components/highlights/highlights.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
@@ -48,9 +49,12 @@ import { HomeComponent } from './home/home.component';
     RegisterComponent,
     FinishComponent,
     HomeComponent
+
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,

@@ -1,7 +1,280 @@
-<!-- <div *ngIf="tipo == 'camisa'">
-  camisa otario
+<div class="mt-5" *ngIf="tipo != 'camisa'">
+  <h1>Complete os dados</h1>
+  <br>
+
+  <form [formGroup]="productForm2" (ngSubmit)="onSubmit(productForm2.value)">
+    <div class="row">
+
+
+      <!--Primeira Coluna-->
+      <div class="col-6"> 
+
+
+        <!--Primeira Linha-->
+        <div class="row">
+
+          <!--Titulo-->
+          <div class="col">
+            <div class="form-group">
+              <label for="formGroupExampleInput">Título</label>
+              <input formControlName="name" type="text" min="0" class="form-control form" id="formGroupExampleInput">
+            </div>
+          </div>
+        </div>
+
+        <!--Segunda Linha-->
+
+        <!--Quantidade-->
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="formGroupExampleInput">Quantidade</label>
+              <input formControlName="quantity" type="number" min="1" value="1" class="form-control form" id="formGroupExampleInput">
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="form-group">
+              <label for="formGroupExampleInput">Preço (R$)</label>
+              <input formControlName="price" type="number" class="form-control form" id="formGroupExampleInput">
+            </div>
+          </div>
+        </div>
+
+
+
+
+      </div>
+
+
+
+
+
+
+      <!--Segunda Coluna-->
+      <div class="col-6">
+
+        <!--Primeira Linha-->
+        <div class="row">
+
+          <!--Titulo-->
+          <div class="col">
+            <div class="form-group">
+              <label for="formGroupExampleInput">Descrição</label>
+              <input formControlName="description" type="text" class="form-control form" id="formGroupExampleInput">
+            </div>
+          </div>
+
+
+
+        </div>
+
+        <!--Segunda Linha-->
+        <div class="row">
+          <div class="col">
+
+            <div class="form-group">
+              <label for="formGroupExampleInput">Especificação</label>
+              <input formControlName="specification"   type="text" class="form-control form" id="formGroupExampleInput">
+            </div>
+
+
+
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="formGroupExampleInput">Link da imagem </label>
+              <input formControlName="picture" type="text" class="form-control form" id="formGroupExampleInput"
+                placeholder="https://www.">
+            </div>
+          </div>
+
+        </div>
+
+        <div class="buttom row container" style="margin-top: 8%;">
+          <button class="btn btn-link">Cancelar</button>
+          <button [disabled]="!productForm2" class="ml-auto anunciar" type="submit">Anunciar</button>
+        </div>
+      </div>
+    </div>
+  </form>
+
+
 </div>
 
-<div *ngIf="tipo != 'camisa'">
-  não é camisa rs
-</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="mt-5" *ngIf="tipo == 'camisa'">
+  <h1>Complete os dados</h1>
+  <br>
+
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit(productForm.value)">
+    <div class="row">
+
+      <!--Primeira Coluna-->
+      <div class="col-6">
+
+        <!--Primeira Linha-->
+        <div class="row">
+
+          <!--Titulo-->
+          <div class="col">
+            <div class="form-group">
+              <label for="formGroupExampleInput">Título</label>
+              <input formControlName="name" type="text" class="form-control form" id="formGroupExampleInput">
+            </div>
+          </div>
+
+        </div>
+
+        <!--Segunda Linha-->
+        <div class="row">
+
+          <!--Quantidade-->
+          <div class="col">
+            <div class="form-group">
+              <label for="formGroupExampleInput">Quantidade</label>
+              <input formControlName="quantity" type="number" min="1" value="1" class="form-control form"
+                id="formGroupExampleInput">
+            </div>
+          </div>
+
+          <!--Preço-->
+          <div class="col">
+            <div class="form-group">
+              <label for="formGroupExampleInput">Preço (R$)</label>
+              <input formControlName="price" type="number" class="form-control form" id="formGroupExampleInput">
+            </div>
+          </div>
+        </div>
+
+        <!--Terceira Linha-->
+        <!--COR-->
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="formGroupExampleInput">Cor</label>
+              <input formControlName="color" type="text" class="form-control form" id="formGroupExampleInput">
+            </div>
+
+          </div>
+
+          <!--Genero-->
+          <div class="col">
+            <label> Gênero</label>
+            <select formControlName="genre" class="custom-select" id="inputGroupSelect01">
+              <option selected> Masculino </option>
+              <option value="1">Feminino</option>
+
+            </select>
+          </div>
+        </div>
+      </div>
+
+
+      <!--Segunda Coluna-->
+      <div class="col-6">
+
+        <!--Primeira Linha-->
+        <div class="row">
+
+          <!--Descrição-->
+          <div class="col">
+            <div class="form-group">
+              <label for="formGroupExampleInput">Descrição</label>
+              <input formControlName="description" type="text" class="form-control form" id="formGroupExampleInput">
+            </div>
+          </div>
+        </div>
+
+        <!--Segunda Linha-->
+        <div class="row">
+
+          <!--Descrição-->
+          <div class="col">
+            <div class="form-group">
+              <label for="formGroupExampleInput">Especificação</label>
+              <input formControlName="specification" type="text" class="form-control form" id="formGroupExampleInput">
+            </div>
+          </div>
+        </div>
+
+        <!--Terceira Linha-->
+        <div class="row">
+
+          <!--Imagem-->
+          <div class="col">
+            <div class="form-group">
+              <label for="formGroupExampleInput">Link da imagem </label>
+              <input formControlName="picture" type="text" class="form-control form" id="formGroupExampleInput"
+                placeholder="https://www.">
+            </div>
+          </div>
+        </div>
+
+
+
+
+        <!--Botões-->
+        <div class="buttom row container" style="margin-top: 8%;">
+          <button class="btn btn-link">Cancelar</button>
+          <button [disabled]="!productForm" class="ml-auto anunciar" type="submit">Anunciar</button>
+        </div>
+
+      </div>
+    </div>
+
+  </form>
+
+</div>

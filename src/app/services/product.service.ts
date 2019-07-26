@@ -81,4 +81,8 @@ export class ProductService {
     return this.products.filter(todo => todo.idProduct === id).pop()
   }
 
+  addProduct(product:Product){
+    this.products.push(product)
+  }
+
 }

@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewProductComponent implements OnInit {
 
+  type:string= ''
   constructor() { }
 
   ngOnInit() {
   }
+
+  checkType(tipo:any){
+    this.type = tipo;
+  }
+
+
 
 }

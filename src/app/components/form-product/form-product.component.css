@@ -1,0 +1,13 @@
+.form{
+    border: none;
+    border-bottom: solid black 1px;
+    border-radius: 0%;
+}
+.buttom{
+    padding-left:70%;
+}
+.anunciar{
+        background-color: #222222;
+        color: #FFD933;
+        border-radius: 4px;
+}
