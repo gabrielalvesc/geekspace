@@ -2,6 +2,7 @@
     font-family: Din;
 }
 
+/*=== Background ===*/
 section{
     background-image: url('../../assets/images/fundo.png');
     background-attachment: fixed;
@@ -9,6 +10,19 @@ section{
     background-repeat: repeat;
 }
 
+/*=== Carousel ===*/
 #home #caroulselBanners{
     margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+/*=== Red Bar ===*/
+.bg-red{
+    background-color: #FF0202;
+    height: 50px;
+}
+
+#home .free-shipping-txt{
+    color: white;
+    font-size: 22px;
 }
