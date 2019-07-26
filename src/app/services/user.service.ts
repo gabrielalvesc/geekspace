@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user.model';
 import { ToastrService } from 'ngx-toastr';
+import { Cart } from '../models/cart.model';
+import { Product } from '../models/product.model';
+import { Store } from '../models/store.model';
 
 @Injectable({
   providedIn: 'root'
@@ -8,8 +11,8 @@ import { ToastrService } from 'ngx-toastr';
 export class UserService {
 
   users: User[] = [
-    new User("admin@geek.com", "geek123", "Admin", "", "admin", 1),
-    new User("rvillar@gmail.com", "rvillar123", "Rodrigo", "Villar", "Cliente", 2)
+    new User("admin@geek.com", "admin123", "Admin", "Geek", "admin", new Array<Cart>(), new Array<Product>()),
+    new User("rvillar@gmail.com", "rvillar123", "Rodrigo", "Villar", "Cliente", new Array<Cart>(), new Array<Product>(), 2)
   ];
   id: number = 500;
 
@@ -32,5 +35,7 @@ export class UserService {
   getByEmail(email: string):User {
     return this.users.filter(todo => todo.email === email).pop()
   }
+
+
 }
 

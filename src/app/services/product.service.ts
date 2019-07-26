@@ -4,6 +4,10 @@ import { GEEK_API } from './geek.api';
 import { Product } from '../models/product.model';
 import { Store } from '../models/store.model';
 import { Observable } from 'rxjs';
+import { UserService } from './user.service';
+import { AuthService } from './auth.service';
+import { User } from '../models/user.model';
+import { Cart } from '../models/cart.model';
 
 
 
@@ -12,7 +16,8 @@ import { Observable } from 'rxjs';
 })
 export class ProductService {
 
-  store: Store = new Store(new Array<Product>(), "Nerd Shop", "111.111.111.1111", "contato@nerdshop.com", "(83) 91829-1280", 99);
+  
+  store: Store = new Store(new User("admin@geek.com", "admin123", "Admin", "Geek", "admin", new Array<Cart>(), new Array<Product>(), 1), new Array<Product>());
   
   product1 = new Product(
     "Camisa Star Wars",
@@ -69,8 +74,11 @@ export class ProductService {
   products: Product[] = [this.product1, this.product2, this.product3, this.product4];
 
   constructor(
-    private http: HttpClient
-  ) { }
+    private http: HttpClient,
+    private userService: UserService,
+    private authService: AuthService
+  ) {
+   }
 
   getProducts() {
     // return this.http.get<any[]>(`${GEEK_API}/products`)

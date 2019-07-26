@@ -11,14 +11,14 @@
         <div class="col-md-12">
 
 
-          <form>
+          <form [formGroup]="formFinishing" (ngSubmit)="onSubmit(formFinishing.value)">
 
             <h4>Meus dados pessoais</h4>
             <div class="row mb-3">
               <div class="col-md-12">
                 <label class="" for="email">E-mail</label>
                 <br>
-                <input name="email" type="email" id="senha" required>
+                <input formControlName="email" name="email" type="email" id="senha" required>
               </div>
             </div>
 
@@ -26,12 +26,12 @@
               <div class="col-md-6">
                 <label for="name">Nome</label>
                 <br>
-                <input name="name" type="text" id="name" required>
+                <input disabled formControlName="name" name="name" type="text" id="name" required>
               </div>
               <div class="col-md-6">
                 <label for="lastname">Sobrenome</label>
                 <br>
-                <input name="lastname" type="text" id="lastname" required>
+                <input disabled formControlName="lastname" name="lastname" type="text" id="lastname" required>
               </div>
             </div>
 
@@ -39,7 +39,7 @@
               <div class="col-md-12">
                 <label for="cpf">CPF</label>
                 <br>
-                <input name="cpf" type="text" id="cpf" required>
+                <input formControlName="cpf" name="cpf" type="text" id="cpf" required>
               </div>
             </div>
 
@@ -48,12 +48,12 @@
               <div class="col-md-6">
                 <label for="cep">CEP</label>
                 <br>
-                <input name="cep" type="text" id="cep" required>
+                <input formControlName="cep" name="cep" type="text" id="cep" required>
               </div>
               <div class="col-md-6 line">
                 <label for="state">ESTADO</label>
                 <br>
-                <input type="text">
+                <input formControlName="state" type="text">
               </div>
             </div>
 
@@ -61,7 +61,7 @@
               <div class="col-md-12">
                 <label for="city">CIDADE</label>
                 <br>
-                <input name="city" type="text" id="city" required>
+                <input formControlName="city" name="city" type="text" id="city" required>
               </div>
             </div>
 
@@ -69,19 +69,19 @@
               <div class="col-md-6">
                 <label for="number">NÚMERO</label>
                 <br>
-                <input name="number" type="number" min="0" id="number" required>
+                <input formControlName="number" name="number" type="number" min="0" id="number" required>
               </div>
               <div class="col-md-6 line">
                 <label for="neighborhood">BAIRRO</label>
                 <br>
-                <input id="neighborhood" name="neighborhood" type="text" required>
+                <input formControlName="neighborhood" id="neighborhood" name="neighborhood" type="text" required>
               </div>
             </div>
 
             <div class="row mb-3">
               <div class="col-md-12">
                 <label for="complement">COMPLEMENTO</label>
-                <input type="text" id="complement" name="complement">
+                <input formControlName="complement" type="text" id="complement" name="complement">
               </div>
             </div>
 
@@ -140,12 +140,12 @@
           <hr style="border: 1px solid #707070">
         </div>
         <div class="col-md-12" style="font-size: 28px; color: #575757">
-          TOTAL: R$ {{total}}
+          TOTAL: R$ {{total | number : '1.2-2'}}
         </div>
       </div>
       <div class="row mt-5">
         <div class="col-md-12">
-          <a [routerLink]="[ '/finalizar-pedido' ]" class="btn-finished btn float-right">CONFIRMAR PEDIDO</a>
+          <button [disabled]="!formFinishing.valid" type="submit" class="btn-finished btn float-right">CONFIRMAR PEDIDO</button>
           <button class="btn btn-link float-right" style="font-size: 26px;">Cancelar</button>
         </div>
       </div>
