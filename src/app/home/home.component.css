@@ -26,3 +26,15 @@ section{
     color: white;
     font-size: 22px;
 }
+
+/*=== Yellow Bar - Logotype Carousel ===*/
+.bg-yellow{
+    background-color: #FFD933;
+    height: 100px;
+    margin-bottom: 2%;
+}
+
+#home .logos{
+    width: 200px;
+    height: auto;
+}
