@@ -1,0 +1,14 @@
+.card {
+    margin-top: 10%;
+}
+
+.btn-return {
+    /* height: 40px; */
+    padding: 10px;
+    background-color: #222222;
+    color: #FFD933;
+    border-radius: 5px;
+    font-size: 22px;
+    text-align: center;
+    margin: 20px;
+}

@@ -59,6 +59,13 @@
 
             <div class="row mb-3">
               <div class="col-md-12">
+                <label for="street">LOGRADOURO</label>
+                <input formControlName="street" type="text" id="street" name="street">
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <div class="col-md-12">
                 <label for="city">CIDADE</label>
                 <br>
                 <input formControlName="city" name="city" type="text" id="city" required>
@@ -145,7 +152,7 @@
       </div>
       <div class="row mt-5">
         <div class="col-md-12">
-          <button [disabled]="!formFinishing.valid" type="submit" class="btn-finished btn float-right">CONFIRMAR PEDIDO</button>
+          <button [disabled]="!formFinishing.valid" (click)="onSubmit(formFinishing.value)" class="btn-finished btn float-right">CONFIRMAR PEDIDO</button>
           <button class="btn btn-link float-right" style="font-size: 26px;">Cancelar</button>
         </div>
       </div>
