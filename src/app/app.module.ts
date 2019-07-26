@@ -27,6 +27,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { AuthGuard } from './security/auth.guard';
 import { FinishComponent } from './components/finish/finish.component';
 import { HomeComponent } from './home/home.component';
+import { ConfirmationComponent } from './components/confirmation/confirmation.component';
 
 
 
@@ -47,7 +48,8 @@ import { HomeComponent } from './home/home.component';
     AccountComponent,
     RegisterComponent,
     FinishComponent,
-    HomeComponent
+    HomeComponent,
+    ConfirmationComponent
 
   ],
   imports: [

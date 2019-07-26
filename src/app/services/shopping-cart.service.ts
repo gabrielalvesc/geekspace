@@ -33,7 +33,7 @@ export class ShoppingCartService {
   // item2 = new Cart(this.product3, 1, this.product3.price * 1)
 
   items: Cart[] = [
-    this.item
+    
   ];
 
 

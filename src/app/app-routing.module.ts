@@ -12,6 +12,7 @@ import { AccountComponent } from './components/account/account.component';
 import { AuthGuard } from './security/auth.guard';
 import { FinishComponent } from './components/finish/finish.component';
 import { HomeComponent } from './home/home.component';
+import { ConfirmationComponent } from './components/confirmation/confirmation.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -24,7 +25,8 @@ const routes: Routes = [
     {path: 'meus-favoritos', component: FavoritesComponent},
     {path: 'novo-produto', component: NewProductComponent}
   ]},
-  {path: 'finalizar-pedido', component: FinishComponent, canActivate: [AuthGuard]}
+  {path: 'finalizar-pedido', component: FinishComponent, canActivate: [AuthGuard]},
+  {path: 'confirmacao', component: ConfirmationComponent, canActivate:[AuthGuard]}
 ];
 
 @NgModule({
