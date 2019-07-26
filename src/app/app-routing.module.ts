@@ -11,19 +11,20 @@ import { LoginComponent } from './components/login/login.component';
 import { AccountComponent } from './components/account/account.component';
 import { AuthGuard } from './security/auth.guard';
 import { FinishComponent } from './components/finish/finish.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  {path:'', component:HighlightsComponent},
+  {path: '', component: HomeComponent},
   {path: 'carrinho', component: ShoppingCartComponent},
-  {path: 'produto/:id', component:ShowProductComponent},
+  {path: 'produto/:id', component: ShowProductComponent},
   {path: 'conta', component: AccountComponent},
-  {path:'dashboard', component:DashboardComponent, canActivate:[AuthGuard], 
-  children:[
-    {path:'meus-pedidos', component:RequestsComponent},
-    {path:'meus-favoritos', component:FavoritesComponent},
-    {path:'novo-produto', component:NewProductComponent}
+  {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard],
+  children: [
+    {path: 'meus-pedidos', component: RequestsComponent},
+    {path: 'meus-favoritos', component: FavoritesComponent},
+    {path: 'novo-produto', component: NewProductComponent}
   ]},
-  {path: 'finalizar-pedido', component: FinishComponent, canActivate:[AuthGuard]}
+  {path: 'finalizar-pedido', component: FinishComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({
