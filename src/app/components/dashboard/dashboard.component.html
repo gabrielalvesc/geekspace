@@ -3,7 +3,7 @@
 
     <!-- Sidebar -->
     <div class="border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading" style="border-bottom: 1px solid #c1c1c1;"><a [routerLink]="['/']" routerLinkActive="router-link-active" >MINHA CONTA</a></div>
+      <div class="sidebar-heading" style="border-bottom: 1px solid #c1c1c1;">MINHA CONTA</div>
       <div class="list-group list-group-flush">
         <a *ngIf="!isAdmin" href="#" [routerLink]="[ 'meus-pedidos' ]" class="list-group-item list-group-item-action"><i class="fas fa-gift"></i>Meus pedidos</a>
         <a *ngIf="!isAdmin" href="#" [routerLink]="[ 'meus-favoritos' ]" class="list-group-item list-group-item-action"><i class="fas fa-heart"></i>Meus favoritos</a>

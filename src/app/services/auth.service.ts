@@ -3,21 +3,27 @@ import { UserService } from './user.service';
 import { User } from '../models/user.model';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { Cart } from '../models/cart.model';
+import { Product } from '../models/product.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
+
+
   constructor(
     private userService: UserService,
     private toastr: ToastrService,
     private router: Router
-  ) { }
+  ) {
 
-  login (email: string, password: string){
-    let user:User = this.userService.getByEmail(email);
-    if(user != null) {
+  }
+
+  login(email: string, password: string) {
+    let user: User = this.userService.getByEmail(email);
+    if (user != null) {
       if (user.password == password) {
         localStorage.setItem('user', email)
         this.router.navigate(['/dashboard'])
@@ -33,15 +39,15 @@ export class AuthService {
     return localStorage.getItem('user');
   }
 
-  isLoggedIn():boolean {
-    if(this.getUser() != null) {
+  isLoggedIn(): boolean {
+    if (this.getUser() != null) {
       return true;
     } else {
       return false;
     }
   }
 
-  logout(){
+  logout() {
     localStorage.clear();
   }
 }

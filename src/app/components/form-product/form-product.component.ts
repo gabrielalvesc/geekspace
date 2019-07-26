@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Product } from 'src/app/models/product.model';
 import { Store } from 'src/app/models/store.model';
 import { ProductService } from 'src/app/services/product.service';
+import { UserService } from 'src/app/services/user.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-form-product',
@@ -21,6 +23,8 @@ export class FormProductComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private productService: ProductService,
+    private userService: UserService,
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
@@ -49,7 +53,8 @@ export class FormProductComponent implements OnInit {
   }
 
   onSubmit(f:any){
-    var store = new Store(new Array<Product>(), "GeekSpace", "123123123123", "geekspace@gmail.com", "083981343105", 1)
+    let user = this.userService.getByEmail(this.authService.getUser())
+    let store = new Store(user, new Array<Product>())
     var product = new Product(f.name,f.description,f.specification,f.price,"",f.color,f.quantity,f.picture, store, 1000);
     this.productService.addProduct(product)
     console.log(this.productService.getProducts.toString)

@@ -1,12 +1,10 @@
 import { Product } from './product.model';
+import { User } from './user.model';
+import { stringify } from 'querystring';
 
-export class Store {
+export class Store{
     constructor(
-        public products: Product[],
-        public name: string,
-        public cnpj: string,
-        public email: string,
-        public phone: string,
-        public idStore?: number
-    ) {}
+        public user: User,
+        public products: Product[]
+    ){}
 }

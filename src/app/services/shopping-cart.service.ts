@@ -3,25 +3,17 @@ import { Product } from '../models/product.model';
 import { Store } from '../models/store.model';
 import { Cart } from '../models/cart.model';
 import { ToastrService } from 'ngx-toastr';
+import { UserService } from './user.service';
+import { User } from '../models/user.model';
+import { AuthService } from './auth.service';
+import { Client } from '../models/client.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShoppingCartService {
 
-  store: Store = new Store(new Array<Product>(), "Nerd Shop", "111.111.111.1111", "contato@nerdshop.com", "(83) 91829-1280", 99);
-  // product3 = new Product(
-  //   "Chaveiro Spider-Man",
-  //   "Chaveiro Spider-Man aço inox",
-  //   "Tamanho - 8cm",
-  //   24.99,
-  //   "",
-  //   "",
-  //   15,
-  //   "https://images-americanas.b2w.io/produtos/01/00/oferta/52254/2/52254264_1GG.jpg",
-  //   this.store,
-  //   4
-  // )
+  store: Store = new Store(new User("admin@geek.com", "geek123", "Admin", "", "admin", new Array<Cart>(), new Array<Product>(), 1), new Array<Product>());
 
   product1 = new Product(
     "Camisa Star Wars",
@@ -46,8 +38,12 @@ export class ShoppingCartService {
 
 
   constructor(
-    private toastr: ToastrService
-  ) { }
+    private toastr: ToastrService,
+    private userService: UserService,
+    private authService: AuthService
+  ) {
+    
+   }
 
   addItem(item: Cart) {
     let index = this.items.findIndex(val => val.product.idProduct == item.product.idProduct);
@@ -74,6 +70,11 @@ export class ShoppingCartService {
     item.quantity = quantity;
     item.subTotal = item.product.price * item.quantity
   }
+
+  // cartItemUser(email: string){
+  //   let user:User = this.userService.getByEmail(email);
+  //   user.cartItems = this.items;
+  // }
 
 
 }
