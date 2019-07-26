@@ -1,22 +1,27 @@
-<div class="container mt-4">
+<div class="container" id="highlights">
 
   <div class="row">
     <div class="col-md-4">
-      <h1 class="destaque">DESTAQUES</h1>
+      <h1 class="destaque animated fadeInLeft">DESTAQUES</h1>
     </div>
   </div>
 
-  <div class="row" align="center">
+  <div class="row">
     <div *ngFor="let product of products" class="col-md-3">
-      <div class="card mt-4" style="width: 16rem; border: none">
-        <img class="card-img-top" src="{{product.picture}}" style="height: 270px;" alt="Card image cap">
+      <div class="card mt-4 animated zoomIn" style="width: 16rem; border: none" >
+        <a (click)="addItem(product)"
+        [routerLink]="['produto', product.idProduct]">
+          <img class="card-img-top img-fluid" src="{{product.picture}}" style="height: 270px;" alt="Card image cap">
+        </a>
+        
         <div class="card-body" style="padding-bottom: 10px;">
-          <h5 class="card-title product-title text-left">{{product.name}}</h5>
+          <a (click)="addItem(product)"
+          [routerLink]="['produto', product.idProduct]" class="card-title product-title text-left">{{product.name}}</a>
           <h4 class="product-price text-left">R$ {{product.price}}</h4>
           <div class="row">
             <div class="col-md-12">
               <a href="#" class="btn btn-outline-success btn-want" (click)="addItem(product)"
-                [routerLink]="['/carrinho']" routerLinkActive="router-link-active">EU QUERO!</a>
+                [routerLink]="['produto', product.idProduct]">EU QUERO!</a>
             </div>
           </div>
         </div>

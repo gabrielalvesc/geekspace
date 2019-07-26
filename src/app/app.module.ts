@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -18,6 +20,14 @@ import { RequestsService } from './services/requests.service';
 import { FavoritesService } from './services/favorites.service';
 import { NewProductComponent } from './components/new-product/new-product.component';
 import { FormProductComponent } from './components/form-product/form-product.component';
+import { ShowProductComponent } from './components/show-product/show-product.component';
+import { LoginComponent } from './components/login/login.component';
+import { AccountComponent } from './components/account/account.component';
+import { RegisterComponent } from './components/register/register.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthGuard } from './security/auth.guard';
+import { FinishComponent } from './components/finish/finish.component';
+import { HomeComponent } from './home/home.component';
 
 
 
@@ -31,8 +41,15 @@ import { FormProductComponent } from './components/form-product/form-product.com
     DashboardComponent,
     RequestsComponent,
     FavoritesComponent,
+    FormProductComponent,
+    ShowProductComponent,
     NewProductComponent,
-    FormProductComponent
+    LoginComponent,
+    AccountComponent,
+    RegisterComponent,
+    FinishComponent,
+    HomeComponent
+
   ],
   imports: [
     BrowserModule,
@@ -40,13 +57,25 @@ import { FormProductComponent } from './components/form-product/form-product.com
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgbModule,
+    FormsModule,
+    ReactiveFormsModule,
+    ToastrModule.forRoot({
+      timeOut: 5000,
+      positionClass: 'toast-bottom-full-width',
+      preventDuplicates: true,
+      progressBar: true,
+      closeButton: true
+    }),
+
   ],
   providers: [
     ProductService,
     ShoppingCartService,
     RequestsService,
-    FavoritesService
+    FavoritesService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

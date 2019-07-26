@@ -1,27 +1,29 @@
-.destaque {
-    border-bottom: 4px solid black;
+#highlights{
     font-family: Din;
+    margin-top: 5%;
 }
 
-.product-title {
+#highlights .destaque {
+    border-bottom: 4px solid #222222;
+    
+}
+
+#highlights .product-title {
     font-size: 24px;
-    color: #575757;
+    color: #222222;
     /* margin-bottom: -5px; */
-    font-family: Din;
 }
 
 .product-price {
     font-size: 40px;
-    color:black;
+    color: #222222;
     font-weight: bold;
-    font-family: Din;
 }
 
 .btn-want {
     border: 2px solid #00D510;
     color: #575757;
     width: 100%;
-    font-family: Din;
     font-size: 30px;
     height: 50px;
 }
@@ -34,4 +36,23 @@
 .highlights {
     margin-left: auto;
     margin-right: auto;
+}
+
+#highlights img{
+    -moz-transition: -moz-transform 0.2s ease;
+	-webkit-transition: -webkit-transform 0.2s ease;
+	-ms-transition: -ms-transform 0.2s ease;
+	transition: transform 0.2s ease;
+}
+
+#highlights img:hover{
+    -moz-transform: scale(1.090);
+    -webkit-transform: scale(1.090);
+    -ms-transform: scale(1.090);
+    transform: scale(1.090);
+}
+
+#highlights .card:hover{
+    border: 1px 1px 1px 1px;
+    border-color: #222222;
 }

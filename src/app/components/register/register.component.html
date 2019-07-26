@@ -1,0 +1,39 @@
+<div align="center" class="mt-5 mb-5">
+  <h1>Cadastre-se</h1>
+</div>
+<form [formGroup]="formRegister" (ngSubmit)="onSubmit(formRegister.value)">
+  <div class="row">
+    <div class="form-group col-md-6 mb-5">
+      <label class="textcolor" for="name">Nome</label>
+      <input formControlName="name" name="name" type="text" class="form-control" id="name" required>
+    </div>
+    <div class="form-group col-md-6 mb-5">
+      <label class="textcolor" for="lastname">Sobrenome</label>
+      <input formControlName="lastName" name="lastname" type="text" class="form-control" id="lastname" required>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-md-6">
+      <label class="textcolor" for="email">E-mail</label>
+      <input formControlName="email" name="email" type="email" class="form-control" id="email" required>
+    </div>
+    <div class="form-group col-md-6">
+      <label class="textcolor" for="password">Senha</label>
+      <input formControlName="password" name="password" type="password" class="form-control" id="password" required>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-check col-md-6" style="display:none">
+      <input type="checkbox" class="form-check-input" id="merchantCheck" (click)="show = !show">
+      <label class="form-check-label" for="merchantCheck" style="color:#575757">Vendedor</label>
+    </div>
+    <div class="form-group col-md-6" *ngIf="show">
+      <label class="textcolor" for="cnpj">CNPJ</label>
+      <input name="cnpj" type="text" class="form-control" id="cnpj" required>
+    </div>  
+  </div>
+  <br>
+  <button class="btn btn-submited" type="submit">Pronto</button>
+
+</form>

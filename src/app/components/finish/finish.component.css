@@ -1,0 +1,53 @@
+.container {
+    font-family: DIN;
+}
+
+h1 {
+    font-size: 54px;
+    color: #575757;
+    margin-bottom: -10px;
+}
+
+h6 {
+    font-family: GrotesqueMT Light;
+    font-size: 16px;
+}
+
+h4 {
+    font-size: 36px;
+    color: #575757;
+}
+
+input{
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-color: #222222;
+    width: 100%;
+}
+
+label {
+    color: #575757;
+    font-size: 16px;
+}
+
+select {
+    width: 100%;
+    
+    /* border-bottom: #222222; */
+    background-color: transparent;
+}
+
+.line {
+    border-bottom: #222222;
+}
+
+.btn-finished {
+    height: 40px;
+
+    background-color: #222222;
+    color: #FFD933;
+    border-radius: 5px;
+    font-size: 22px;
+    text-align: center;
+}

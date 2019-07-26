@@ -1,56 +1,78 @@
 <div class="container" id="carrinho">
   <h1>CARRINHO DE COMPRAS</h1>
 
+
+
   <div class="row">
 
     <!-- Column 1 Items -->
-    <div class="col-md-7">
+    <div class="col-md-8">
 
-      <table>
+      <table class="table">
 
         <thead>
-          <th class="col-md-6">Item</th>
+          <th class="col-md-2">Item</th>
           <th class="col-md-2">Preço</th>
-          <th class="col-md-2">Qtd</th>
-          <th class="col-md-2">Subtotal</th>
+          <th class="col-md-1">Qtd</th>
+          <th class="col-md-1">Subtotal</th>
+          <th class="col-md-1"></th>
         </thead>
 
-        <hr>
+        <tbody>
 
-        <thead>
 
-          <th class="col-md-6" *ngFor="let item of items()">
-            <img src="{{item.picture}}">
+          <div *ngIf="items.length == 0" class="col-md-12 col-sm-12 offset-md-2" style="margin-top: 5%;">
+            <div class="alert alert-warning text-center" role="alert">
+              <i class="fas fa-exclamation-triangle"></i>
+              <span>
+                Você ainda não possui nenhum produto no carrinho.
+              </span>
+            </div>
+          </div>
 
-            <span>{{item.name}}</span>
-          </th>
 
-          <th class="col-md-2">
-            <span>{{item?.price}}</span>
-          </th>
-          {{item | json}}
-          <th class="col-md-2">
-            <input #qtd class="inputQtd" type="number" min="0" max="20" value="0" required>
-          </th>
+          <tr class="col-md-6 mb-3" *ngFor="let item of items">
+            <td class="col-md-2">
+              <img src="{{item.product.picture}}">
 
-          <th class="col-md-1">
-            <span>{{ value() }}</span>
-          </th>
+              <span class="ml-4" style="font-size: 20px">{{item.product.name}}</span>
+            </td>
 
-          <th class="col-md-1">
-            <i class="material-icons" (click)="removeItem(item)">
-              remove_shopping_cart
-            </i>
-          </th>
+            <td class="col-md-2">
+              <span>R$ {{item?.product.price}}</span>
+            </td>
 
-        </thead>
+            <td class="col-md-1">
+              <input #qtd (change)="quantity(qtd.value, item.product.idProduct)" class="inputQtd" type="number" min="1"
+                max="{{item.product.stock}}" value="{{item.quantity}}" required>
+            </td>
+
+            <td class="col-md-1">
+              <span>R$ {{item.product.price * item.quantity  | number : '1.2-2'}}</span>
+              <!-- <input #subTotal (change)="total(value)" type="number" value="{{item.product.price * item.quantity  | number : '1.2-2'}}" disabled> -->
+            </td>
+
+            <td class="col-md-1">
+              <a (click)="removeItem(item)">
+                <i placement="top" ngbTooltip="Remover" style="color:black" class="material-icons">
+                  remove_shopping_cart
+                </i>
+              </a>
+            </td>
+          </tr>
+
+
+
+
+
+        </tbody>
       </table>
 
 
     </div>
 
     <!-- Column 2 Shipping-->
-    <div class="col-md-5">
+    <div class="col-md-4">
       <span class="titles">
         Consultar valor do frete
       </span>
@@ -58,38 +80,47 @@
       <div>
         <label for="cep">CEP</label>
         <br>
-        <input name="cep" class="inputCep" type="text">
+        <input name="cep" class="inputCep" type="text" placeholder="Serviço indisponível" disabled>
       </div>
       <br>
 
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+      <span class="badge badge-success text-white" >FRETE GRÁTIS</span>
+
+      <!--
+        <div class="form-check">
+        <input checked #pac (click)="frete('pac')" class="form-check-input" type="radio" name="exampleRadios"
+          id="exampleRadios1" value="52.85">
         <label class="form-check-label" for="exampleRadios1">
           PAC - 12 dia(s) úteis R$52,85
         </label>
 
         <br>
 
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+        <input #sedex (click)="frete('sedex')" class="form-check-input" type="radio" name="exampleRadios"
+          id="exampleRadios1" value="72.85">
         <label class="form-check-label" for="exampleRadios1">
           Sedex - 7 dia(s) úteis R$72,85
         </label>
       </div>
 
-      <hr>
+       <hr>
       <span>
-        Subtotal R$ 150,00
+        Subtotal R$ {{total | number : '1.2-2'}}
       </span>
+      -->
+
+
+     
 
       <hr>
 
-      <span>
-        Total do pedido R$200,00
+      <span style="font-size: 25px">
+        Total do pedido R$ {{total | number : '1.2-2'}}
       </span>
       <br>
 
-      <div>
-        <button class="btn-finished" type="button">FINALIZAR PEDIDO</button>
+      <div class="mt-2">
+        <a [routerLink]="[ '/finalizar-pedido' ]" class="btn-finished btn">FINALIZAR PEDIDO</a>
       </div>
 
     </div><!-- Column 2 end -->

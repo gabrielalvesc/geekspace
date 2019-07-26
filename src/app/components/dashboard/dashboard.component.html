@@ -5,10 +5,13 @@
     <div class="border-right" id="sidebar-wrapper">
       <div class="sidebar-heading" style="border-bottom: 1px solid #c1c1c1;"><a [routerLink]="['/']" routerLinkActive="router-link-active" >MINHA CONTA</a></div>
       <div class="list-group list-group-flush">
-        <a href="#" [routerLink]="[ 'meus-pedidos' ]" class="list-group-item list-group-item-action"><i class="fas fa-gift"></i>Meus pedidos</a>
-        <a href="#" [routerLink]="[ 'meus-favoritos' ]" class="list-group-item list-group-item-action"><i class="fas fa-heart"></i>Meus favoritos</a>
-        <a href="#" [routerLink]="[ 'novo-produto' ]" class="list-group-item list-group-item-action"><i class="fas fa-gift"></i>Novo produto</a>
-        <a href="#" class="list-group-item list-group-item-action"><i class="fas fa-sign-out-alt"></i>Sair</a>
+        <a *ngIf="!isAdmin" href="#" [routerLink]="[ 'meus-pedidos' ]" class="list-group-item list-group-item-action"><i class="fas fa-gift"></i>Meus pedidos</a>
+        <a *ngIf="!isAdmin" href="#" [routerLink]="[ 'meus-favoritos' ]" class="list-group-item list-group-item-action"><i class="fas fa-heart"></i>Meus favoritos</a>
+        
+        <a *ngIf="isAdmin" href="#" [routerLink]="[ '/' ]" class="list-group-item list-group-item-action"><i class="fas fa-gift"></i>Minhas vendas</a>
+        <a *ngIf="isAdmin" href="#" [routerLink]="[ 'novo-produto' ]" class="list-group-item list-group-item-action"><i class="fas fa-gift"></i>Novo produto</a>
+        
+        <a (click)="logout()" [routerLink]="[ '/' ]" class="list-group-item list-group-item-action"><i class="fas fa-sign-out-alt"></i>Sair</a>
       </div>
     </div>
     <!-- /#sidebar-wrapper -->
