@@ -55,7 +55,7 @@ export class FormProductComponent implements OnInit {
   onSubmit(f:any){
     let user = this.userService.getByEmail(this.authService.getUser())
     let store = new Store(user, new Array<Product>())
-    var product = new Product(f.name,f.description,f.specification,f.price,"",f.color,f.quantity,f.picture, store, 1000);
+    var product = new Product(f.name,f.description,f.specification,f.price,"",f.color,f.quantity,f.picture, this.tipo, store);
     this.productService.addProduct(product)
     console.log(this.productService.getProducts.toString)
   }

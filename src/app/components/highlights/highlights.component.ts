@@ -17,7 +17,7 @@ export class HighlightsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // this.getProducts();
+    console.log(this.products)
   }
 
   get products(): Product[] {
