@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { User } from 'src/app/models/user.model';
 import { Cart } from 'src/app/models/cart.model';
 import { Product } from 'src/app/models/product.model';
+import { Sale } from 'src/app/models/sale.model';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -18,7 +20,7 @@ export class RegisterComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private userService: UserService,
-    private router: Router,
+    private authService: AuthService,
    
   ) { }
 
@@ -33,8 +35,9 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(f: any){
-    let user = new User(f.email, f.password, f.name, f.lastName, "cliente", new Array<Cart>(), new Array<Product>())
+    let user = new User(f.email, f.password, f.name, f.lastName, "cliente", new Array<Cart>(), new Array<Product>(), new Array<Sale>())
     this.userService.addUser(user);
+    this.authService.login(user.email, user.password)
   }
 
 }

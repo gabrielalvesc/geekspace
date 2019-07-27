@@ -28,6 +28,9 @@ import { AuthGuard } from './security/auth.guard';
 import { FinishComponent } from './components/finish/finish.component';
 import { HomeComponent } from './home/home.component';
 import { ConfirmationComponent } from './components/confirmation/confirmation.component';
+import { UserService } from './services/user.service';
+import { AuthService } from './services/auth.service';
+import { SaleService } from './services/sale.service';
 
 
 
@@ -74,6 +77,10 @@ import { ConfirmationComponent } from './components/confirmation/confirmation.co
     ShoppingCartService,
     RequestsService,
     FavoritesService,
+    UserService,
+    AuthService,
+    ShoppingCartService,
+    SaleService,
     AuthGuard
   ],
   bootstrap: [AppComponent]

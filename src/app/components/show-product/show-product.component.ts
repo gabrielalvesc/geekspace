@@ -34,7 +34,7 @@ export class ShowProductComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.route.params
-      .pipe(switchMap((params: Params) => this.loadBook(+params['id']))).subscribe(res => {
+      .pipe(switchMap((params: Params) => this.loadProduct(+params['id']))).subscribe(res => {
         this.product = res;
       })
   }
@@ -43,23 +43,27 @@ export class ShowProductComponent implements OnInit, AfterViewInit {
     // this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = '#F5F5F5';
   }
 
-  loadBook(id: number): Promise<Product> {
+  loadProduct(id: number): Promise<Product> {
     return new Promise((resolve) => resolve(this.productService.getById(id)));
   }
 
   less(){
     if (this.quantity == 1) {
       this.quantity = 1;
+      this.setQuantity();
     } else {
       this.quantity--;
+      this.setQuantity();
     }
   }
 
   more() {
     if(this.quantity == this.product.stock) {
       this.quantity = this.product.stock
+      this.setQuantity();
     } else {
       this.quantity++;
+      this.setQuantity();
     }
   }
 
@@ -85,6 +89,16 @@ export class ShowProductComponent implements OnInit, AfterViewInit {
     let item = new Cart(this.product, this.quantity, this.product.price * this.quantity);
     this.cartService.addItem(item);
     this.router.navigate(['/carrinho'])
+  }
+
+  buy() {
+    let item = new Cart(this.product, this.quantity, this.product.price * this.quantity);
+    this.cartService.addItem(item);
+    this.router.navigate(['/finalizar-pedido'])
+  }
+
+  setQuantity(){
+    this.cartService.setQuantity(this.product.idProduct, this.quantity);
   }
 
 }

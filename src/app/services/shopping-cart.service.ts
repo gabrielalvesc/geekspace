@@ -13,25 +13,6 @@ import { Client } from '../models/client.model';
 })
 export class ShoppingCartService {
 
-  store: Store = new Store(new User("admin@geek.com", "geek123", "Admin", "", "admin", new Array<Cart>(), new Array<Product>(), 1), new Array<Product>());
-
-  product1 = new Product(
-    "Camisa Star Wars",
-    "Camisa Stars wars edition limited",
-    "100% algodão",
-    99.99,
-    "M",
-    "Black",
-    10,
-    "https://static.simplo7.net/static/9783/sku/presentes-dia-dos-pais-camiseta-dia-dos-pais-star-wars-darth-vader-e-luke-1500494040519.jpg",
-    this.store,
-    14
-  )
-  
-  // TESTE CARRINHO
-  item = new Cart(this.product1, 1, this.product1.price * 1)
-  // item2 = new Cart(this.product3, 1, this.product3.price * 1)
-
   items: Cart[] = [
     
   ];

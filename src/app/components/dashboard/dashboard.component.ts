@@ -31,7 +31,7 @@ export class DashboardComponent implements OnInit {
     let email:string = this.authService.getUser();
     if(email != null) {
       let user:User = this.userService.getByEmail(email);
-      console.log("Role: "+user.role)
+      console.log("Role: "+user)
       if (user.role == "admin") {
         this.isAdmin = true;
       } else {

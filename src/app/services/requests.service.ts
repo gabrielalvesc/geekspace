@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ResquestModel } from '../models/request.model';
+import { Router } from '@angular/router';
+import { Toast, ToastrService } from 'ngx-toastr';
 
 
 @Injectable({
@@ -13,14 +15,34 @@ export class RequestsService {
   ]
 
   constructor(
-    private http: HttpClient
+    private router: Router,
+    private toastr: ToastrService
   ) { }
 
   getRequests() {
     return this.requests;
   }
 
+  getRequestByUser(email:string): ResquestModel[] {
+    let requests = new Array<ResquestModel>();
+    
+    this.requests.forEach(e => {
+      if (e.userEmail == email) {
+        requests.push(e);
+      }
+    });
+    
+    return  requests
+  }
+
   addRequest(request:ResquestModel) {
+    let before:number = this.requests.length;
     this.requests.push(request);
+    let after:number = this.requests.length;
+    if(after > before) {
+      this.router.navigate(['/confirmacao'])
+    } else {
+      this.toastr.error('Não foi possível realizar sua compra, entre em contato conosco', 'Compra não realizada')
+    }
   }
 }
