@@ -1,26 +1,71 @@
 <div align="center" class="mt-5 mb-5">
   <h1>Cadastre-se</h1>
 </div>
-<form [formGroup]="formRegister">
+<form [formGroup]="formRegister" (ngSubmit)="onSubmit(formRegister.value)">
   <div class="row">
     <div class="form-group col-md-6 mb-5">
       <label class="textcolor" for="name">Nome</label>
-      <input formControlName="name" name="name" type="text" class="form-control" id="name" required>
+      <input formControlName="name" name="name" type="text" class="form-control is-invalid"
+        [class.is-invalid]="formRegister.controls['name'].invalid && (formRegister.controls['name'].dirty || formRegister.controls['name'].touched)"
+        [class.is-valid]="!formRegister.controls['name'].invalid && (formRegister.controls['name'].dirty || formRegister.controls['name'].touched)"
+        id="name" required autocomplete="off">
+      <div
+        *ngIf="formRegister.controls['name'].invalid && (formRegister.controls['name'].dirty || formRegister.controls['name'].touched)">
+        <div *ngIf="formRegister.controls['name'].errors.required" style="color:red">
+          Campo obrigatório
+        </div>
+      </div>
     </div>
+
     <div class="form-group col-md-6 mb-5">
       <label class="textcolor" for="lastname">Sobrenome</label>
-      <input formControlName="lastName" name="lastname" type="text" class="form-control" id="lastname" required>
+      <input formControlName="lastName" name="lastname" type="text" class="form-control is-invalid"
+        [class.is-invalid]="formRegister.controls['lastName'].invalid && (formRegister.controls['lastName'].dirty || formRegister.controls['lastName'].touched)"
+        [class.is-valid]="!formRegister.controls['lastName'].invalid && (formRegister.controls['lastName'].dirty || formRegister.controls['lastName'].touched)"
+        id="lastname" required autocomplete="off">
+      <div
+        *ngIf="formRegister.controls['lastName'].invalid && (formRegister.controls['lastName'].dirty || formRegister.controls['lastName'].touched)">
+        <div *ngIf="formRegister.controls['lastName'].errors.required" style="color:red">
+          Campo obrigatório
+        </div>
+      </div>
     </div>
   </div>
 
   <div class="row">
     <div class="form-group col-md-6">
       <label class="textcolor" for="email">E-mail</label>
-      <input formControlName="email" name="email" type="email" class="form-control" id="email" required>
+      <input formControlName="email" name="email" type="email" class="form-control is-invalid"
+        [class.is-invalid]="formRegister.controls['email'].invalid && (formRegister.controls['email'].dirty || formRegister.controls['email'].touched)"
+        [class.is-valid]="!formRegister.controls['email'].invalid && (formRegister.controls['email'].dirty || formRegister.controls['email'].touched)"
+        id="email" email required autocomplete="off">
+      <div
+        *ngIf="formRegister.controls['email'].invalid && (formRegister.controls['email'].dirty || formRegister.controls['email'].touched)">
+        <div *ngIf="formRegister.controls['email'].errors.email " style="color: red">
+          Email inválido
+        </div>
+        <div *ngIf="formRegister.controls['email'].errors.required" style="color:red">
+          Campo obrigatório
+        </div>
+      </div>
     </div>
+
     <div class="form-group col-md-6">
       <label class="textcolor" for="password">Senha</label>
-      <input formControlName="password" name="password" type="password" class="form-control" id="password" required>
+      <input formControlName="password" name="password" type="password" class="form-control is-invalid"
+        [class.is-invalid]="formRegister.controls['password'].invalid && (formRegister.controls['password'].dirty || formRegister.controls['password'].touched)"
+        [class.is-valid]="!formRegister.controls['password'].invalid && (formRegister.controls['password'].dirty || formRegister.controls['password'].touched)"
+        id="password" required minlength="8">
+      <div
+        *ngIf="formRegister.controls['password'].invalid && (formRegister.controls['password'].dirty || formRegister.controls['password'].touched)">
+        <div *ngIf="formRegister.controls['password'].errors.minlength" style="color: red">
+          Minímo 8 caracteres
+        </div>
+        <div *ngIf="formRegister.controls['password'].errors.required" style="color:red">
+          Campo obrigatório
+        </div>
+      </div>
+
     </div>
   </div>
   <div class="row">
@@ -31,9 +76,9 @@
     <div class="form-group col-md-6" *ngIf="show">
       <label class="textcolor" for="cnpj">CNPJ</label>
       <input name="cnpj" type="text" class="form-control" id="cnpj" required>
-    </div>  
+    </div>
   </div>
   <br>
-  <button class="btn btn-submited" type="submit" (click)="onSubmit(formRegister.value)">Pronto</button>
+  <button class="btn btn-submited" type="submit" (click)="onSubmit(formRegister.value)" [disabled]="!formRegister.valid">Pronto</button>
 
 </form>
