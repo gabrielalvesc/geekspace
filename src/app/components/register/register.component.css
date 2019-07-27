@@ -12,6 +12,8 @@ input{
     border-radius: 5px 5px 5px 5px;
     width: 120px;
     height: 35px; 
+    
+    margin-top: 20px;
     float: left;
     
 }
