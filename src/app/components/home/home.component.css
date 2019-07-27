@@ -4,7 +4,7 @@
 
 /*=== Background ===*/
 section{
-    background-image: url('../../assets/images/fundo.png');
+    background-image: url('../../../assets/images/fundo.png');
     background-attachment: fixed;
     overflow: hidden;
     background-repeat: repeat;
