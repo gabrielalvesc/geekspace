@@ -31,6 +31,7 @@ import { ConfirmationComponent } from './components/confirmation/confirmation.co
 import { UserService } from './services/user.service';
 import { AuthService } from './services/auth.service';
 import { SaleService } from './services/sale.service';
+import { AdminGuard } from './security/admin.guard';
 
 
 
@@ -81,7 +82,8 @@ import { SaleService } from './services/sale.service';
     AuthService,
     ShoppingCartService,
     SaleService,
-    AuthGuard
+    AuthGuard,
+    AdminGuard
   ],
   bootstrap: [AppComponent]
 })

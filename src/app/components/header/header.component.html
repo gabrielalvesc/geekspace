@@ -29,8 +29,8 @@
 
       <div class="collapse navbar-collapse w-50 justify-content-end" id="navbarNav">
 
-        <a  [routerLink]="['/dashboard/meus-pedidos']" class="myacc-text" >MINHA CONTA</a>
-        <!-- <a *ngIf="!isLoggedIn" [routerLink]="['/conta']" class="myacc-text" >MINHA CONTA</a> -->
+        <a *ngIf="role != 'admin'" [routerLink]="['/dashboard/meus-pedidos']" class="myacc-text" >MINHA CONTA</a>
+        <a *ngIf="role == 'admin'" [routerLink]="['/dashboard/novo-produto']" class="myacc-text" >MINHA CONTA</a>
 
         <hr>
 
