@@ -9,6 +9,8 @@ import { AuthService } from './auth.service';
 import { User } from '../models/user.model';
 import { Cart } from '../models/cart.model';
 import { Sale } from '../models/sale.model';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 
 
@@ -29,6 +31,7 @@ export class ProductService {
     "Black",
     10,
     "https://static.simplo7.net/static/9783/sku/presentes-dia-dos-pais-camiseta-dia-dos-pais-star-wars-darth-vader-e-luke-1500494040519.jpg",
+    "camisa",
     this.store,
     14
   )
@@ -42,6 +45,7 @@ export class ProductService {
     "Branca",
     10,
     "https://cdn.awsli.com.br/400x400/510/510818/produto/2319915702db0aff56.jpg",
+    "caneca",
     this.store,
     2
   )
@@ -55,6 +59,7 @@ export class ProductService {
     "",
     15,
     "https://images-americanas.b2w.io/produtos/01/00/oferta/52254/2/52254264_1GG.jpg",
+    "action-figure",
     this.store,
     4
   )
@@ -68,16 +73,17 @@ export class ProductService {
     "",
     15,
     "http://www.ateliedepapelarroz.com.br/imagem/index/15455547/G/game_of_throne1.jpg",
+    "sticker",
     this.store,
     5
   )
 
   products: Product[] = [this.product1, this.product2, this.product3, this.product4];
+  id: number = 1000;
 
   constructor(
-    private http: HttpClient,
-    private userService: UserService,
-    private authService: AuthService
+    private toastr: ToastrService,
+    private router: Router
   ) {
    }
 
@@ -91,7 +97,17 @@ export class ProductService {
   }
 
   addProduct(product:Product){
+    let before = this.products.length
+    product.idProduct = this.id
     this.products.push(product)
+    this.id++;
+    let after = this.products.length
+    if (after > before) {
+      this.toastr.info("Seu produto foi anunciando com sucesso", "Produto anunciado")
+      this.router.navigate(['novo-produto'])
+    } else {
+      this.toastr.error('Não foi possível anunciar este produto', 'Erro')
+    }
   }
 
 }
