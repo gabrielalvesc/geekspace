@@ -37,6 +37,9 @@ export class UserService {
     return this.users.filter(todo => todo.email === email).pop()
   }
 
-
+  getRole(email: string){
+    let user:User = this.getByEmail(email);
+    return user.role
+  }
 }
 

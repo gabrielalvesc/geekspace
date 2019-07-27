@@ -13,6 +13,7 @@ import { AuthGuard } from './security/auth.guard';
 import { FinishComponent } from './components/finish/finish.component';
 import { HomeComponent } from './home/home.component';
 import { ConfirmationComponent } from './components/confirmation/confirmation.component';
+import { AdminGuard } from './security/admin.guard';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -23,7 +24,7 @@ const routes: Routes = [
   children: [
     {path: 'meus-pedidos', component: RequestsComponent},
     {path: 'meus-favoritos', component: FavoritesComponent},
-    {path: 'novo-produto', component: NewProductComponent}
+    {path: 'novo-produto', component: NewProductComponent, canActivate:[AdminGuard]}
   ]},
   {path: 'finalizar-pedido', component: FinishComponent, canActivate: [AuthGuard]},
   {path: 'confirmacao', component: ConfirmationComponent, canActivate:[AuthGuard]}
