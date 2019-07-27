@@ -4,10 +4,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
-
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
+
 import { HighlightsComponent } from './components/highlights/highlights.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { ProductService } from './services/product.service';
@@ -26,15 +26,12 @@ import { AccountComponent } from './components/account/account.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthGuard } from './security/auth.guard';
 import { FinishComponent } from './components/finish/finish.component';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './components/home/home.component';
 import { ConfirmationComponent } from './components/confirmation/confirmation.component';
 import { UserService } from './services/user.service';
 import { AuthService } from './services/auth.service';
 import { SaleService } from './services/sale.service';
 import { AdminGuard } from './security/admin.guard';
-
-
-
 
 @NgModule({
   declarations: [
@@ -65,7 +62,7 @@ import { AdminGuard } from './security/admin.guard';
     BrowserAnimationsModule,
     NgbModule,
     ToastrModule.forRoot({
-      timeOut: 5000,
+      timeOut: 4000,
       positionClass: 'toast-bottom-full-width',
       preventDuplicates: true,
       progressBar: true,

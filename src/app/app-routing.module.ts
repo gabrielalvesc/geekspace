@@ -1,17 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HighlightsComponent } from './components/highlights/highlights.component';
+
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';  
 import { RequestsComponent } from './components/requests/requests.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { FavoritesComponent } from './components/favorites/favorites.component';
 import { ShowProductComponent } from './components/show-product/show-product.component';
 import { NewProductComponent } from './components/new-product/new-product.component';
-import { LoginComponent } from './components/login/login.component';
 import { AccountComponent } from './components/account/account.component';
 import { AuthGuard } from './security/auth.guard';
 import { FinishComponent } from './components/finish/finish.component';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './components/home/home.component';
 import { ConfirmationComponent } from './components/confirmation/confirmation.component';
 import { AdminGuard } from './security/admin.guard';
 
