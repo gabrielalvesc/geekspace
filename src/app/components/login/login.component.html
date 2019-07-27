@@ -3,16 +3,40 @@
 </div>
 <form [formGroup]="formLogin" (ngSubmit)="onSubmit(formLogin.value)">
 
-  <div class="form-group col-8 mb-5">
+  <div class="form-group col-md-8 mb-5">
     <label class="textcolor" for="email">E-mail</label>
-    <input formControlName="email" name="email" type="email" class="form-control" id="senha" required>
+    <input formControlName="email" name="email" type="email" class="form-control is-invalid" 
+    [class.is-invalid]="formLogin.controls['email'].invalid && (formLogin.controls['email'].dirty || formLogin.controls['email'].touched)"
+    [class.is-valid]="!formLogin.controls['email'].invalid && (formLogin.controls['email'].dirty || formLogin.controls['email'].touched)"
+    id="senha" required>
+
+    <div *ngIf="formLogin.controls['email'].invalid && (formLogin.controls['email'].dirty || formLogin.controls['email'].touched)">
+      <div *ngIf="formLogin.controls['email'].errors.email " style="color: #ffd933">
+        Email inválido
+      </div>
+      <div *ngIf="formLogin.controls['email'].errors.required" style="color:#ffd933">
+        Campo obrigatório
+      </div>
+    </div>
   </div>
 
   <div class="form-group col-md-8">
     <label class="textcolor" for="password">Senha</label>
-    <input formControlName="password" name="password" type="password" class="form-control" id="password" required>
+    <input formControlName="password" name="password" type="password" class="form-control is-invalid" 
+    [class.is-invalid]="formLogin.controls['password'].invalid && (formLogin.controls['password'].dirty || formLogin.controls['password'].touched)"
+    [class.is-valid]="!formLogin.controls['password'].invalid && (formLogin.controls['password'].dirty || formLogin.controls['password'].touched)"
+    id="password" required>
+    <div *ngIf="formLogin.controls['password'].invalid && (formLogin.controls['password'].dirty || formLogin.controls['password'].touched)">
+      <div *ngIf="formLogin.controls['password'].errors.password " style="color: #ffd933">
+        Senha inválida
+      </div>
+      <div *ngIf="formLogin.controls['password'].errors.required" style="color:#ffd933">
+        Campo obrigatório
+      </div>
+    </div>
   </div>
+  
 
-  <button class="btn btn-submited" type="submit">Entrar</button>
+  <button (click)="onSubmit(formLogin.value)" [disabled]="!formLogin.valid"  class="btn btn-submited" type="submit">Entrar</button>
 
 </form>
