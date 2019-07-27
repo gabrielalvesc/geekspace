@@ -3,7 +3,7 @@
 </div>
 <form [formGroup]="formLogin" (ngSubmit)="onSubmit(formLogin.value)">
 
-  <div class="form-group col-md-8 mb-5">
+  <div class="form-group col-md-12 mb-5">
     <label class="textcolor" for="email">E-mail</label>
     <input formControlName="email" name="email" type="email" class="form-control is-invalid"
       [class.is-invalid]="formLogin.controls['email'].invalid && (formLogin.controls['email'].dirty || formLogin.controls['email'].touched)"
@@ -21,7 +21,7 @@
     </div>
   </div>
 
-  <div class="form-group col-md-8">
+  <div class="form-group col-md-12">
     <label class="textcolor" for="password">Senha</label>
     <input formControlName="password" name="password" type="password" class="form-control is-invalid"
       [class.is-invalid]="formLogin.controls['password'].invalid && (formLogin.controls['password'].dirty || formLogin.controls['password'].touched)"
@@ -39,7 +39,6 @@
   </div>
 
 
-  <button (click)="onSubmit(formLogin.value)" [disabled]="!formLogin.valid" class="btn btn-submited"
-    type="submit">Entrar</button>
+  <button (click)="onSubmit(formLogin.value)" [disabled]="!formLogin.valid" class="btn btn-submited" type="submit">Entrar</button>
 
 </form>
