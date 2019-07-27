@@ -3,7 +3,8 @@ import { User } from '../models/user.model';
 import { ToastrService } from 'ngx-toastr';
 import { Cart } from '../models/cart.model';
 import { Product } from '../models/product.model';
-import { Store } from '../models/store.model';
+import { Sale } from '../models/sale.model';
+
 
 @Injectable({
   providedIn: 'root'
@@ -11,13 +12,13 @@ import { Store } from '../models/store.model';
 export class UserService {
 
   users: User[] = [
-    new User("admin@geek.com", "admin123", "Admin", "Geek", "admin", new Array<Cart>(), new Array<Product>()),
-    new User("rvillar@gmail.com", "rvillar123", "Rodrigo", "Villar", "Cliente", new Array<Cart>(), new Array<Product>(), 2)
+    new User("admin@geek.com", "admin123", "Admin", "Geek", "admin", new Array<Cart>(), new Array<Product>(), new Array<Sale>()),
+    new User("rvillar@gmail.com", "rvillar123", "Rodrigo", "Villar", "Cliente", new Array<Cart>(), new Array<Product>(), new Array<Sale>(),2)
   ];
   id: number = 500;
 
   constructor(
-    private toastr: ToastrService 
+    private toastr: ToastrService,
   ) { }
 
   addUser(user: User){

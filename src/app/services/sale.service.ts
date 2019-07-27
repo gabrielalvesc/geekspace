@@ -25,8 +25,8 @@ export class SaleService {
     this.sales.push(sale)
     let b:number = this.sales.length;
     if (b > a) {
-      // let user:User = this.userService.getByEmail(sale.user.email);
-      // user.favorites
+      let user:User = this.userService.getByEmail(sale.user.email);
+      user.sales.push(sale)
       this.router.navigate(['/confirmacao']);
     } else {
       this.toastr.error('Não foi possível realizar sua compra, entre em contato conosco', 'Compra não realizada')
@@ -34,6 +34,8 @@ export class SaleService {
   }
 
   getSales() {
-    return this.sales
+    return JSON.stringify(this.sales);
   }
+
+  
 }

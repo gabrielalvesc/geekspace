@@ -5,5 +5,6 @@ export class ResquestModel {
         public product: Product,
         public quantity: number,
         public subTotal: number,
+        public userEmail: string
     ) {}
 }

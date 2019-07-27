@@ -17,8 +17,8 @@ export class FavoritesService {
     private authService: AuthService,
     private userService: UserService
   ) {
-    let user:User = this.userService.getByEmail(this.authService.getUser())
-    this.favorites = user.favorites
+    // let user:User = this.userService.getByEmail(this.authService.getUser())
+    // this.favorites = user.favorites
    }
 
   getFavorites() {

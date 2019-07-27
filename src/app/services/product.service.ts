@@ -8,6 +8,7 @@ import { UserService } from './user.service';
 import { AuthService } from './auth.service';
 import { User } from '../models/user.model';
 import { Cart } from '../models/cart.model';
+import { Sale } from '../models/sale.model';
 
 
 
@@ -17,7 +18,7 @@ import { Cart } from '../models/cart.model';
 export class ProductService {
 
   
-  store: Store = new Store(new User("admin@geek.com", "admin123", "Admin", "Geek", "admin", new Array<Cart>(), new Array<Product>(), 1), new Array<Product>());
+  store: Store = new Store(new User("admin@geek.com", "admin123", "Admin", "Geek", "admin", new Array<Cart>(), new Array<Product>(), new Array<Sale>(), 1), new Array<Product>());
   
   product1 = new Product(
     "Camisa Star Wars",

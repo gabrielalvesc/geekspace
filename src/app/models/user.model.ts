@@ -1,5 +1,6 @@
 import { Cart } from './cart.model';
 import { Product } from './product.model';
+import { Sale } from './sale.model';
 
 export class User{
     constructor(
@@ -10,6 +11,7 @@ export class User{
         public role: string,
         public cartItems: Cart[],
         public favorites: Product[],
+        public sales: Sale[],
         public idUser?: number, 
     ){}
 }

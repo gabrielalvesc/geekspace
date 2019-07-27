@@ -9,5 +9,7 @@ export class Sale {
         public items: Cart[],
         public payment: string,
         public address: Address
-    ) {}
+    ) {
+        
+    }
 }

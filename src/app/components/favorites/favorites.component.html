@@ -10,8 +10,6 @@
   <app-form-product [tipo]="productForm"></app-form-product>
 </div> -->
 
-<button (click)="add()" class="mb-2">Add</button>
-
 <ng-container *ngIf="favorites.length == 0; else listTemplate">
   <div class="col-md-8 col-sm-12 offset-md-2">
     <div class="alert alert-warning text-center" role="alert">

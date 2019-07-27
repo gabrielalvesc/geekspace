@@ -9,6 +9,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Address } from 'src/app/models/address.model';
 import { Sale } from 'src/app/models/sale.model';
 import { SaleService } from 'src/app/services/sale.service';
+import { ResquestModel } from 'src/app/models/request.model';
+import { RequestsService } from 'src/app/services/requests.service';
 
 @Component({
   selector: 'app-finish',
@@ -27,7 +29,8 @@ export class FinishComponent implements OnInit {
     private userService: UserService,
     private authService: AuthService,
     private formBuilder: FormBuilder,
-    private saleService: SaleService
+    private saleService: SaleService,
+    private requestService: RequestsService
   ) {
     this.total = this.cartService.total();
     this.user = this.userService.getByEmail(this.authService.getUser())
@@ -60,10 +63,17 @@ export class FinishComponent implements OnInit {
   }
 
   onSubmit(f:any){
-    let user: User = this.userService.getByEmail(this.authService.getUser());
-    let address: Address = new Address(f.cep, f.street, f.city, f.state, f.number, f.neighborhood, f.complement);
-    let sale: Sale = new Sale(f.cpf, user, this.itens, "boleto", address);
-    this.saleService.newSale(sale);
+    // let user: User = this.userService.getByEmail(this.authService.getUser());
+    // let address: Address = new Address(f.cep, f.street, f.city, f.state, f.number, f.neighborhood, f.complement);
+    // let sale: Sale = new Sale(f.cpf, user, this.itens, "boleto", address);
+    // this.user.sales.push(sale);
+    this.itens.forEach(e => {
+      let request = new ResquestModel(e.product, e.quantity, e.subTotal, this.user.email)
+      this.requestService.addRequest(request);
+    });
+    // this.saleService.newSale(sale);
+
+    
   }
 
 
