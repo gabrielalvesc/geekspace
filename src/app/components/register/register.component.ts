@@ -21,23 +21,24 @@ export class RegisterComponent implements OnInit {
     private formBuilder: FormBuilder,
     private userService: UserService,
     private authService: AuthService,
-   
+
   ) { }
 
   ngOnInit() {
-    this.formRegister=this.formBuilder.group({
-      name: ["",Validators.required],
-      lastName: ["",Validators.required],
-      email: ["",Validators.required],
-      password:["",Validators.required],
+    this.formRegister = this.formBuilder.group({
+      name: ['', Validators.required],
+      lastName: ['', Validators.required],
+      email: ['', Validators.required],
+      password: ['', Validators.required],
 
-    })
+    });
   }
 
-  onSubmit(f: any){
-    let user = new User(f.email, f.password, f.name, f.lastName, "cliente", new Array<Cart>(), new Array<Product>(), new Array<Sale>())
+  onSubmit(f: any) {
+    // tslint:disable-next-line: prefer-const
+    let user = new User(f.email, f.password, f.name, f.lastName, 'cliente', new Array<Cart>(), new Array<Product>(), new Array<Sale>());
     this.userService.addUser(user);
-    this.authService.login(user.email, user.password)
+    this.authService.login(user.email, user.password);
   }
 
 }

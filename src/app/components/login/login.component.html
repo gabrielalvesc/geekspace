@@ -5,16 +5,17 @@
 
   <div class="form-group col-md-8 mb-5">
     <label class="textcolor" for="email">E-mail</label>
-    <input formControlName="email" name="email" type="email" class="form-control is-invalid" 
-    [class.is-invalid]="formLogin.controls['email'].invalid && (formLogin.controls['email'].dirty || formLogin.controls['email'].touched)"
-    [class.is-valid]="!formLogin.controls['email'].invalid && (formLogin.controls['email'].dirty || formLogin.controls['email'].touched)"
-    id="senha" required>
+    <input formControlName="email" name="email" type="email" class="form-control is-invalid"
+      [class.is-invalid]="formLogin.controls['email'].invalid && (formLogin.controls['email'].dirty || formLogin.controls['email'].touched)"
+      [class.is-valid]="!formLogin.controls['email'].invalid && (formLogin.controls['email'].dirty || formLogin.controls['email'].touched)"
+      id="senha" email required>
 
-    <div *ngIf="formLogin.controls['email'].invalid && (formLogin.controls['email'].dirty || formLogin.controls['email'].touched)">
-      <div *ngIf="formLogin.controls['email'].errors.email " style="color: #ffd933">
+    <div
+      *ngIf="formLogin.controls['email'].invalid && (formLogin.controls['email'].dirty || formLogin.controls['email'].touched)">
+      <div *ngIf="formLogin.controls['email'].errors.email " style="color: red">
         Email inválido
       </div>
-      <div *ngIf="formLogin.controls['email'].errors.required" style="color:#ffd933">
+      <div *ngIf="formLogin.controls['email'].errors.required" style="color:red">
         Campo obrigatório
       </div>
     </div>
@@ -22,21 +23,23 @@
 
   <div class="form-group col-md-8">
     <label class="textcolor" for="password">Senha</label>
-    <input formControlName="password" name="password" type="password" class="form-control is-invalid" 
-    [class.is-invalid]="formLogin.controls['password'].invalid && (formLogin.controls['password'].dirty || formLogin.controls['password'].touched)"
-    [class.is-valid]="!formLogin.controls['password'].invalid && (formLogin.controls['password'].dirty || formLogin.controls['password'].touched)"
-    id="password" required>
-    <div *ngIf="formLogin.controls['password'].invalid && (formLogin.controls['password'].dirty || formLogin.controls['password'].touched)">
-      <div *ngIf="formLogin.controls['password'].errors.password " style="color: #ffd933">
-        Senha inválida
+    <input formControlName="password" name="password" type="password" class="form-control is-invalid"
+      [class.is-invalid]="formLogin.controls['password'].invalid && (formLogin.controls['password'].dirty || formLogin.controls['password'].touched)"
+      [class.is-valid]="!formLogin.controls['password'].invalid && (formLogin.controls['password'].dirty || formLogin.controls['password'].touched)"
+      id="password" required minlength="8">
+    <div
+      *ngIf="formLogin.controls['password'].invalid && (formLogin.controls['password'].dirty || formLogin.controls['password'].touched)">
+      <div *ngIf="formLogin.controls['password'].errors.minlength " style="color: red">
+        Minímo 8 caracteres
       </div>
-      <div *ngIf="formLogin.controls['password'].errors.required" style="color:#ffd933">
+      <div *ngIf="formLogin.controls['password'].errors.required" style="color: red">
         Campo obrigatório
       </div>
     </div>
   </div>
-  
 
-  <button (click)="onSubmit(formLogin.value)" [disabled]="!formLogin.valid"  class="btn btn-submited" type="submit">Entrar</button>
+
+  <button (click)="onSubmit(formLogin.value)" [disabled]="!formLogin.valid" class="btn btn-submited"
+    type="submit">Entrar</button>
 
 </form>

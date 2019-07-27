@@ -17,7 +17,7 @@ input{
     height: 35px; 
     margin-left: 10px;
     margin-top: 20px;
-    
+    float: left;
 }
 
 .textcolor{
