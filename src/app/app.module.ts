@@ -35,6 +35,7 @@ import { UserService } from './services/user.service';
 import { AuthService } from './services/auth.service';
 import { SaleService } from './services/sale.service';
 import { AdminGuard } from './security/admin.guard';
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { AdminGuard } from './security/admin.guard';
     RegisterComponent,
     FinishComponent,
     HomeComponent,
-    ConfirmationComponent
+    ConfirmationComponent,
+    AboutComponent
 
   ],
   imports: [
