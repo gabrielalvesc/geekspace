@@ -13,12 +13,14 @@ import { FinishComponent } from './components/finish/finish.component';
 import { HomeComponent } from './components/home/home.component';
 import { ConfirmationComponent } from './components/confirmation/confirmation.component';
 import { AdminGuard } from './security/admin.guard';
+import { FiltroComponent } from './components/filtro/filtro.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'carrinho', component: ShoppingCartComponent},
   {path: 'produto/:id', component: ShowProductComponent},
   {path: 'conta', component: AccountComponent},
+  {path: 'produtos/:filtro', component:FiltroComponent},
   {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard],
   children: [
     {path: 'meus-pedidos', component: RequestsComponent},
