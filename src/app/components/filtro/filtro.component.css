@@ -1,0 +1,8 @@
+#filter {
+    font-family: Din;
+}
+
+#name a {
+    text-decoration: none;
+    color: #212529;
+}

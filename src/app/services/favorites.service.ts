@@ -4,20 +4,19 @@ import { User } from '../models/user.model';
 import { AuthService } from './auth.service';
 import { UserService } from './user.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FavoritesService {
 
-  favorites: Product[] = [
-
-  ]
+  favorites: Product[] = []
 
   constructor(
     private authService: AuthService,
-    private userService: UserService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router: Router
   ) {
     // let user:User = this.userService.getByEmail(this.authService.getUser())
     // this.favorites = user.favorites
@@ -28,9 +27,15 @@ export class FavoritesService {
   }
 
   addFavorite(product: Product) {
-    this.favorites.push(product);
-    let user:User = this.userService.getByEmail(this.authService.getUser())
-    user.favorites = this.favorites
+    if(this.authService.isLoggedIn()) {
+      this.favorites.push(product);
+      this.toastr.info('Esse produto foi adicionado na sua lista de favoritos', 'Adicionado aos favoritos')
+    } else {
+      this.router.navigate(['/conta'])
+    }
+    
+    // let user:User = this.userService.getByEmail(this.authService.getUser())
+    // user.favorites = this.favorites
   }
 
   removeFavorite(id:number) {

@@ -1,4 +1,63 @@
+<div class="container mt-5" id="filter">
+  <div class="row">
+    <div class="col-md-3 mb-5">    
+      
+      <div class="card shadow">
+        <div class="card-body">
+          <div class="container">
+            <div class="row">
+              <h2><strong>{{filter | uppercase}}</strong></h2>
+            </div>
+            <div class="row">
+              <span *ngIf="products.length == 0">Nenhum resultado.</span>
+              <span *ngIf="products.length == 1">1 resultado encontrado.</span>
+              <span *ngIf="products.length > 1">{{products.length}} resultados encontrados.</span>
+            </div>
+            <div class="row" style="margin-top: 20%">
+              <label for="types">Filtre por tipo:</label>
+              <select #type (change)="setType(type.value)" class="custom-select">
+                <option selected disabled>Escolha...</option>
+                <option value="camisa">Camisa</option>
+                <option value="caneca">Caneca</option>
+                <option value="action-figure">Action-Figure</option>
+                <option value="sticker">Sticker</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
 
-<p>
-  filtro works!
-</p>
+    </div>
+    <div class="col-md-8 offset-md-1" >
+      <div *ngIf="products.length == 0" class="alert alert-warning text-center" role="alert" style="font-size: 30px">
+        <i class="fas fa-exclamation-triangle"></i>
+        <span>
+          Não foi encontrado nenhum produto.
+        </span>
+      </div>
+
+      <div *ngFor="let product of products">
+        <div class="card shadow mb-2">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-3">
+                <a [routerLink]="[ '/produto', product.idProduct ]">
+                  <img src="{{product.picture}}" class="img-card" style="width: 100px; height: 120px">
+                </a>
+              </div>
+              <div class="col-md-6">
+                <div style="font-size: 30px" id="name"><a [routerLink]="[ '/produto', product.idProduct ]">{{product.name}}</a></div>
+                <div style="font-size: 30px">{{product.price | currency:'BRL':'symbol':'0.0-2':'pt'}} </div>
+                <span class="badge badge-success text-white">FRETE GRÁTIS</span>
+              </div>
+              <div class="col-md-3" >
+                <a class="float-right" (click)="addFavorite(product)"><i id="heart" placement="top" ngbTooltip="Adicionar aos favoritos"
+                    style="font-size: 30px; color: black;" class="far fa-heart"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
