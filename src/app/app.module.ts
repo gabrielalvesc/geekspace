@@ -35,7 +35,9 @@ import { UserService } from './services/user.service';
 import { AuthService } from './services/auth.service';
 import { SaleService } from './services/sale.service';
 import { AdminGuard } from './security/admin.guard';
+
 import { AboutComponent } from './components/about/about.component';
+import { FiltroComponent } from './components/filtro/filtro.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,8 @@ import { AboutComponent } from './components/about/about.component';
     FinishComponent,
     HomeComponent,
     ConfirmationComponent,
-    AboutComponent
+    AboutComponent,
+    FiltroComponent
 
   ],
   imports: [

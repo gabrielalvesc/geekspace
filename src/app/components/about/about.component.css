@@ -1,0 +1,17 @@
+#about{
+    font-family: Din;
+    margin-top: 5%;
+}
+
+#about .about {
+    border-bottom: 4px solid #222222;
+    
+}
+
+#title {
+    font-size: 140px
+}
+
+p {
+    font-size: 22px
+}

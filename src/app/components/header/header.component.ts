@@ -16,10 +16,17 @@ export class HeaderComponent implements OnInit {
     private authService: AuthService,
     private userService: UserService
   ) {
-    this.role = this.userService.getRole(this.authService.getUser());
+    
    }
 
   ngOnInit() {
+  }
+
+  getRole(){
+    this.role = this.userService.getRole(this.authService.getUser());
+    if(this.role == null) {
+      this.role = '';
+    }
   }
 
 }
