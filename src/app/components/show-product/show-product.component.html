@@ -13,7 +13,7 @@
           <a (click)="addFavorite()"><i id="heart" style="font-size: 30px; color: #FFD933" class="far fa-heart"></i></a>
         </div> 
       </div>
-      <div class="price">R$ {{product.price}}</div>
+      <div class="price">R$ {{product.price | currency:'BRL':'symbol':'0.0-2':'pt'}}</div>
       <div>
 
         <div>

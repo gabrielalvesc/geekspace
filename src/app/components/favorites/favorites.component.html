@@ -30,15 +30,15 @@
           </div>
           <div class="col-md-3">
             <div style="font-size: 30px">{{product.name}}</div>
-            <div style="font-size: 30px">R$ {{product.price}} </div>
+            <div style="font-size: 30px">R$ {{product.price | currency:'BRL':'symbol':'0.0-2':'pt'}} </div>
           </div>
           <div class="col-md-3">
-            <div style="font-size: 30px">{{product.store.name}}</div>
-            <div style="font-size: 20px">{{product.store.email}}</div>
+            <div style="font-size: 30px">GeekSpace</div>
+            <div style="font-size: 20px">contato@geekspace.com</div>
           </div>
-          <div class="col-md-4 mt-2 text-center">
+          <div class="col-md-4 mt-4">
             <a href="#" class="btn-favorite">MAIS DETALHES</a>
-            <!-- <a href="#" class="btn btn-danger">ACOMPANHAR PEDIDO</a> -->
+            <button (click)="remove(product.idProduct)" class="btn btn-link float-right" style="font-size: 25px">Remover</button>
           </div>
         </div>
       </div>

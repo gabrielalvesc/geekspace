@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
@@ -7,6 +7,9 @@ import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
+import localePt from '@angular/common/locales/pt';
+import { registerLocaleData } from '@angular/common';
+registerLocaleData(localePt);
 
 import { HighlightsComponent } from './components/highlights/highlights.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
@@ -80,7 +83,8 @@ import { AdminGuard } from './security/admin.guard';
     ShoppingCartService,
     SaleService,
     AuthGuard,
-    AdminGuard
+    AdminGuard,
+    { provide: LOCALE_ID, useValue: 'pt-BR'}
   ],
   bootstrap: [AppComponent]
 })
