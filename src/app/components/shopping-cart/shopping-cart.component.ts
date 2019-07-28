@@ -22,9 +22,6 @@ export class ShoppingCartComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    $(function () {
-      $('[data-toggle="tooltip"]').tooltip()
-    })
   }
 
   get items(): Cart[] {

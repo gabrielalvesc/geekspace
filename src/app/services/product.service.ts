@@ -110,4 +110,14 @@ export class ProductService {
     }
   }
 
+  getByFilter(filter: string):Product[]{
+    let lista: Product[] = [];
+    this.products.forEach(e => {
+      if (e.type == filter) {
+        lista.push(e);
+      }
+    });
+    return lista;
+  }
+
 }

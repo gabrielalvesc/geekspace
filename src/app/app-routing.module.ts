@@ -20,7 +20,7 @@ const routes: Routes = [
   {path: 'carrinho', component: ShoppingCartComponent},
   {path: 'produto/:id', component: ShowProductComponent},
   {path: 'conta', component: AccountComponent},
-  {path: 'produtos/:filtro', component:FiltroComponent},
+  {path: 'produtos/:filter', component:FiltroComponent},
   {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard],
   children: [
     {path: 'meus-pedidos', component: RequestsComponent},

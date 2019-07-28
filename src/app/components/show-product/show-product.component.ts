@@ -77,7 +77,6 @@ export class ShowProductComponent implements OnInit, AfterViewInit {
       heart.classList.add('fas');
       heart.classList.remove('far');
       this.favoriteService.addFavorite(this.product);
-      this.toastr.info('Esse produto foi adicionado na sua lista de favoritos', 'Adicionado aos favoritos')
     } else if (heart.classList.contains('fas')) {
       heart.classList.add('far');
       heart.classList.remove('fas');
