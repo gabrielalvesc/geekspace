@@ -25,4 +25,8 @@ export class FavoritesComponent implements OnInit {
     return this.favoritesService.getFavorites();
   }
 
+  remove(id:number) {
+    this.favoritesService.removeFavorite(id);
+  }
+
 }

@@ -3,6 +3,7 @@ import { Product } from '../models/product.model';
 import { User } from '../models/user.model';
 import { AuthService } from './auth.service';
 import { UserService } from './user.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,8 @@ export class FavoritesService {
 
   constructor(
     private authService: AuthService,
-    private userService: UserService
+    private userService: UserService,
+    private toastr: ToastrService
   ) {
     // let user:User = this.userService.getByEmail(this.authService.getUser())
     // this.favorites = user.favorites
@@ -32,11 +34,8 @@ export class FavoritesService {
   }
 
   removeFavorite(id:number) {
-    this.favorites.forEach(e => {
-      if (e.idProduct === id) {
-        var index = this.favorites.indexOf(e)
-        this.favorites.slice(index, 1);
-      }
-    });
+    this.favorites = this.favorites
+    .filter(todo => todo.idProduct !== id);
+    this.toastr.info("Produto removido da sua lista de favoritos", "Produto removido")
   }
 }

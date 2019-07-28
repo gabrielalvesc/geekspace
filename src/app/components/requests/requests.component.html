@@ -23,7 +23,7 @@
           </div>
           <div class="col-md-3">
             <div style="font-size: 30px">{{request.product.name}}</div>
-            <div style="font-size: 30px">R$ {{request.product.price}} x {{request.quantity}} <span
+            <div style="font-size: 30px">R$ {{request.product.price | currency:'BRL':'symbol':'0.0-2':'pt'}} x {{request.quantity}} <span
                 *ngIf="request.quantity > 1">unidades</span> <span *ngIf="request.quantity == 1">unidade</span> </div>
           </div>
           <div class="col-md-3">
