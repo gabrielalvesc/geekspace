@@ -14,7 +14,7 @@ import { Client } from '../models/client.model';
 export class ShoppingCartService {
 
   items: Cart[] = [
-    
+
   ];
 
 
@@ -23,7 +23,7 @@ export class ShoppingCartService {
     private userService: UserService,
     private authService: AuthService
   ) {
-    
+
    }
 
   addItem(item: Cart) {
@@ -56,6 +56,5 @@ export class ShoppingCartService {
   //   let user:User = this.userService.getByEmail(email);
   //   user.cartItems = this.items;
   // }
-
 
 }

@@ -36,6 +36,7 @@
 
         <a [routerLink]="['/carrinho']" routerLinkActive="router-link-active">
           <img class="cart-icon" src="../../../assets/images/shopping-cart-solid.svg">
+          <span class="badge badge-pill badge-dark circle count-items-cart">{{items()}}</span>
         </a>
 
       </div>
