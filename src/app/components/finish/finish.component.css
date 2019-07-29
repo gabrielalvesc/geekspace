@@ -18,12 +18,13 @@ h4 {
     color: #575757;
 }
 
-input{
+#form input{
     border-top: none;
     border-right: none;
     border-left: none;
     border-color: #222222;
     width: 100%;
+    box-shadow: none!important;
 }
 
 label {

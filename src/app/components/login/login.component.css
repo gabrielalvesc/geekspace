@@ -6,6 +6,8 @@ input{
     border-left: none;
 
     border-color: #222222;
+
+    box-shadow: none!important;
 }
 
 .btn-submited {
