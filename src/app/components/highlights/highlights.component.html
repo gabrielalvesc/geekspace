@@ -9,6 +9,9 @@
   <div class="row">
     <div *ngFor="let product of products" class="col-md-3">
       <div class="card mt-4 animated zoomIn" style="width: 16rem; border: none" >
+        
+        <a (click)="addFavorite(product)"><i id="{{product.idProduct}}" class="far fa-heart heart"></i></a>
+
         <a (click)="addItem(product)"
         [routerLink]="['produto', product.idProduct]">
           <img class="card-img-top img-fluid" src="{{product.picture}}" style="height: 270px;" alt="Card image cap">

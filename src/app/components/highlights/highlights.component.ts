@@ -3,6 +3,7 @@ import { ProductService } from 'src/app/services/product.service';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 import { Product } from 'src/app/models/product.model';
 import { Cart } from 'src/app/models/cart.model';
+import { FavoritesService } from 'src/app/services/favorites.service';
 
 @Component({
   selector: 'app-highlights',
@@ -14,14 +15,15 @@ export class HighlightsComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private cartService: ShoppingCartService,
+    private favoriteService: FavoritesService,
   ) { }
 
   ngOnInit() {
-    console.log(this.products)
+    console.log(this.products);
   }
 
   get products(): Product[] {
-    return this.productService.getProducts()
+    return this.productService.getProducts();
   }
 
   addItem(item: Product) {
@@ -29,6 +31,18 @@ export class HighlightsComponent implements OnInit {
     this.cartService.addItem(itemCart);
   }
 
+  addFavorite(product: Product) {
+    var heart = document.getElementById(String(product.idProduct));
+    if (heart.classList.contains('far')) {
+      heart.classList.add('fas');
+      heart.classList.remove('far');
+      this.favoriteService.addFavorite(product);
+    } else if (heart.classList.contains('fas')) {
+      heart.classList.add('far');
+      heart.classList.remove('fas');
+      this.favoriteService.removeFavorite(product.idProduct);
+    }
+  }
 
 
 }
