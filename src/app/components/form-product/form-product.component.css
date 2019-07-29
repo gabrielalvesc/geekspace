@@ -1,3 +1,7 @@
+input{
+    box-shadow: none!important;
+}
+
 .form{
     border: none;
     border-bottom: solid black 1px;
