@@ -15,3 +15,8 @@
 p {
     font-size: 22px
 }
+
+#about img{
+    width: 300px;
+    height: auto;
+}
