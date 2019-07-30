@@ -12,9 +12,7 @@ import { SaleService } from 'src/app/services/sale.service';
 import { ResquestModel } from 'src/app/models/request.model';
 import { RequestsService } from 'src/app/services/requests.service';
 import { CepService } from 'src/app/services/cep.service';
-import { Cep } from 'src/app/models/cep';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-finish',
@@ -27,9 +25,7 @@ export class FinishComponent implements OnInit {
   total: number;
   user: User;
   formFinishing: FormGroup;
-
-  cep = new Cep();
-
+  
   constructor(
     private cartService: ShoppingCartService,
     private userService: UserService,
