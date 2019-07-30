@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { RequestsService } from 'src/app/services/requests.service';
+import { ResquestModel } from 'src/app/models/request.model';
+import { ProductService } from 'src/app/services/product.service';
+
 
 @Component({
   selector: 'app-mysales',
@@ -7,9 +11,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MysalesComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private requestService: RequestsService,
+    private productService: ProductService
+  ) { }
 
   ngOnInit() {
+
+  }
+
+  get requests(): ResquestModel[] {
+    return this.requestService.getRequests();
   }
 
 }
