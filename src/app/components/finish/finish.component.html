@@ -47,19 +47,21 @@
               <div class="col-md-6">
                 <label for="cep">CEP</label>
                 <br>
-                <input formControlName="cep" name="cep" type="text" id="cep" required>
+                <input formControlName="cep" name="cep" type="text" id="cep" required [(ngModel)]="cep.cep">
+                <br>
+                <button (click)="buscar()" class="btn btn-dark">BUSCAR</button>
               </div>
               <div class="col-md-6 line">
                 <label for="state">ESTADO</label>
                 <br>
-                <input formControlName="state" name="state" type="text">
+                <input formControlName="state" name="state" type="text" [(ngModel)]="cep.estado">
               </div>
             </div>
 
             <div class="row mb-3">
               <div class="col-md-12">
                 <label for="street">LOGRADOURO</label>
-                <input formControlName="street" type="text" id="street" name="street">
+                <input formControlName="street" type="text" id="street" name="street" [(ngModel)]="cep.logradouro">
               </div>
             </div>
 
@@ -67,7 +69,7 @@
               <div class="col-md-12">
                 <label for="city">CIDADE</label>
                 <br>
-                <input formControlName="city" name="city" type="text" id="city" required>
+                <input formControlName="city" name="city" type="text" id="city" required [(ngModel)]="cep.cidade">
               </div>
             </div>
 
@@ -75,12 +77,12 @@
               <div class="col-md-6">
                 <label for="number">NÚMERO</label>
                 <br>
-                <input formControlName="number" name="number" type="number" min="0" id="number" required>
+                <input formControlName="number" name="number" type="number" min="0" id="number" required [(ngModel)]="cep.numero">
               </div>
               <div class="col-md-6 line">
                 <label for="neighborhood">BAIRRO</label>
                 <br>
-                <input formControlName="neighborhood" id="neighborhood" name="neighborhood" type="text" required>
+                <input formControlName="neighborhood" id="neighborhood" name="neighborhood" type="text" required [(ngModel)]="cep.bairro">
               </div>
             </div>
 

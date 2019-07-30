@@ -60,7 +60,9 @@ export class FinishComponent implements OnInit {
       neighborhood:['', Validators.required],
       complement:['', Validators.required],
       street:['', Validators.required]
-    })
+    });
+
+
   }
 
   get itens() {
@@ -78,6 +80,10 @@ export class FinishComponent implements OnInit {
     });
     // this.saleService.newSale(sale);
 
+  }
+
+  buscar() {
+    this.cepService.buscar(this.cep.cep);
   }
 
 
