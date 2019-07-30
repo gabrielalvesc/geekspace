@@ -27,7 +27,7 @@ export class ShoppingCartService {
    }
 
   addItem(item: Cart) {
-    let index = this.items.findIndex(val => val.product.idProduct == item.product.idProduct);
+    const index = this.items.findIndex(val => val.product.idProduct === item.product.idProduct);
     if (index < 0) {
       this.items.push(item);
     }
@@ -46,10 +46,10 @@ export class ShoppingCartService {
     return total;
   }
 
-  setQuantity(id: number, quantity:number) {
-    let item = this.items.filter(todo => todo.product.idProduct === id).pop()
+  setQuantity(id: number, quantity: number) {
+    const item = this.items.filter(todo => todo.product.idProduct === id).pop();
     item.quantity = quantity;
-    item.subTotal = item.product.price * item.quantity
+    item.subTotal = item.product.price * item.quantity;
   }
 
   // cartItemUser(email: string){
