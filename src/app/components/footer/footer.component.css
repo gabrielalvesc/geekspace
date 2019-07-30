@@ -1,0 +1,21 @@
+
+
+.footer-copyright {
+    background-color: #000000;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-align: center;
+
+}
+
+.footer-copyright p {
+    margin: 10px;
+    color: #ffffff;
+}
+
+#footer{
+    font-family: Din;
+    margin-top: 10%;
+    flex: 0 0 auto;
+    -webkit-flex: 0 0 auto;
+ }
