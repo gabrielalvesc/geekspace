@@ -40,7 +40,9 @@ section{
 }
 
 /* ===== Footer =====*/
-
+#footer{
+    margin-bottom: -10%;
+}
 
 #footer .background{
     margin-top: 3%;
