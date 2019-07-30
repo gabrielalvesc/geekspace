@@ -13,6 +13,8 @@ import { ResquestModel } from 'src/app/models/request.model';
 import { RequestsService } from 'src/app/services/requests.service';
 import { CepService } from 'src/app/services/cep.service';
 import { Cep } from 'src/app/models/cep';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-finish',
@@ -35,7 +37,8 @@ export class FinishComponent implements OnInit {
     private formBuilder: FormBuilder,
     private saleService: SaleService,
     private requestService: RequestsService,
-    private cepService: CepService
+    private cepService: CepService,
+    private http: HttpClient
   ) {
     this.total = this.cartService.total();
     this.user = this.userService.getByEmail(this.authService.getUser())
@@ -50,16 +53,16 @@ export class FinishComponent implements OnInit {
 
     this.formFinishing = this.formBuilder.group({
       email: [this.user.email, Validators.required],
-      name:[this.user.name, Validators.required],
-      lastname:[this.user.lastName, Validators.required],
-      cpf:['', Validators.required],
-      cep:['', Validators.required],
-      state:['', Validators.required],
-      city:['', Validators.required],
-      number:['', Validators.required],
-      neighborhood:['', Validators.required],
-      complement:['', Validators.required],
-      street:['', Validators.required]
+      name: [this.user.name, Validators.required],
+      lastname: [this.user.lastName, Validators.required],
+      cpf: ['', Validators.required],
+      cep: ['', Validators.required],
+      state: ['', Validators.required],
+      city: ['', Validators.required],
+      number: ['', Validators.required],
+      neighborhood: ['', Validators.required],
+      complement: ['', Validators.required],
+      street: ['', Validators.required]
     });
 
 
@@ -69,7 +72,7 @@ export class FinishComponent implements OnInit {
     return this.cartService.items;
   }
 
-  onSubmit(f: any){
+  onSubmit(f: any) {
     // let user: User = this.userService.getByEmail(this.authService.getUser());
     // let address: Address = new Address(f.cep, f.street, f.city, f.state, f.number, f.neighborhood, f.complement);
     // let sale: Sale = new Sale(f.cpf, user, this.itens, "boleto", address);
@@ -82,9 +85,26 @@ export class FinishComponent implements OnInit {
 
   }
 
-  buscar() {
-    this.cepService.buscar(this.cep.cep);
+  consultaCEP(cep, form) {
+    // Nova variável "cep" somente com dígitos.
+    cep = cep.replace(/\D/g, '');
+
+    if (cep != null && cep !== '') {
+      this.cepService.consultaCEP(cep)
+        .subscribe(dados => this.populaDadosForm(dados, form));
+    }
   }
 
+  populaDadosForm(dados, formulario) {
+    formulario.form.patchValue({
+      street: dados.logradouro,
+      // cep: dados.cep,
+      complement: dados.complemento,
+      neighborhood: dados.bairro,
+      city: dados.localidade,
+      state: dados.uf
+    });
 
+
+  }
 }

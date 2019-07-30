@@ -10,7 +10,7 @@
       <div class="row">
         <div class="col-md-12">
 
-          <form [formGroup]="formFinishing" (ngSubmit)="onSubmit(formFinishing.value)">
+          <form #f="ngForm" [formGroup]="formFinishing" (ngSubmit)="onSubmit(formFinishing.value)">
 
             <h4>Meus dados pessoais</h4>
             <div class="row mb-3">
@@ -47,19 +47,19 @@
               <div class="col-md-6">
                 <label for="cep">CEP</label>
                 <br>
-                <input formControlName="cep" name="cep" type="text" id="cep" required [(ngModel)]="cep.cep" (blur)="buscar()">
+                <input formControlName="cep" name="cep" type="text" id="cep" required (blur)="consultaCEP($event.target.value, f)">
               </div>
               <div class="col-md-6 line">
                 <label for="state">ESTADO</label>
                 <br>
-                <input formControlName="state" name="state" type="text" [(ngModel)]="cep.estado">
+                <input formControlName="state" name="state" type="text">
               </div>
             </div>
 
             <div class="row mb-3">
               <div class="col-md-12">
                 <label for="street">LOGRADOURO</label>
-                <input formControlName="street" type="text" id="street" name="street" [(ngModel)]="cep.logradouro">
+                <input formControlName="street" type="text" id="street" name="street">
               </div>
             </div>
 
@@ -67,7 +67,7 @@
               <div class="col-md-12">
                 <label for="city">CIDADE</label>
                 <br>
-                <input formControlName="city" name="city" type="text" id="city" required [(ngModel)]="cep.cidade">
+                <input formControlName="city" name="city" type="text" id="city" required>
               </div>
             </div>
 
@@ -75,12 +75,12 @@
               <div class="col-md-6">
                 <label for="number">NÚMERO</label>
                 <br>
-                <input formControlName="number" name="number" type="number" min="0" id="number" required [(ngModel)]="cep.numero">
+                <input formControlName="number" name="number" type="number" min="0" id="number" required>
               </div>
               <div class="col-md-6 line">
                 <label for="neighborhood">BAIRRO</label>
                 <br>
-                <input formControlName="neighborhood" id="neighborhood" name="neighborhood" type="text" required [(ngModel)]="cep.bairro">
+                <input formControlName="neighborhood" id="neighborhood" name="neighborhood" type="text" required>
               </div>
             </div>
 
