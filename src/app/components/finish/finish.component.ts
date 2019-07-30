@@ -89,6 +89,8 @@ export class FinishComponent implements OnInit {
     // Nova variável "cep" somente com dígitos.
     cep = cep.replace(/\D/g, '');
 
+    this.resetaDadosForm(form);
+
     if (cep != null && cep !== '') {
       this.cepService.consultaCEP(cep)
         .subscribe(dados => this.populaDadosForm(dados, form));
@@ -104,7 +106,15 @@ export class FinishComponent implements OnInit {
       city: dados.localidade,
       state: dados.uf
     });
+  }
 
-
+  resetaDadosForm(formulario) {
+    formulario.form.patchValue({
+      street: null,
+      complement: null,
+      neighborhood: null,
+      city: null,
+      state: null
+    });
   }
 }
