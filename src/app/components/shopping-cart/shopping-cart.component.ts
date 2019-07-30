@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 import { Cart } from 'src/app/models/cart.model';
-import $ from  'jquery'
 
 
 @Component({
@@ -13,8 +12,8 @@ import $ from  'jquery'
 
 export class ShoppingCartComponent implements OnInit {
 
-  valorTotal:number;
-  valorFrete:number=52.85;
+  valorTotal: number;
+  valorFrete = 52.85;
 
   constructor(
     private productService: ProductService,
@@ -40,11 +39,11 @@ export class ShoppingCartComponent implements OnInit {
     this.shoppingCartService.addItem(item);
   }
 
-  quantity(qtd:any, id: any){
+  quantity(qtd: any, id: any) {
     this.shoppingCartService.setQuantity(id, qtd);
   }
 
-  get total () {
+  get total() {
     return this.shoppingCartService.total();
   }
   /*
