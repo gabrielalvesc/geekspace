@@ -25,7 +25,7 @@ export class FinishComponent implements OnInit {
   total: number;
   user: User;
   formFinishing: FormGroup;
-  
+
   constructor(
     private cartService: ShoppingCartService,
     private userService: UserService,
@@ -37,13 +37,13 @@ export class FinishComponent implements OnInit {
     private http: HttpClient
   ) {
     this.total = this.cartService.total();
-    this.user = this.userService.getByEmail(this.authService.getUser())
+    this.user = this.userService.getByEmail(this.authService.getUser());
   }
 
 
   ngOnInit() {
     this.itens.forEach(e => {
-      this.item = e
+      this.item = e;
       return;
     });
 
@@ -74,7 +74,7 @@ export class FinishComponent implements OnInit {
     // let sale: Sale = new Sale(f.cpf, user, this.itens, "boleto", address);
     // this.user.sales.push(sale);
     this.itens.forEach(e => {
-      let request = new ResquestModel(e.product, e.quantity, e.subTotal, this.user.email)
+      const request = new ResquestModel(e.product, e.quantity, e.subTotal, this.user.email);
       this.requestService.addRequest(request);
     });
     // this.saleService.newSale(sale);

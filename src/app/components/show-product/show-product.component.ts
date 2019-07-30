@@ -20,7 +20,7 @@ export class ShowProductComponent implements OnInit, AfterViewInit {
   // public product:Product;
   id: number;
   product: Product;
-  quantity: number = 1;
+  quantity = 1;
 
   constructor(
     private router: Router,
@@ -34,9 +34,9 @@ export class ShowProductComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.route.params
-      .pipe(switchMap((params: Params) => this.loadProduct(+params['id']))).subscribe(res => {
+      .pipe(switchMap((params: Params) => this.loadProduct(+params.id))).subscribe(res => {
         this.product = res;
-      })
+      });
   }
 
   ngAfterViewInit() {
@@ -47,8 +47,8 @@ export class ShowProductComponent implements OnInit, AfterViewInit {
     return new Promise((resolve) => resolve(this.productService.getById(id)));
   }
 
-  less(){
-    if (this.quantity == 1) {
+  less() {
+    if (this.quantity === 1) {
       this.quantity = 1;
       this.setQuantity();
     } else {
@@ -58,8 +58,8 @@ export class ShowProductComponent implements OnInit, AfterViewInit {
   }
 
   more() {
-    if(this.quantity == this.product.stock) {
-      this.quantity = this.product.stock
+    if (this.quantity === this.product.stock) {
+      this.quantity = this.product.stock;
       this.setQuantity();
     } else {
       this.quantity++;
@@ -72,8 +72,8 @@ export class ShowProductComponent implements OnInit, AfterViewInit {
   }
 
   addFavorite() {
-    var heart = document.getElementById("heart")
-    if(heart.classList.contains('far')) {
+    const heart = document.getElementById('heart');
+    if (heart.classList.contains('far')) {
       heart.classList.add('fas');
       heart.classList.remove('far');
       this.favoriteService.addFavorite(this.product);
@@ -85,18 +85,18 @@ export class ShowProductComponent implements OnInit, AfterViewInit {
   }
 
   addCart() {
-    let item = new Cart(this.product, this.quantity, this.product.price * this.quantity);
+    const item = new Cart(this.product, this.quantity, this.product.price * this.quantity);
     this.cartService.addItem(item);
-    this.router.navigate(['/carrinho'])
+    this.router.navigate(['/carrinho']);
   }
 
   buy() {
-    let item = new Cart(this.product, this.quantity, this.product.price * this.quantity);
+    const item = new Cart(this.product, this.quantity, this.product.price * this.quantity);
     this.cartService.addItem(item);
-    this.router.navigate(['/finalizar-pedido'])
+    this.router.navigate(['/finalizar-pedido']);
   }
 
-  setQuantity(){
+  setQuantity() {
     this.cartService.setQuantity(this.product.idProduct, this.quantity);
   }
 

@@ -18,14 +18,14 @@ export class FavoritesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log(this.favoritesService.getFavorites().length)
+    console.log(this.favoritesService.getFavorites().length);
   }
 
   get favorites(): Product[] {
     return this.favoritesService.getFavorites();
   }
 
-  remove(id:number) {
+  remove(id: number) {
     this.favoritesService.removeFavorite(id);
   }
 

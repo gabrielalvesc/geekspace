@@ -39,7 +39,7 @@ import { AdminGuard } from './security/admin.guard';
 import { AboutComponent } from './components/about/about.component';
 import { FiltroComponent } from './components/filtro/filtro.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { MysalesComponent } from './mysales/mysales.component';
+import { MysalesComponent } from './components/mysales/mysales.component';
 
 @NgModule({
   declarations: [
