@@ -39,6 +39,7 @@ import { AdminGuard } from './security/admin.guard';
 import { AboutComponent } from './components/about/about.component';
 import { FiltroComponent } from './components/filtro/filtro.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { CepService } from './services/cep.service';
 
 @NgModule({
   declarations: [
@@ -91,6 +92,7 @@ import { FooterComponent } from './components/footer/footer.component';
     SaleService,
     AuthGuard,
     AdminGuard,
+    CepService,
     { provide: LOCALE_ID, useValue: 'pt-BR'}
   ],
   bootstrap: [AppComponent]
