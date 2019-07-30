@@ -11,6 +11,8 @@ import { Sale } from 'src/app/models/sale.model';
 import { SaleService } from 'src/app/services/sale.service';
 import { ResquestModel } from 'src/app/models/request.model';
 import { RequestsService } from 'src/app/services/requests.service';
+import { CepService } from 'src/app/services/cep.service';
+import { Cep } from 'src/app/models/cep';
 
 @Component({
   selector: 'app-finish',
@@ -19,10 +21,12 @@ import { RequestsService } from 'src/app/services/requests.service';
 })
 export class FinishComponent implements OnInit {
 
-  item:Cart;
+  item: Cart;
   total: number;
   user: User;
-  formFinishing: FormGroup
+  formFinishing: FormGroup;
+
+  cep = new Cep();
 
   constructor(
     private cartService: ShoppingCartService,
@@ -30,7 +34,8 @@ export class FinishComponent implements OnInit {
     private authService: AuthService,
     private formBuilder: FormBuilder,
     private saleService: SaleService,
-    private requestService: RequestsService
+    private requestService: RequestsService,
+    private cepService: CepService
   ) {
     this.total = this.cartService.total();
     this.user = this.userService.getByEmail(this.authService.getUser())
@@ -59,10 +64,10 @@ export class FinishComponent implements OnInit {
   }
 
   get itens() {
-    return this.cartService.items
+    return this.cartService.items;
   }
 
-  onSubmit(f:any){
+  onSubmit(f: any){
     // let user: User = this.userService.getByEmail(this.authService.getUser());
     // let address: Address = new Address(f.cep, f.street, f.city, f.state, f.number, f.neighborhood, f.complement);
     // let sale: Sale = new Sale(f.cpf, user, this.itens, "boleto", address);
@@ -73,7 +78,6 @@ export class FinishComponent implements OnInit {
     });
     // this.saleService.newSale(sale);
 
-    
   }
 
 
