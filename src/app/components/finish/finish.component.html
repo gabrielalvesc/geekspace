@@ -47,9 +47,7 @@
               <div class="col-md-6">
                 <label for="cep">CEP</label>
                 <br>
-                <input formControlName="cep" name="cep" type="text" id="cep" required [(ngModel)]="cep.cep">
-                <br>
-                <button (click)="buscar()" class="btn btn-dark">BUSCAR</button>
+                <input formControlName="cep" name="cep" type="text" id="cep" required [(ngModel)]="cep.cep" (blur)="buscar()">
               </div>
               <div class="col-md-6 line">
                 <label for="state">ESTADO</label>

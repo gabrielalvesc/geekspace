@@ -12,8 +12,8 @@ export class CepService {
   ) { }
 
   buscar(cep: string){
-    this.http.get(`https://viacep.com.br/ws/${cep}/json/`).toPromise().then(response =>  {
-      this.cepResponse(response);
+    return this.http.get(`https://viacep.com.br/ws/${cep}/json/`).toPromise().then(response =>  {
+      return this.cepResponse(response.json());
     });
   }
 
