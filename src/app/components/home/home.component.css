@@ -38,3 +38,55 @@ section{
     width: 200px;
     height: auto;
 }
+
+/* ===== Footer =====*/
+#footer{
+    margin-bottom: -10%;
+}
+
+#footer .background{
+    margin-top: 3%;
+    background-image: url('../../../assets/images/header.png');
+    height: 400px;
+}
+
+#footer img{
+    width: auto;
+    height: 100px;
+    margin-top: 5%;
+}
+
+#footer .row{
+    margin-top: 3%;
+}
+
+#footer .line{
+    border-bottom: 2px solid #ffffff;
+    margin-top: 2%;
+}
+
+#footer h4{
+    font-size: 16px;
+    color: #FFD933;
+}
+
+#footer a{
+    text-decoration: none !important;
+    color: #ffffff !important;
+}
+
+
+#footer a:hover{
+    text-decoration: none;
+    color: #FFD933 !important;
+}
+
+#footer .paglogo{
+    height: auto;
+    width: 195px;
+    margin-left: -20%;
+    margin-top: -2%;
+
+}
+
+
