@@ -10,7 +10,7 @@
       <div class="row">
         <div class="col-md-12">
 
-          <form [formGroup]="formFinishing" (ngSubmit)="onSubmit(formFinishing.value)">
+          <form #f="ngForm" [formGroup]="formFinishing" (ngSubmit)="onSubmit(formFinishing.value)">
 
             <h4>Meus dados pessoais</h4>
             <div class="row mb-3">
@@ -47,12 +47,12 @@
               <div class="col-md-6">
                 <label for="cep">CEP</label>
                 <br>
-                <input formControlName="cep" name="cep" type="text" id="cep" required>
+                <input formControlName="cep" name="cep" type="text" id="cep" required (blur)="consultaCEP($event.target.value, f)">
               </div>
               <div class="col-md-6 line">
                 <label for="state">ESTADO</label>
                 <br>
-                <input formControlName="state" type="text">
+                <input formControlName="state" name="state" type="text">
               </div>
             </div>
 
