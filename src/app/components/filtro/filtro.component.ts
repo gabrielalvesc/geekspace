@@ -12,7 +12,7 @@ import { FavoritesService } from 'src/app/services/favorites.service';
 })
 export class FiltroComponent implements OnInit {
 
-  filter: string
+  filter: string;
 
   constructor(
     private productService: ProductService,
@@ -21,19 +21,21 @@ export class FiltroComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.route.params.subscribe((params:Params) => {
-      this.filter = params['filter']
-    })
-    this.products
+    this.route.params.subscribe((params: Params) => {
+      this.filter = params.filter;
+    });
+    // tslint:disable-next-line: no-unused-expression
+    this.products;
   }
 
-  get products(){
-    return this.productService.getByFilter(this.filter)
+  get products() {
+    return this.productService.getByFilter(this.filter);
   }
 
   addFavorite(product: Product) {
-    var heart = document.getElementById("heart")
-    if(heart.classList.contains('far')) {
+    const heart = document.getElementById('heart');
+
+    if (heart.classList.contains('far')) {
       heart.classList.add('fas');
       heart.classList.remove('far');
       this.favoriteService.addFavorite(product);
@@ -44,9 +46,10 @@ export class FiltroComponent implements OnInit {
     }
   }
 
-  setType(type:string) {
+  setType(type: string) {
     this.filter = type;
-    this.products
+    // tslint:disable-next-line: no-unused-expression
+    this.products;
   }
 
 }

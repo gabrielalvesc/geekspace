@@ -11,8 +11,7 @@ import { Toast, ToastrService } from 'ngx-toastr';
 export class RequestsService {
 
   requests: ResquestModel[] = [
-    
-  ]
+  ];
 
   constructor(
     private router: Router,
@@ -23,26 +22,26 @@ export class RequestsService {
     return this.requests;
   }
 
-  getRequestByUser(email:string): ResquestModel[] {
-    let requests = new Array<ResquestModel>();
-    
+  getRequestByUser(email: string): ResquestModel[] {
+    const requests = new Array<ResquestModel>();
+
     this.requests.forEach(e => {
-      if (e.userEmail == email) {
+      if (e.userEmail === email) {
         requests.push(e);
       }
     });
-    
-    return  requests
+
+    return  requests;
   }
 
-  addRequest(request:ResquestModel) {
-    let before:number = this.requests.length;
+  addRequest(request: ResquestModel) {
+    const before: number = this.requests.length;
     this.requests.push(request);
-    let after:number = this.requests.length;
-    if(after > before) {
-      this.router.navigate(['/confirmacao'])
+    const after: number = this.requests.length;
+    if (after > before) {
+      this.router.navigate(['/confirmacao']);
     } else {
-      this.toastr.error('Não foi possível realizar sua compra, entre em contato conosco', 'Compra não realizada')
+      this.toastr.error('Não foi possível realizar sua compra, entre em contato conosco', 'Compra não realizada');
     }
   }
 }
