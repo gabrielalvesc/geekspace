@@ -1,6 +1,6 @@
 #about{
     font-family: Din;
-    margin-top: 5%;
+    margin-bottom: 5%;
 }
 
 #about .about {
@@ -20,3 +20,18 @@ p {
     width: 300px;
     height: auto;
 }
+
+.back{
+    background-image: url('../../../assets/images/fundo.png');
+    background-attachment: fixed;
+    background-repeat: repeat;   
+
+}
+
+
+.banner{
+    width: 100%;
+    margin-bottom: 3%;
+    margin-top: 3%;
+}
+

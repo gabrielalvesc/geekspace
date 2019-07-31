@@ -12,8 +12,8 @@ section{
 
 /*=== Carousel ===*/
 #home #caroulselBanners{
-    margin-top: 2%;
-    margin-bottom: 2%;
+    margin-top: 3%;
+    margin-bottom: 3%;
 }
 
 /*=== Red Bar ===*/
@@ -31,7 +31,7 @@ section{
 .bg-yellow{
     background-color: #FFD933;
     height: 100px;
-    margin-bottom: 2%;
+    margin-bottom: 3%;
 }
 
 #home .logos{
