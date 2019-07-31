@@ -100,16 +100,16 @@
             INSTITUCIONAL
           </h4>
           <ul class="nav">
-            <li><a href="">Quem Somos</a></li>            
+            <li><a href="#about">Quem Somos</a></li>            
           </ul>
         </div>
 
         <div class="col-md-3">
           <h4>MINHA CONTA</h4>
           <ul class="list-unstyled">
-            <li><a href="">Minha Conta</a></li>          
-            <li><a href="">Pedidos</a></li>
-            <li><a href="">Lista de Desejos</a></li>
+            <li><a [routerLink]="['/conta']" routerLinkActive="router-link-active" >Minha Conta</a></li>          
+            <li><a [routerLink]="['/conta']" routerLinkActive="router-link-active" >Pedidos</a></li>
+            <li><a [routerLink]="['/conta']" routerLinkActive="router-link-active" >Lista de Desejos</a></li>
           </ul>
         </div>
 
@@ -118,7 +118,7 @@
             FORMAS DE PAGAMENTO
           </h4>
           <ul>
-            <li><a href=""><img class="paglogo" src="../../../assets/images/pagseguro.png" alt=""></a></li>
+            <li><a><img class="paglogo" src="../../../assets/images/pagseguro.png" alt=""></a></li>
           </ul>
         </div>     
       </div>
