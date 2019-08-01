@@ -1,6 +1,7 @@
 #container {
     overflow-x: hidden;
     font-family: Din;
+    margin-bottom: -10%;
 }
   
 #sidebar-wrapper {

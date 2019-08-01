@@ -38,7 +38,7 @@
               <div class="col-md-12">
                 <label for="cpf">CPF</label>
                 <br>
-                <input formControlName="cpf" name="cpf" type="text" id="cpf" required>
+                <input placeholder="Ex: 111.111.111-11" formControlName="cpf" name="cpf" type="text" id="cpf" required>
               </div>
             </div>
 
@@ -47,12 +47,12 @@
               <div class="col-md-6">
                 <label for="cep">CEP</label>
                 <br>
-                <input formControlName="cep" name="cep" type="text" id="cep" required (blur)="consultaCEP($event.target.value, f)">
+                <input placeholder="Ex: 58297000" formControlName="cep" name="cep" type="text" id="cep" required (blur)="consultaCEP($event.target.value, f)">
               </div>
               <div class="col-md-6 line">
                 <label for="state">ESTADO</label>
                 <br>
-                <input formControlName="state" name="state" type="text">
+                <input disabled formControlName="state" name="state" type="text">
               </div>
             </div>
 
