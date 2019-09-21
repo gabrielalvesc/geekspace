@@ -5,6 +5,7 @@ import { GenericProduct } from '../models/product.model';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { ShirtProduct } from '../models/shirt-product.model';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -27,9 +28,9 @@ export class ProductService {
     })
   }
 
-  // getById(id: number) {
-  //   return this.http.get<Product>(`${GEEK_API}/all-products/${id}`)
-  // }
+  getById(id: number) {
+    return this.http.get<GenericProduct>(`${GEEK_API}/all-product/${id}`)  
+  }
 
   createGenericProduct(product: GenericProduct) {
     return this.http.post(`${GEEK_API}/generic-product/new`, product);

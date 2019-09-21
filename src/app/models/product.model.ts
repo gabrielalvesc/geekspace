@@ -6,7 +6,10 @@ export class GenericProduct {
         public price: number,
         public quantity: number,
         public image: string,
-        public categoty: string,
+        public category: string,
+        public color?: string,
+        public genre?: string,
+        public size?: string,
         public id?: number,
     ){}
 }
