@@ -8,23 +8,21 @@
 
   <div class="row">
     <div *ngFor="let product of products" class="col-md-3">
-      <div class="card mt-4 animated zoomIn" style="width: 16rem; border: none" >
-        
+      <div class="card mt-4 animated zoomIn" style="width: 16rem; border: none">
+
         <a (click)="addFavorite(product)"><i id="{{product.idProduct}}" class="far fa-heart heart"></i></a>
 
-        <a (click)="addItem(product)"
-        [routerLink]="['produto', product.idProduct]">
+        <a (click)="addItem(product)" [routerLink]="['produto', product.idProduct]">
           <img class="card-img-top img-fluid" src="{{product.image}}" style="height: 270px;" alt="Card image cap">
         </a>
-        
+
         <div class="card-body" style="padding-bottom: 10px;">
-          <a (click)="addItem(product)"
-          [routerLink]="['produto', product.idProduct]" class="card-title product-title text-left">{{product.name}}</a>
+          <a (click)="addItem(product)" [routerLink]="['produto', product.idProduct]"
+            class="card-title product-title text-left">{{product.name}}</a>
           <h4 class="product-price text-left">{{product.price | currency:'BRL':'symbol':'0.0-2':'pt'}}</h4>
           <div class="row">
             <div class="col-md-12">
-              <a href="#" class="btn btn-outline-success btn-want" (click)="addItem(product)"
-                [routerLink]="['produto', product.idProduct]">EU QUERO!</a>
+              <a href="#" class="btn btn-outline-success btn-want" [routerLink]="['produto', product.id]">EU QUERO!</a>
             </div>
           </div>
         </div>

@@ -15,9 +15,8 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './show-product.component.html',
   styleUrls: ['./show-product.component.css']
 })
-export class ShowProductComponent implements OnInit, AfterViewInit {
+export class ShowProductComponent implements OnInit {
 
-  // public product:Product;
   id: number;
   product: GenericProduct;
   quantity = 1;
@@ -26,26 +25,21 @@ export class ShowProductComponent implements OnInit, AfterViewInit {
     private router: Router,
     private route: ActivatedRoute,
     private productService: ProductService,
-    private elementRef: ElementRef,
-    private favoriteService: FavoritesService,
-    private cartService: ShoppingCartService,
     private toastr: ToastrService
   ) { }
 
   ngOnInit() {
     this.route.params
-      // .pipe(switchMap((params: Params) => this.loadProduct(+params.id))).subscribe(res => {
-      //   this.product = res;
-      // });
+      .pipe(switchMap((params: Params) => this.loadProduct(+params.id))).subscribe(res => {
+        
+      });
   }
 
-  ngAfterViewInit() {
-    // this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = '#F5F5F5';
+  loadProduct(id: number): Promise<any> {
+    return new Promise((resolve) => resolve(this.productService.getById(id).subscribe(res =>{
+      this.product = res;
+    })));
   }
-
-  // loadProduct(id: number): Promise<Product> {
-  //   return new Promise((resolve) => resolve(this.productService.getById(id)));
-  // }
 
   less() {
     if (this.quantity === 1) {
