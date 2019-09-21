@@ -98,8 +98,8 @@
         </div>
 
         <div class="row btns mb-5" style="margin-top: 5%;">
-          <button class="btn btn-link">Cancelar</button>
-          <button [disabled]="!productForm2" class=" btn btn-announce" type="submit">Anunciar</button>
+          <a href="#" class="btn btn-link" (click)="clear()">Cancelar</a>
+          <button [disabled]="!productForm2.valid" class=" btn btn-announce" type="submit">Anunciar</button>
         </div>
       </div>
     </div>
@@ -224,8 +224,8 @@
 
         <!--Botões-->
         <div class="row btns mb-5" style="margin-top: 5%;">
-          <button class="btn btn-link">Cancelar</button>
-          <button [disabled]="!productForm" class="ml-auto btn btn-announce" type="submit">Anunciar</button>
+          <a href="#" class="btn btn-link" (click)="clear()">Cancelar</a>
+          <button [disabled]="!productForm.valid" class="ml-auto btn btn-announce" type="submit">Anunciar</button>
         </div>
 
       </div>
