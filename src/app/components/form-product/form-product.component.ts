@@ -4,6 +4,7 @@ import { ProductService } from 'src/app/services/product.service';
 import { ShirtProduct } from 'src/app/models/shirt-product.model';
 import { GenericProduct } from 'src/app/models/product.model';
 import { ImageService } from 'src/app/services/image.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-form-product',
@@ -27,7 +28,7 @@ export class FormProductComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private productService: ProductService,
-    private imageService: ImageService
+    private toastService: ToastrService
   ) { }
 
   ngOnInit() {
@@ -49,9 +50,7 @@ export class FormProductComponent implements OnInit {
         quantity: ['', Validators.required],
         price: ['', Validators.required],
         specification: ['', Validators.required],
-        description: ['', Validators.required],
-        picture:['',Validators.required],
- 
+        description: ['', Validators.required], 
       }) 
   }
 
@@ -79,13 +78,20 @@ export class FormProductComponent implements OnInit {
     if (this.tipo == 'camisa') {
       let shirtProduct = new ShirtProduct(f.name, f.description, f.specification, f.price, f.quantity, this.image, this.tipo, f.color, f.genre, 'M');
       this.productService.createShirtProduct(shirtProduct).subscribe(res => {
-        console.log(res);
+        this.productForm.reset();
+        this.toastService.success('Camisa anunciada!!!', 'Novo produto')
       })
     } else {
       let genericProduct = new GenericProduct(f.name, f.description, f.specification, f.price, f.quantity, this.image, this.tipo);
       this.productService.createGenericProduct(genericProduct).subscribe(res => {
-        console.log(res);
+        this.productForm2.reset();
+        this.toastService.success(`${this.tipo} anunciado(a) com sucesso`, 'Novo produto')
       })
     }
+  }
+
+  clear() {
+    this.productForm.reset();
+    this.productForm2.reset();
   }
 }

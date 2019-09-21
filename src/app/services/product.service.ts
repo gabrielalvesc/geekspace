@@ -22,7 +22,7 @@ export class ProductService {
    }
 
   getProducts() {
-    return this.http.get<GenericProduct[]>(`${GEEK_API}/generic-product`).subscribe(res => {
+    return this.http.get<GenericProduct[]>(`${GEEK_API}/all-product`).subscribe(res => {
       this.products = res;
     })
   }
