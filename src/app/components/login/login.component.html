@@ -26,7 +26,7 @@
     <input formControlName="password" name="password" type="password" class="form-control is-invalid"
       [class.is-invalid]="formLogin.controls['password'].invalid && (formLogin.controls['password'].dirty || formLogin.controls['password'].touched)"
       [class.is-valid]="!formLogin.controls['password'].invalid && (formLogin.controls['password'].dirty || formLogin.controls['password'].touched)"
-      id="password" required minlength="8">
+      id="password" required minlength="5">
     <div
       *ngIf="formLogin.controls['password'].invalid && (formLogin.controls['password'].dirty || formLogin.controls['password'].touched)">
       <div *ngIf="formLogin.controls['password'].errors.minlength " style="color: red">

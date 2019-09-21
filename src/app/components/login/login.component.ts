@@ -29,7 +29,12 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(f: any) {
-    this.authService.login(f.email, f.password);
+    this.authService.login(f.email, f.password).subscribe(r => {
+      console.log(r);
+      this.router.navigate(['/dashboard']);
+    }, error => {
+      console.log(error);
+    });
   }
 
 }
