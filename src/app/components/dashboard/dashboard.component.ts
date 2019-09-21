@@ -28,15 +28,13 @@ export class DashboardComponent implements OnInit {
   }
   
   showAdminTemplate() {
-    let email:string = this.authService.getUser();
-    if(email != null) {
-      let user:User = this.userService.getByEmail(email);
-      console.log("Role: "+user)
-      if (user.role == "admin") {
-        this.isAdmin = true;
-      } else {
-        this.isAdmin = false
-      }
+    let role = this.authService.getRoles()[0];
+    if(role == "ROLE_ADMIN"){
+      this.isAdmin = true;
+    } else if (role == "ROLE_USER") {
+      this.isAdmin = false;
+    } else {
+      this.isAdmin = false;
     }
   }
 

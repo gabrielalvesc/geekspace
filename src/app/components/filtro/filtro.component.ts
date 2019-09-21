@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
-import { Product } from 'src/app/models/product.model';
+import { GenericProduct } from 'src/app/models/product.model';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { FavoritesService } from 'src/app/services/favorites.service';
@@ -32,17 +32,17 @@ export class FiltroComponent implements OnInit {
     return this.productService.getByFilter(this.filter);
   }
 
-  addFavorite(product: Product) {
+  addFavorite(product: GenericProduct) {
     const heart = document.getElementById('heart');
 
     if (heart.classList.contains('far')) {
       heart.classList.add('fas');
       heart.classList.remove('far');
-      this.favoriteService.addFavorite(product);
+      // this.favoriteService.addFavorite(product);
     } else if (heart.classList.contains('fas')) {
       heart.classList.add('far');
       heart.classList.remove('fas');
-      this.favoriteService.removeFavorite(product.idProduct);
+      // this.favoriteService.removeFavorite(product.id);
     }
   }
 

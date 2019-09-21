@@ -1,8 +1,8 @@
-import { Product } from './product.model';
+import { GenericProduct } from './product.model';
 
 export class ResquestModel {
     constructor(
-        public product: Product,
+        public product: GenericProduct,
         public quantity: number,
         public subTotal: number,
         public userEmail: string

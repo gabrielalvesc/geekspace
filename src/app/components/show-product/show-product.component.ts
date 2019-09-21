@@ -1,5 +1,5 @@
 import { Component, OnInit, ElementRef, AfterViewInit } from '@angular/core';
-import { Product } from 'src/app/models/product.model';
+import { GenericProduct } from 'src/app/models/product.model';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -19,7 +19,7 @@ export class ShowProductComponent implements OnInit, AfterViewInit {
 
   // public product:Product;
   id: number;
-  product: Product;
+  product: GenericProduct;
   quantity = 1;
 
   constructor(
@@ -34,18 +34,18 @@ export class ShowProductComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.route.params
-      .pipe(switchMap((params: Params) => this.loadProduct(+params.id))).subscribe(res => {
-        this.product = res;
-      });
+      // .pipe(switchMap((params: Params) => this.loadProduct(+params.id))).subscribe(res => {
+      //   this.product = res;
+      // });
   }
 
   ngAfterViewInit() {
     // this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = '#F5F5F5';
   }
 
-  loadProduct(id: number): Promise<Product> {
-    return new Promise((resolve) => resolve(this.productService.getById(id)));
-  }
+  // loadProduct(id: number): Promise<Product> {
+  //   return new Promise((resolve) => resolve(this.productService.getById(id)));
+  // }
 
   less() {
     if (this.quantity === 1) {
@@ -58,8 +58,8 @@ export class ShowProductComponent implements OnInit, AfterViewInit {
   }
 
   more() {
-    if (this.quantity === this.product.stock) {
-      this.quantity = this.product.stock;
+    if (this.quantity === this.product.quantity) {
+      this.quantity = this.product.quantity;
       this.setQuantity();
     } else {
       this.quantity++;
@@ -76,28 +76,28 @@ export class ShowProductComponent implements OnInit, AfterViewInit {
     if (heart.classList.contains('far')) {
       heart.classList.add('fas');
       heart.classList.remove('far');
-      this.favoriteService.addFavorite(this.product);
+      // this.favoriteService.addFavorite(this.product);
     } else if (heart.classList.contains('fas')) {
       heart.classList.add('far');
       heart.classList.remove('fas');
-      this.favoriteService.removeFavorite(this.product.idProduct);
+      // this.favoriteService.removeFavorite(this.product.id);
     }
   }
 
   addCart() {
     const item = new Cart(this.product, this.quantity, this.product.price * this.quantity);
-    this.cartService.addItem(item);
+    // this.cartService.addItem(item);
     this.router.navigate(['/carrinho']);
   }
 
   buy() {
     const item = new Cart(this.product, this.quantity, this.product.price * this.quantity);
-    this.cartService.addItem(item);
+    // this.cartService.addItem(item);
     this.router.navigate(['/finalizar-pedido']);
   }
 
   setQuantity() {
-    this.cartService.setQuantity(this.product.idProduct, this.quantity);
+    // this.cartService.setQuantity(this.product.idProduct, this.quantity);
   }
 
 }

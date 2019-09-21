@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './app-routing.module';
@@ -40,6 +40,7 @@ import { AboutComponent } from './components/about/about.component';
 import { FiltroComponent } from './components/filtro/filtro.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MysalesComponent } from './components/mysales/mysales.component';
+import { AuthInterceptor } from './security/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -93,7 +94,12 @@ import { MysalesComponent } from './components/mysales/mysales.component';
     SaleService,
     AuthGuard,
     AdminGuard,
-    { provide: LOCALE_ID, useValue: 'pt-BR'}
+    { provide: LOCALE_ID, useValue: 'pt-BR'},
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
   ],
   bootstrap: [AppComponent]
 })

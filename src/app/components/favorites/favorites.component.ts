@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FavoritesService } from 'src/app/services/favorites.service';
-import { Product } from 'src/app/models/product.model';
-import { Store } from 'src/app/models/store.model';
-import { User } from 'src/app/models/user.model';
+import { GenericProduct } from 'src/app/models/product.model';
 
 @Component({
   selector: 'app-favorites',
@@ -18,15 +16,15 @@ export class FavoritesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log(this.favoritesService.getFavorites().length);
+    // console.log(this.favoritesService.getFavorites().length);
   }
 
-  get favorites(): Product[] {
-    return this.favoritesService.getFavorites();
-  }
+  // get favorites(): GenericProduct[] {
+  //   return this.favoritesService.getFavorites();
+  // }
 
   remove(id: number) {
-    this.favoritesService.removeFavorite(id);
+    // this.favoritesService.removeFavorite(id);
   }
 
 }

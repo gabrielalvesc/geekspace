@@ -16,7 +16,7 @@ export class AdminGuard implements CanActivate {
   ){}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | Observable<boolean > {
-    if (this.userService.getRole(this.authService.getUser()) == 'admin') {
+    if (this.authService.getRoles()[0] == 'ROLE_ADMIN') {
       return true;
     } else {
       this.router.navigate(['/'])
