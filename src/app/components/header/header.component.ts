@@ -25,14 +25,16 @@ export class HeaderComponent implements OnInit {
   }
 
   getRole() {
-    this.role = this.userService.getRole(this.authService.getUser());
+    this.role = this.authService.getRoles()[0];
+    console.log(this.role);
     if (this.role == null) {
       this.role = '';
     }
   }
 
   items() {
-    return this.cartService.items.length;
+    // return this.cartService.items.length;
+    return 0;
   }
 
 }

@@ -7,7 +7,7 @@
 
 
       <!--Primeira Coluna-->
-      <div class="col-6"> 
+      <div class="col-6">
 
 
         <!--Primeira Linha-->
@@ -29,7 +29,8 @@
           <div class="col">
             <div class="form-group">
               <label for="formGroupExampleInput">Quantidade</label>
-              <input formControlName="quantity" type="number" min="1" value="1" class="form-control form" id="formGroupExampleInput">
+              <input formControlName="quantity" type="number" min="1" value="1" class="form-control form"
+                id="formGroupExampleInput">
             </div>
           </div>
 
@@ -75,7 +76,7 @@
 
             <div class="form-group">
               <label for="formGroupExampleInput">Especificação</label>
-              <input formControlName="specification"   type="text" class="form-control form" id="formGroupExampleInput">
+              <input formControlName="specification" type="text" class="form-control form" id="formGroupExampleInput">
             </div>
 
 
@@ -87,8 +88,10 @@
           <div class="col">
             <div class="form-group">
               <label for="formGroupExampleInput">Link da imagem </label>
-              <input formControlName="picture" type="text" class="form-control form" id="formGroupExampleInput"
-                placeholder="https://www.">
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" id="customFile" (change)="getFile($event)">
+                <label class="custom-file-label" for="customFile">Choose file</label>
+              </div>
             </div>
           </div>
 
@@ -207,9 +210,11 @@
           <!--Imagem-->
           <div class="col">
             <div class="form-group">
-              <label for="formGroupExampleInput">Link da imagem </label>
-              <input formControlName="picture" type="text" class="form-control form" id="formGroupExampleInput"
-                placeholder="https://www.">
+              <label for="formGroupExampleInput">Imagem do produto</label>
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" id="customFile" (change)="getFile($event)">
+                <label class="custom-file-label" for="customFile">Escolha a imagem</label>
+              </div>
             </div>
           </div>
         </div>

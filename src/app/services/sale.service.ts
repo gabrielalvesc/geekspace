@@ -20,18 +20,18 @@ export class SaleService {
     private authService: AuthService
   ) { }
 
-  newSale(sale: Sale) {
-    let a:number = this.sales.length;
-    this.sales.push(sale)
-    let b:number = this.sales.length;
-    if (b > a) {
-      let user:User = this.userService.getByEmail(sale.user.email);
-      user.sales.push(sale)
-      this.router.navigate(['/confirmacao']);
-    } else {
-      this.toastr.error('Não foi possível realizar sua compra, entre em contato conosco', 'Compra não realizada')
-    }
-  }
+  // newSale(sale: Sale) {
+  //   let a:number = this.sales.length;
+  //   this.sales.push(sale)
+  //   let b:number = this.sales.length;
+  //   if (b > a) {
+  //     let user:User = this.userService.getByEmail(sale.user.email);
+  //     user.sales.push(sale)
+  //     this.router.navigate(['/confirmacao']);
+  //   } else {
+  //     this.toastr.error('Não foi possível realizar sua compra, entre em contato conosco', 'Compra não realizada')
+  //   }
+  // }
 
   getSales() {
     return JSON.stringify(this.sales);

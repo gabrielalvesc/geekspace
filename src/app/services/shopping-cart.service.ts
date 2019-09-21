@@ -1,60 +1,43 @@
 import { Injectable } from '@angular/core';
-import { Product } from '../models/product.model';
-import { Store } from '../models/store.model';
 import { Cart } from '../models/cart.model';
 import { ToastrService } from 'ngx-toastr';
 import { UserService } from './user.service';
-import { User } from '../models/user.model';
 import { AuthService } from './auth.service';
-import { Client } from '../models/client.model';
+import { HttpClient } from '@angular/common/http';
+import { GEEK_API } from './geek.api';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShoppingCartService {
 
-  items: Cart[] = [
-
-  ];
-
-
   constructor(
+    private http: HttpClient,
     private toastr: ToastrService,
     private userService: UserService,
     private authService: AuthService
-  ) {
+  ) { }
 
-   }
-
-  addItem(item: Cart) {
-    const index = this.items.findIndex(val => val.product.idProduct === item.product.idProduct);
-    if (index < 0) {
-      this.items.push(item);
-    }
+  createShoppingCart(id: number) {
+    return this.http.post(`${GEEK_API}/clients/${id}/create-cart`, id);
   }
 
-  removeItem(item: Cart) {
-    this.items.splice(this.items.indexOf(item), 1);
+  getShoppingCart(clientId: number) {
+    return this.http.get(`${GEEK_API}/clients/${clientId}/shopping-cart`)
   }
 
-  total(): number {
-    let total = 0;
-    // tslint:disable-next-line: prefer-for-of
-    for (let i = 0; i < this.items.length; i++) {
-      total += (this.items[i].product.price * this.items[i].quantity);
-    }
-    return total;
+  removeItem(clientId: number, itemId:number) {
+    return this.http.delete(`${GEEK_API}/clients/${clientId}/remove-item-from-cart/${itemId}`);
   }
 
-  setQuantity(id: number, quantity: number) {
-    const item = this.items.filter(todo => todo.product.idProduct === id).pop();
-    item.quantity = quantity;
-    item.subTotal = item.product.price * item.quantity;
+  editShoppingCart(clientId: number, shoppingCart: Cart) {
+    return this.http.put(`${GEEK_API}/clients/${clientId}/shopping-cart/edit`, shoppingCart)
   }
-
-  // cartItemUser(email: string){
-  //   let user:User = this.userService.getByEmail(email);
-  //   user.cartItems = this.items;
+  
+  // setQuantity(id: number, quantity: number) {
+  //   const item = this.items.filter(todo => todo.product.idProduct === id).pop();
+  //   item.quantity = quantity;
+  //   item.subTotal = item.product.price * item.quantity;
   // }
 
 }

@@ -23,29 +23,29 @@ export class ShoppingCartComponent implements OnInit {
   ngOnInit() {
   }
 
-  get items(): Cart[] {
-    return this.shoppingCartService.items;
-  }
+  // get items(): Cart[] {
+  //   return this.shoppingCartService.items;
+  // }
 
   // total(): number {
   //   return this.shoppingCartService.total();
   // }
 
-  removeItem(item: Cart) {
-    return this.shoppingCartService.removeItem(item);
-  }
+  // removeItem(item: Cart) {
+  //   return this.shoppingCartService.removeItem(item);
+  // }
 
-  addItem(item: any) {
-    this.shoppingCartService.addItem(item);
-  }
+  // addItem(item: any) {
+  //   this.shoppingCartService.addItem(item);
+  // }
 
-  quantity(qtd: any, id: any) {
-    this.shoppingCartService.setQuantity(id, qtd);
-  }
+  // quantity(qtd: any, id: any) {
+  //   this.shoppingCartService.setQuantity(id, qtd);
+  // }
 
-  get total() {
-    return this.shoppingCartService.total();
-  }
+  // get total() {
+  //   return this.shoppingCartService.total();
+  // }
   /*
   frete(frete:any){
     if(frete == 'pac') {
