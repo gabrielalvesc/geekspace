@@ -10,7 +10,7 @@
           <div class="title">{{product.name}}</div>
         </div>
         <div class="col-md-2">
-          <a (click)="addFavorite()"><i id="heart" style="font-size: 30px; color: #FFD933" class="far fa-heart"></i></a>
+          <a (click)="addOrRemoveFavorite()"><i id="heart" style="font-size: 30px; color: #FFD933" class="far fa-heart"></i></a>
         </div> 
       </div>
       <div class="price">{{product.price | currency:'BRL':'symbol':'0.0-2':'pt'}}</div>

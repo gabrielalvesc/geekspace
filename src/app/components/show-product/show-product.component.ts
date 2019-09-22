@@ -10,8 +10,6 @@ import { Cart } from 'src/app/models/cart.model';
 import { ToastrService } from 'ngx-toastr';
 import { Items } from 'src/app/models/items.model';
 import { AuthService } from 'src/app/services/auth.service';
-import { User } from 'src/app/models/user.model';
-import { UserService } from 'src/app/services/user.service';
 
 
 @Component({
@@ -24,6 +22,7 @@ export class ShowProductComponent implements OnInit {
   id: number;
   product: GenericProduct;
   quantity = 1;
+  favoritos: any[];
 
   constructor(
     private router: Router,
@@ -31,7 +30,7 @@ export class ShowProductComponent implements OnInit {
     private productService: ProductService,
     private cartService: ShoppingCartService,
     private authService: AuthService,
-    private userService: UserService,
+    private favoriteService: FavoritesService,
     private toastr: ToastrService
   ) { }
 
@@ -40,6 +39,21 @@ export class ShowProductComponent implements OnInit {
       .pipe(switchMap((params: Params) => this.loadProduct(+params.id))).subscribe(res => {
 
       });
+    this.favoriteService.getFavorites(this.authService.getUser()).subscribe(res => {
+      console.log(res);
+      res.forEach(e => {
+        if (this.product.id == e.id) {
+          const heart = document.getElementById('heart');
+          heart.classList.add('fas');
+          heart.classList.remove('far');
+        } else {
+          const heart = document.getElementById('heart');
+          heart.classList.add('far');
+          heart.classList.remove('fas');
+        }
+      });
+    });
+
   }
 
   loadProduct(id: number): Promise<any> {
@@ -72,18 +86,28 @@ export class ShowProductComponent implements OnInit {
     return this.product.price * this.quantity;
   }
 
-  addFavorite() {
-    const heart = document.getElementById('heart');
-    if (heart.classList.contains('far')) {
-      heart.classList.add('fas');
-      heart.classList.remove('far');
-      // this.favoriteService.addFavorite(this.product);
-    } else if (heart.classList.contains('fas')) {
-      heart.classList.add('far');
-      heart.classList.remove('fas');
-      // this.favoriteService.removeFavorite(this.product.id);
-    }
+  addOrRemoveFavorite() {
+    this.favoriteService.getFavorites(this.authService.getUser()).subscribe(res => {
+      let bool: boolean = false;
+      res.forEach(e => {
+        if (e.id == this.product.id) {
+          bool = true;
+        }
+      });
+      if (bool) {
+        this.favoriteService.removeFavorite(this.product.id);
+        const heart = document.getElementById('heart');
+        heart.classList.add('far');
+        heart.classList.remove('fas');
+      } else {
+        this.favoriteService.addFavorite(this.product.id);
+        const heart = document.getElementById('heart');
+        heart.classList.add('fas');
+        heart.classList.remove('far');
+      }
+    })
   }
+
 
   addCart() {
     if (this.authService.isLoggedIn()) {
@@ -93,7 +117,7 @@ export class ShowProductComponent implements OnInit {
         this.toastr.info('Produto adicionado ao carrinho', 'Adicionado com sucesso');
         this.router.navigate(['/carrinho']);
       })
-     
+
     } else {
       this.router.navigate(['/conta']);
     }
