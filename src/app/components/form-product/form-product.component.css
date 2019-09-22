@@ -40,3 +40,8 @@ input{
     margin-top: 6%;
     padding-right: 30px;
 }
+
+.boxImg {
+    width: 200px;
+    height: 200px;
+}
