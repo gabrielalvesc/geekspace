@@ -1,4 +1,4 @@
-<div class="mt-5" *ngIf="tipo != 'camisa'">
+<div id="formOthers" class="mt-5" *ngIf="tipo != 'camisa'">
   <h1>Complete os dados: {{ tipo | uppercase }}</h1>
   <br>
 
@@ -97,7 +97,7 @@
 
         </div>
 
-        <div class="row btns mb-5" style="margin-top: 5%;">
+        <div id="buttons" class="row btns mb-5" style="margin-top: 5%;">
           <a href="#" class="btn btn-link" (click)="clear()">Cancelar</a>
           <button [disabled]="!productForm2.valid" class=" btn btn-announce" type="submit">Anunciar</button>
         </div>
@@ -109,7 +109,7 @@
 </div>
 
 
-<div class="mt-5" *ngIf="tipo == 'camisa'">
+<div id="formTshirt" class="mt-5" *ngIf="tipo == 'camisa'">
   <h1>Complete os dados: {{tipo | uppercase}}</h1>
   <br>
 
@@ -223,7 +223,7 @@
 
 
         <!--Botões-->
-        <div class="row btns mb-5" style="margin-top: 5%;">
+        <div id="buttons"class="row btns mb-5" style="margin-top: 5%;">
           <a href="#" class="btn btn-link" (click)="clear()">Cancelar</a>
           <button [disabled]="!productForm.valid" class="ml-auto btn btn-announce" type="submit">Anunciar</button>
         </div>

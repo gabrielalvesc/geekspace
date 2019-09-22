@@ -22,11 +22,21 @@ input{
     background-color: #222222;
     color: #FFD933;
     border-radius: 5px;
-    font-size: 22px;
+    font-size: 16px;
     text-align: center;
     margin: 10px;
 }
 
 .btns {
     float: right;
+}
+
+#formOthers #buttons a{
+    margin-top: 6%;
+    padding-right: 20px;
+}
+
+#formTshirt #buttons a{
+    margin-top: 6%;
+    padding-right: 30px;
 }
