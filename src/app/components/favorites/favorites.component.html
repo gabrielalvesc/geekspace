@@ -26,7 +26,7 @@
       <div class="card-body">
         <div class="row">
           <div class="col-md-1">
-            <img src="{{product.picture}}" class="img-card" style="width: 70px; height: 80px">
+            <img src="{{product.image}}" class="img-card" style="width: 70px; height: 80px">
           </div>
           <div class="col-md-3">
             <div style="font-size: 30px">{{product.name}}</div>
@@ -38,7 +38,7 @@
           </div>
           <div class="col-md-4 mt-4">
             <a href="#" class="btn-favorite">MAIS DETALHES</a>
-            <button (click)="remove(product.idProduct)" class="btn btn-link float-right" style="font-size: 25px">Remover</button>
+            <button (click)="remove(product.id)" class="btn btn-link float-right" style="font-size: 25px">Remover</button>
           </div>
         </div>
       </div>
