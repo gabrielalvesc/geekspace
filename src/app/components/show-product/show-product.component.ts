@@ -8,6 +8,10 @@ import { FavoritesService } from 'src/app/services/favorites.service';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 import { Cart } from 'src/app/models/cart.model';
 import { ToastrService } from 'ngx-toastr';
+import { Items } from 'src/app/models/items.model';
+import { AuthService } from 'src/app/services/auth.service';
+import { User } from 'src/app/models/user.model';
+import { UserService } from 'src/app/services/user.service';
 
 
 @Component({
@@ -25,18 +29,21 @@ export class ShowProductComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private productService: ProductService,
+    private cartService: ShoppingCartService,
+    private authService: AuthService,
+    private userService: UserService,
     private toastr: ToastrService
   ) { }
 
   ngOnInit() {
     this.route.params
       .pipe(switchMap((params: Params) => this.loadProduct(+params.id))).subscribe(res => {
-        
+
       });
   }
 
   loadProduct(id: number): Promise<any> {
-    return new Promise((resolve) => resolve(this.productService.getById(id).subscribe(res =>{
+    return new Promise((resolve) => resolve(this.productService.getById(id).subscribe(res => {
       this.product = res;
     })));
   }
@@ -79,13 +86,22 @@ export class ShowProductComponent implements OnInit {
   }
 
   addCart() {
-    const item = new Cart(this.product, this.quantity, this.product.price * this.quantity);
-    // this.cartService.addItem(item);
-    this.router.navigate(['/carrinho']);
+    if (this.authService.isLoggedIn()) {
+      let item = new Items(this.product, this.quantity, this.product.price * this.quantity, 0);
+
+      this.cartService.addItem(this.authService.getUser(), item).subscribe(res => {
+        this.toastr.info('Produto adicionado ao carrinho', 'Adicionado com sucesso');
+        this.router.navigate(['/carrinho']);
+      })
+     
+    } else {
+      this.router.navigate(['/conta']);
+    }
+
   }
 
   buy() {
-    const item = new Cart(this.product, this.quantity, this.product.price * this.quantity);
+    // const item = new Cart(this.product, this.quantity, this.product.price * this.quantity);
     // this.cartService.addItem(item);
     this.router.navigate(['/finalizar-pedido']);
   }

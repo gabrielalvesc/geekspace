@@ -20,7 +20,7 @@ export class UserService {
   }
 
   getById(id:number) {
-    return this.http.get(`${GEEK_API}/clients/${id}`);
+    return this.http.get<User>(`${GEEK_API}/clients/${id}`);
   }
 }
 
