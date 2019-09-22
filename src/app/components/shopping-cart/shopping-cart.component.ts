@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 import { Cart } from 'src/app/models/cart.model';
+import { AuthService } from 'src/app/services/auth.service';
+import { Items } from 'src/app/models/items.model';
 
 
 @Component({
@@ -12,35 +14,34 @@ import { Cart } from 'src/app/models/cart.model';
 
 export class ShoppingCartComponent implements OnInit {
 
-  valorTotal: number;
-  valorFrete = 52.85;
+  subTotal: number;
 
   constructor(
     private productService: ProductService,
+    private authService: AuthService,
     private shoppingCartService: ShoppingCartService
   ) { }
 
   ngOnInit() {
+    this.shoppingCartService.getShoppingCart(this.authService.getUser());
   }
 
-  // get items(): Cart[] {
-  //   return this.shoppingCartService.items;
-  // }
+  get items(): Items[] {
+    return this.shoppingCartService.cart.items;
+  }
 
   // total(): number {
   //   return this.shoppingCartService.total();
   // }
 
-  // removeItem(item: Cart) {
-  //   return this.shoppingCartService.removeItem(item);
-  // }
+  removeItem(itemId: number) {
+    return this.shoppingCartService.removeItem(this.authService.getUser(), itemId).subscribe(res => {
+      this.ngOnInit();
+    });
+  }
 
   // addItem(item: any) {
   //   this.shoppingCartService.addItem(item);
-  // }
-
-  // quantity(qtd: any, id: any) {
-  //   this.shoppingCartService.setQuantity(id, qtd);
   // }
 
   // get total() {

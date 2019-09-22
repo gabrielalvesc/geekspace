@@ -11,6 +11,8 @@ import { Items } from '../models/items.model';
   providedIn: 'root'
 })
 export class ShoppingCartService {
+  
+  cart: Cart;
 
   constructor(
     private http: HttpClient,
@@ -24,7 +26,9 @@ export class ShoppingCartService {
   }
 
   getShoppingCart(clientId: number) {
-    return this.http.get<Cart>(`${GEEK_API}/clients/${clientId}/shopping-cart`)
+    return this.http.get<Cart>(`${GEEK_API}/clients/${clientId}/shopping-cart`).subscribe(res => {
+      this.cart = res;
+    })
   }
 
   addItem(clientId:number, item: Items) {
@@ -32,7 +36,7 @@ export class ShoppingCartService {
   }
 
   removeItem(clientId: number, itemId:number) {
-    return this.http.delete(`${GEEK_API}/clients/${clientId}/remove-item-from-cart/${itemId}`);
+    return this.http.delete(`${GEEK_API}/clients/${clientId}/remove-item/${itemId}`);
   }
 
   editShoppingCart(clientId: number, shoppingCart: Cart) {
