@@ -3,7 +3,6 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ProductService } from 'src/app/services/product.service';
 import { ShirtProduct } from 'src/app/models/shirt-product.model';
 import { GenericProduct } from 'src/app/models/product.model';
-import { ImageService } from 'src/app/services/image.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -40,9 +39,7 @@ export class FormProductComponent implements OnInit {
         color: ['', Validators.required],
         genre: ['', Validators.required],
         specification: ['', Validators.required],
-        description: ['', Validators.required],
-        picture:['',Validators.required],
- 
+        description: ['', Validators.required], 
       }) 
 
       this.productForm2 = this.formBuilder.group({ 

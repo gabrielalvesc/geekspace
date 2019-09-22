@@ -35,7 +35,7 @@ export class AuthService {
   getUser() {
     this.userStorage = JSON.parse(localStorage.getItem('data'))
     if (this.userStorage != null) {
-      return this.userStorage.login
+      return this.userStorage.id
     } else {
       return null;
     }

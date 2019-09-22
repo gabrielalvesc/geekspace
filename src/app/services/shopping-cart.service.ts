@@ -5,6 +5,7 @@ import { UserService } from './user.service';
 import { AuthService } from './auth.service';
 import { HttpClient } from '@angular/common/http';
 import { GEEK_API } from './geek.api';
+import { Items } from '../models/items.model';
 
 @Injectable({
   providedIn: 'root'
@@ -18,12 +19,16 @@ export class ShoppingCartService {
     private authService: AuthService
   ) { }
 
-  createShoppingCart(id: number) {
-    return this.http.post(`${GEEK_API}/clients/${id}/create-cart`, id);
+  createShoppingCart(id: number, cart:Cart) {
+    return this.http.post(`${GEEK_API}/clients/${id}/create-cart`, cart);
   }
 
   getShoppingCart(clientId: number) {
-    return this.http.get(`${GEEK_API}/clients/${clientId}/shopping-cart`)
+    return this.http.get<Cart>(`${GEEK_API}/clients/${clientId}/shopping-cart`)
+  }
+
+  addItem(clientId:number, item: Items) {
+    return this.http.post(`${GEEK_API}/clients/${clientId}/add-item`, item);
   }
 
   removeItem(clientId: number, itemId:number) {

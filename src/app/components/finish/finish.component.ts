@@ -45,7 +45,7 @@ export class FinishComponent implements OnInit {
 
     this.formFinishing = this.formBuilder.group({
       email: [this.user.email, Validators.required],
-      name: [this.user.name, Validators.required],
+      name: [this.user.firstName, Validators.required],
       lastname: [this.user.lastName, Validators.required],
       cpf: ['', Validators.required],
       cep: ['', Validators.required],
