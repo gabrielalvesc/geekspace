@@ -10,7 +10,7 @@
       <div class="row">
         <div class="col-md-12">
 
-          <form #f="ngForm" [formGroup]="formFinishing" (ngSubmit)="onSubmit(formFinishing.value)">
+          <form #f="ngForm" [formGroup]="formFinishing" (ngSubmit)="formFinishing.value">
 
             <h4>Meus dados pessoais</h4>
             <div class="row mb-3">
@@ -25,12 +25,12 @@
               <div class="col-md-6">
                 <label for="name">Nome</label>
                 <br>
-                <input disabled formControlName="name" name="name" type="text" id="name" required>
+                <input formControlName="name" name="name" type="text" id="name" required>
               </div>
               <div class="col-md-6">
                 <label for="lastname">Sobrenome</label>
                 <br>
-                <input disabled formControlName="lastname" name="lastname" type="text" id="lastname" required>
+                <input formControlName="lastname" name="lastname" type="text" id="lastname" required>
               </div>
             </div>
 
@@ -38,7 +38,7 @@
               <div class="col-md-12">
                 <label for="cpf">CPF</label>
                 <br>
-                <input placeholder="Ex: 111.111.111-11" formControlName="cpf" name="cpf" type="text" id="cpf" required>
+                <input [textMask]="{mask: cpf}" placeholder="Ex: 111.111.111-11" formControlName="cpf" name="cpf" type="text" id="cpf" required>
               </div>
             </div>
 
@@ -47,7 +47,7 @@
               <div class="col-md-6">
                 <label for="cep">CEP</label>
                 <br>
-                <input placeholder="Ex: 58297000" formControlName="cep" name="cep" type="text" id="cep" required (blur)="consultaCEP($event.target.value, f)">
+                <input [textMask]="{mask: cep}" placeholder="Ex: 58297-000" formControlName="cep" name="cep" type="text" id="cep" required (blur)="consultaCEP($event.target.value, f)">
               </div>
               <div class="col-md-6 line">
                 <label for="state">ESTADO</label>
@@ -107,16 +107,16 @@
       <h4 class="mt-5">Resumo do pedido</h4>
       <div class="row">
         <div class="col-md-12" style="font-size: 30px">
-          <span>{{itens.length}}</span>&nbsp;
-          <span *ngIf="itens.length == 1">ITEM NO CARRINHO</span>
-          <span *ngIf="itens.length != 1">ITENS NO CARRINHO</span>
+          <span>{{items.length}}</span>&nbsp;
+          <span *ngIf="items.length == 1">ITEM NO CARRINHO</span>
+          <span *ngIf="items.length != 1">ITENS NO CARRINHO</span>
         </div>
       </div>
       <div class="row">
-        <div class="col-md-12" style="font-size: 30px">
+        <div class="col-md-12" style="font-size: 30px" *ngFor="let item of items;let i = index">
           <div class="row">
             <div class="col-md-4">
-              <img src="{{item.product.picture}}" width="60" height="60" alt="">
+              <img src="{{item.product.image}}" width="60" height="60" alt="">
             </div>
             <div class="col-md-8">
               <h3>{{item.product.name}}</h3>
@@ -134,7 +134,7 @@
           <hr style="border: 1px solid #707070">
         </div>
         <div class="col-md-12" style="font-size: 28px; color: #575757">
-          Sub-Total: R$ {{item.subTotal | number : '1.2-2'}}
+          Sub-Total: R$ {{cart.total | number : '1.2-2'}}
         </div>
         <div class="col-md-12">
           <hr style="border: 1px solid #707070">
@@ -146,7 +146,7 @@
           <hr style="border: 1px solid #707070">
         </div>
         <div class="col-md-12" style="font-size: 28px; color: #575757">
-          TOTAL: R$ {{total | number : '1.2-2'}}
+          TOTAL: R$ {{cart.total | number : '1.2-2'}}
         </div>
       </div>
       <div class="row mt-5">

@@ -7,6 +7,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
+import { TextMaskModule } from 'angular2-text-mask';
 import localePt from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
 registerLocaleData(localePt);
@@ -73,6 +74,7 @@ import { AuthInterceptor } from './security/auth.interceptor';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    TextMaskModule,
     NgbModule,
     ToastrModule.forRoot({
       timeOut: 4000,
