@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { of } from 'rxjs';
 
@@ -7,6 +7,13 @@ import { of } from 'rxjs';
   providedIn: 'root'
 })
 export class CepService {
+
+  private headers = new HttpHeaders({
+    'Access-Control-Allow-Origin': '*',
+    "Access-Control-Allow-Credentials": "true",
+    "Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT",
+    "Access-Control-Allow-Headers": "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers"
+  });
 
   constructor(
     private http: HttpClient
@@ -26,7 +33,7 @@ export class CepService {
 
       // Valida o formato do CEP.
       if (validacep.test(cep)) {
-        return this.http.get(`//viacep.com.br/ws/${cep}/json`);
+        return this.http.get(`http://viacep.com.br/ws/${cep}/json`, { headers: this.headers });
       }
     }
 

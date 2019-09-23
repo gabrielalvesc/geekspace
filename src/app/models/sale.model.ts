@@ -4,12 +4,16 @@ import { Address } from './address.model';
 
 export class Sale {
     constructor(
-        public cpf: string,
-        public user: User,
-        public items: Cart[],
-        public payment: string,
-        public address: Address
+        public cep: string,
+        public street: string,
+        public city: string,
+        public state: string,
+        public number: number,
+        public neighborhood: string,
+        public complement: string,
+        public payment: string
     ) {
         
     }
 }
+

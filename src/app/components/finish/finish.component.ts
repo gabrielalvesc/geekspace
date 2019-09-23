@@ -10,6 +10,7 @@ import { RequestsService } from 'src/app/services/requests.service';
 import { CepService } from 'src/app/services/cep.service';
 import { HttpClient } from '@angular/common/http';
 import { Items } from 'src/app/models/items.model';
+import { Sale } from 'src/app/models/sale.model';
 
 @Component({
   selector: 'app-finish',
@@ -87,16 +88,12 @@ export class FinishComponent implements OnInit {
   }
 
   onSubmit(f: any) {
-    // let user: User = this.userService.getByEmail(this.authService.getUser());
-    // let address: Address = new Address(f.cep, f.street, f.city, f.state, f.number, f.neighborhood, f.complement);
-    // let sale: Sale = new Sale(f.cpf, user, this.itens, "boleto", address);
-    // this.user.sales.push(sale);
-    // this.itens.forEach(e => {
-    //   const request = new ResquestModel(e.product, e.quantity, e.subTotal, this.user.email);
-    //   this.requestService.addRequest(request);
-    // });
-    // this.saleService.newSale(sale);
-
+    let sale = new Sale(f.cep, f.street, f.city, f.state, f.number, f.neighborhood, f.complement, 'BOLETO');
+    this.saleService.newSale(sale, this.cart.id).subscribe(res => {
+      console.log(res);
+    }, error => {
+      console.log(error);
+    });
   }
 
   consultaCEP(cep, form) {

@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { UserService } from './user.service';
 import { AuthService } from './auth.service';
 import { User } from '../models/user.model';
+import { HttpClient } from '@angular/common/http';
+import { GEEK_API } from './geek.api';
 
 @Injectable({
   providedIn: 'root'
@@ -17,21 +19,13 @@ export class SaleService {
     private toastr: ToastrService,
     private router: Router,
     private userService: UserService,
-    private authService: AuthService
+    private authService: AuthService,
+    private http: HttpClient
   ) { }
 
-  // newSale(sale: Sale) {
-  //   let a:number = this.sales.length;
-  //   this.sales.push(sale)
-  //   let b:number = this.sales.length;
-  //   if (b > a) {
-  //     let user:User = this.userService.getByEmail(sale.user.email);
-  //     user.sales.push(sale)
-  //     this.router.navigate(['/confirmacao']);
-  //   } else {
-  //     this.toastr.error('Não foi possível realizar sua compra, entre em contato conosco', 'Compra não realizada')
-  //   }
-  // }
+  newSale(sale: Sale, idCarrinho:number) {
+    return this.http.post(`${GEEK_API}/sales/new/${idCarrinho}`, sale)
+  }
 
   getSales() {
     return JSON.stringify(this.sales);
