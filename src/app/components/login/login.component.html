@@ -41,6 +41,6 @@
 
   <button (click)="onSubmit(formLogin.value)" [disabled]="!formLogin.valid" class="btn btn-submited" type="submit">Entrar</button>
 
-  <a style="float: right; margin-top: 30px" href="#">Perdeu sua senha?</a>
+  <a [routerLink]="['/lost-password']" routerLinkActive="router-link-active" >Perdeu sua senha?</a>
 
 </form>

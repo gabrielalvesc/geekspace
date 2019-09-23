@@ -15,12 +15,14 @@ import { ConfirmationComponent } from './components/confirmation/confirmation.co
 import { AdminGuard } from './security/admin.guard';
 import { FiltroComponent } from './components/filtro/filtro.component';
 import { MysalesComponent } from './components/mysales/mysales.component';
+import { LostpassComponent } from './components/lostpass/lostpass.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'carrinho', component: ShoppingCartComponent},
   {path: 'produto/:id', component: ShowProductComponent},
   {path: 'conta', component: AccountComponent},
+  {path: 'lost-password', component: LostpassComponent},
   {path: 'produtos/:filter', component: FiltroComponent},
   {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard],
   children: [
