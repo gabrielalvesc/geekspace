@@ -14,7 +14,9 @@ import { Items } from 'src/app/models/items.model';
 
 export class ShoppingCartComponent implements OnInit {
 
-  subTotal: number;
+  total: number;
+  cart: Cart;
+  items: Items[];
 
   constructor(
     private productService: ProductService,
@@ -23,16 +25,16 @@ export class ShoppingCartComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.shoppingCartService.getShoppingCart(this.authService.getUser());
+    this.getItems();    
   }
 
-  get items(): Items[] {
-    return this.shoppingCartService.cart.items;
+  getItems() {
+    this.shoppingCartService.getShoppingCart(this.authService.getUser()).subscribe(res => {
+      this.cart = res;
+      this.items = this.cart.items;
+      console.log(this.items);
+    });
   }
-
-  // total(): number {
-  //   return this.shoppingCartService.total();
-  // }
 
   removeItem(itemId: number) {
     return this.shoppingCartService.removeItem(this.authService.getUser(), itemId).subscribe(res => {

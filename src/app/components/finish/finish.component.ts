@@ -9,6 +9,7 @@ import { SaleService } from 'src/app/services/sale.service';
 import { RequestsService } from 'src/app/services/requests.service';
 import { CepService } from 'src/app/services/cep.service';
 import { HttpClient } from '@angular/common/http';
+import { Items } from 'src/app/models/items.model';
 
 @Component({
   selector: 'app-finish',
@@ -17,10 +18,13 @@ import { HttpClient } from '@angular/common/http';
 })
 export class FinishComponent implements OnInit {
 
-  item: Cart;
-  total: number;
+  cart: Cart;
+  items: Items[];
   user: User;
   formFinishing: FormGroup;
+
+  public cpf = [/[1-9]/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '-', /\d/, /\d/]
+  public cep = [/[1-9]/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/]
 
   constructor(
     private cartService: ShoppingCartService,
@@ -32,37 +36,55 @@ export class FinishComponent implements OnInit {
     private cepService: CepService,
     private http: HttpClient
   ) {
-    // this.total = this.cartService.total();
-    // this.user = this.userService.getByEmail(this.authService.getUser());
+
   }
 
 
   ngOnInit() {
-    // this.itens.forEach(e => {
-    //   this.item = e;
-    //   return;
-    // });
+
+    this.getItems();
 
     this.formFinishing = this.formBuilder.group({
-      email: [this.user.email, Validators.required],
-      name: [this.user.firstName, Validators.required],
-      lastname: [this.user.lastName, Validators.required],
+      email: ['', Validators.required],
+      name: [{value:'', disabled:true}, Validators.required],
+      lastname: [{value:'', disabled:true}, Validators.required],
       cpf: ['', Validators.required],
       cep: ['', Validators.required],
-      state: ['', Validators.required],
-      city: ['', Validators.required],
-      number: ['', Validators.required],
       neighborhood: ['', Validators.required],
+      street: ['', Validators.required],
+      city: ['', Validators.required],
+      state: [{value:'', disabled:true}, Validators.required],
       complement: ['', Validators.required],
-      street: ['', Validators.required]
+      number: ['', Validators.required]
+    })
+
+    this.userService.getById(this.authService.getUser()).subscribe(res => {
+
+      this.formFinishing.setValue({
+        email: res.email,
+        name: res.firstName,
+        lastname: res.lastName,
+        cpf: '',
+        cep: '',
+        state: '',
+        city: '',
+        number: '',
+        neighborhood: '',
+        complement: '',
+        street: ''
+      })
     });
 
 
   }
 
-  // get itens() {
-  //   return this.cartService.items;
-  // }
+  getItems() {
+    this.cartService.getShoppingCart(this.authService.getUser()).subscribe(res => {
+      this.cart = res;
+      this.items = this.cart.items;
+      console.log(this.items);
+    })
+  }
 
   onSubmit(f: any) {
     // let user: User = this.userService.getByEmail(this.authService.getUser());

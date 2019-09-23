@@ -39,7 +39,7 @@
             </td>
 
             <td class="col-md-2">
-              <span>R$ {{item?.product.price | currency:'BRL':'symbol':'0.0-2':'pt'}}</span>
+              <span>{{item?.product.price | currency:'BRL':'symbol':'0.0-2':'pt'}}</span>
             </td>
 
             <td class="col-md-1">
@@ -48,7 +48,7 @@
             </td>
 
             <td class="col-md-1">
-              <span>R$ {{item.subValue  | number : '1.2-2'}}</span>
+              <span>{{item.subtotal  | number : '1.2-2'}}</span>
               <!-- <input #subTotal (change)="total(value)" type="number" value="{{item.product.price * item.quantity  | number : '1.2-2'}}" disabled> -->
             </td>
 
@@ -82,36 +82,10 @@
 
       <span class="badge badge-success text-white">FRETE GRÁTIS</span>
 
-      <!--
-        <div class="form-check">
-        <input checked #pac (click)="frete('pac')" class="form-check-input" type="radio" name="exampleRadios"
-          id="exampleRadios1" value="52.85">
-        <label class="form-check-label" for="exampleRadios1">
-          PAC - 12 dia(s) úteis R$52,85
-        </label>
-
-        <br>
-
-        <input #sedex (click)="frete('sedex')" class="form-check-input" type="radio" name="exampleRadios"
-          id="exampleRadios1" value="72.85">
-        <label class="form-check-label" for="exampleRadios1">
-          Sedex - 7 dia(s) úteis R$72,85
-        </label>
-      </div>
-
-       <hr>
-      <span>
-        Subtotal R$ {{total | number : '1.2-2'}}
-      </span>
-      -->
-
-
-
-
       <hr>
 
       <span style="font-size: 25px">
-        Total do pedido R$ {{total | number : '1.2-2'}}
+        Total do pedido R$ {{cart.total | number : '1.2-2'}}
       </span>
       <br>
 

@@ -12,7 +12,7 @@
 
         <a (click)="addFavorite(product)"><i id="{{product.idProduct}}" class="far fa-heart heart"></i></a>
 
-        <a (click)="addItem(product)" [routerLink]="['produto', product.idProduct]">
+        <a (click)="addItem(product)" [routerLink]="['produto', product.id]">
           <img class="card-img-top img-fluid" src="{{product.image}}" style="height: 270px;" alt="Card image cap">
         </a>
 

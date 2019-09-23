@@ -26,9 +26,7 @@ export class ShoppingCartService {
   }
 
   getShoppingCart(clientId: number) {
-    return this.http.get<Cart>(`${GEEK_API}/clients/${clientId}/shopping-cart`).subscribe(res => {
-      this.cart = res;
-    })
+    return this.http.get<Cart>(`${GEEK_API}/clients/${clientId}/shopping-cart`);
   }
 
   addItem(clientId:number, item: Items) {
