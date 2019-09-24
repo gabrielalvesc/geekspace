@@ -7,3 +7,12 @@
     text-decoration: none;
     color: #212529;
 }
+
+/* .custom-control-label::before { background-color: seashell} */
+.custom-radio .custom-control-input:checked~.custom-control-label::before,
+.custom-radio .custom-control-input:checked~.custom-control-label::after {
+    background-color: #FFD933;  /* green */
+    /* this bg image SVG is just a white circle, you can replace it with any valid SVG code */
+    background-image: url(data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3E%3Ccircle r='3' fill='%23fff'/%3E%3C/svg%3E); 
+    border-radius: 50%;
+}

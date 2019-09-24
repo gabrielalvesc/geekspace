@@ -48,7 +48,7 @@
             </td>
 
             <td class="col-md-1">
-              <span>{{item.subtotal  | number : '1.2-2'}}</span>
+              <span>{{item.product.price * item.quantity  | number : '1.2-2'}}</span>
               <!-- <input #subTotal (change)="total(value)" type="number" value="{{item.product.price * item.quantity  | number : '1.2-2'}}" disabled> -->
             </td>
 
