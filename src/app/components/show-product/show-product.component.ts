@@ -125,9 +125,15 @@ export class ShowProductComponent implements OnInit {
   }
 
   buy() {
-    // const item = new Cart(this.product, this.quantity, this.product.price * this.quantity);
-    // this.cartService.addItem(item);
-    this.router.navigate(['/finalizar-pedido']);
+    if(this.authService.isLoggedIn()){
+      let item = new Items(this.product, this.quantity, this.product.price * this.quantity, 0);
+      this.cartService.addItem(this.authService.getUser(), item).subscribe(res => {
+        console.log(res)
+        this.router.navigate(['/finalizar-pedido']);
+      }, error => {
+        console.log(error)
+      })
+    }
   }
 
   setQuantity() {

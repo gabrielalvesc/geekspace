@@ -40,10 +40,8 @@ export class ProductService {
     return this.http.post(`${GEEK_API}/shirt-product/new`, shirtProduct);
   }
 
-  getByFilter(filter: string): GenericProduct[] {
-    const lista: GenericProduct[] = [];
-    
-    return lista;
+  getByCategory(category: string) {
+    return this.http.get<GenericProduct[]>(`${GEEK_API}/all-product/category-filter?category=${category}`)
   }
 
 }

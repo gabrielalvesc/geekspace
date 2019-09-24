@@ -41,19 +41,19 @@
           <div class="card-body">
             <div class="row">
               <div class="col-md-3">
-                <a [routerLink]="[ '/produto', product.idProduct ]">
-                  <img src="{{product.picture}}" class="img-card" style="width: 100px; height: 120px">
+                <a [routerLink]="[ '/produto', product.id ]">
+                  <img src="{{product.image}}" class="img-card" style="width: 100px; height: 120px">
                 </a>
               </div>
               <div class="col-md-6">
-                <div style="font-size: 30px" id="name"><a [routerLink]="[ '/produto', product.idProduct ]">{{product.name}}</a></div>
+                <div style="font-size: 30px" id="name"><a [routerLink]="[ '/produto', product.id ]">{{product.name}}</a></div>
                 <div style="font-size: 30px">{{product.price | currency:'BRL':'symbol':'0.0-2':'pt'}} </div>
                 <span class="badge badge-success text-white">FRETE GRÁTIS</span>
               </div>
-              <div class="col-md-3" >
-                <a class="float-right" (click)="addFavorite(product)"><i id="heart" placement="top" ngbTooltip="Adicionar aos favoritos"
+              <!-- <div class="col-md-3" >
+                <a class="float-right" (click)="addOrRemoveFavorite(product)"><i id="heart" placement="top" ngbTooltip="Adicionar aos favoritos"
                     style="font-size: 30px; color: black;" class="far fa-heart"></i></a>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>

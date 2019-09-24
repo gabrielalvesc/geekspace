@@ -15,18 +15,20 @@ export class AuthInterceptor implements HttpInterceptor {
 
         if (req.url.startsWith('http://viacep.com.br/ws/')) {
             return next.handle(req);
-        }
-
-        if (this.authService.isLoggedIn()) {
-
-            authRequest = req.clone({
-                setHeaders: {
-                    'Authorization': `Bearer ${token}`
-                }
-            });
-            return next.handle(authRequest);
         } else {
-            return next.handle(req);
+            if (this.authService.isLoggedIn()) {
+
+                authRequest = req.clone({
+                    setHeaders: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                return next.handle(authRequest);
+            } else {
+                return next.handle(req);
+            }
         }
+
+
     }
 }

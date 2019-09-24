@@ -8,13 +8,6 @@ import { of } from 'rxjs';
 })
 export class CepService {
 
-  private headers = new HttpHeaders({
-    'Access-Control-Allow-Origin': '*',
-    "Access-Control-Allow-Credentials": "true",
-    "Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT",
-    "Access-Control-Allow-Headers": "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers"
-  });
-
   constructor(
     private http: HttpClient
   ) { }
@@ -33,7 +26,7 @@ export class CepService {
 
       // Valida o formato do CEP.
       if (validacep.test(cep)) {
-        return this.http.get(`http://viacep.com.br/ws/${cep}/json`, { headers: this.headers });
+        return this.http.get(`http://viacep.com.br/ws/${cep}/json`);
       }
     }
 

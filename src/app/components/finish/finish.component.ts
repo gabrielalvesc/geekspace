@@ -11,6 +11,8 @@ import { CepService } from 'src/app/services/cep.service';
 import { HttpClient } from '@angular/common/http';
 import { Items } from 'src/app/models/items.model';
 import { Sale } from 'src/app/models/sale.model';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-finish',
@@ -33,9 +35,9 @@ export class FinishComponent implements OnInit {
     private authService: AuthService,
     private formBuilder: FormBuilder,
     private saleService: SaleService,
-    private requestService: RequestsService,
     private cepService: CepService,
-    private http: HttpClient
+    private router: Router,
+    private toast: ToastrService
   ) {
 
   }
@@ -91,8 +93,9 @@ export class FinishComponent implements OnInit {
     let sale = new Sale(f.cep, f.street, f.city, f.state, f.number, f.neighborhood, f.complement, 'BOLETO');
     this.saleService.newSale(sale, this.cart.id).subscribe(res => {
       console.log(res);
+      this.router.navigate(['/confirmacao'])
     }, error => {
-      console.log(error);
+      this.toast.error('Não foi possível realizar a compra', 'Erro')
     });
   }
 

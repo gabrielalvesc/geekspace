@@ -39,7 +39,9 @@ export class RegisterComponent implements OnInit {
     let role = new Role("USER", "");
     let user = new User(f.email, f.password, f.name, f.lastName, [role]);
     this.userService.createUser(user).subscribe(res => {
-      this.authService.login(f.email, f.password).subscribe(res => {
+      console.log(user.email, user.password)
+      this.authService.login(user.email, user.password).subscribe(res => {
+        console.log(res);
         let cart = new Cart(user, new Array<any>(), 0);
         this.cartService.createShoppingCart(this.authService.getUser(), cart).subscribe(res=>{console.log(res)});
         this.router.navigate(['/dashboard/meus-pedidos'])

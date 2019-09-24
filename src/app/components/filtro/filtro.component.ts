@@ -4,6 +4,7 @@ import { GenericProduct } from 'src/app/models/product.model';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { FavoritesService } from 'src/app/services/favorites.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-filtro',
@@ -12,44 +13,62 @@ import { FavoritesService } from 'src/app/services/favorites.service';
 })
 export class FiltroComponent implements OnInit {
 
-  filter: string;
+  category: string;
+  products: GenericProduct[];
 
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute,
-    private favoriteService: FavoritesService
+    private router: Router,
+    private favoriteService: FavoritesService,
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
-      this.filter = params.filter;
+      this.category = params.filter;
     });
-    // tslint:disable-next-line: no-unused-expression
-    this.products;
+    
+    this.getProducts();
   }
 
-  get products() {
-    return this.productService.getByFilter(this.filter);
+  getProducts() {
+    this.productService.getByCategory(this.category).subscribe(res => {
+      this.products = res;
+      console.log(this.products);
+    })
   }
 
-  addFavorite(product: GenericProduct) {
-    const heart = document.getElementById('heart');
-
-    if (heart.classList.contains('far')) {
-      heart.classList.add('fas');
-      heart.classList.remove('far');
-      // this.favoriteService.addFavorite(product);
-    } else if (heart.classList.contains('fas')) {
-      heart.classList.add('far');
-      heart.classList.remove('fas');
-      // this.favoriteService.removeFavorite(product.id);
-    }
-  }
+  // addOrRemoveFavorite(product: GenericProduct) {
+  //   if(this.authService.isLoggedIn()){
+  //     this.favoriteService.getFavorites(this.authService.getUser()).subscribe(res => {
+  //       let bool: boolean = false;
+  //       res.forEach(e => {
+  //         if (e.id == product.id) {
+  //           bool = true;
+  //         }
+  //       });
+  //       if (bool) {
+  //         this.favoriteService.removeFavorite(product.id);
+  //         const heart = document.getElementById('heart');
+  //         heart.classList.add('far');
+  //         heart.classList.remove('fas');
+  //       } else {
+  //         this.favoriteService.addFavorite(product.id);
+  //         const heart = document.getElementById('heart');
+  //         heart.classList.add('fas');
+  //         heart.classList.remove('far');
+  //       }
+  //     })
+  //   } else {
+  //     this.router.navigate(['/conta'])
+  //   }
+    
+  // }
 
   setType(type: string) {
-    this.filter = type;
-    // tslint:disable-next-line: no-unused-expression
-    this.products;
+    this.category = type;
+    this.getProducts();
   }
 
 }
