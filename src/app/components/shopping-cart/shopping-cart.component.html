@@ -46,18 +46,19 @@
               <!-- <input #qtd (change)="quantity(qtd.value, item.product.idProduct)" class="inputQtd" type="number" min="1"
                 max="{{item.product.quantity}}" value="{{item.quantity}}" required> -->
 
-              <div class="number-input row">
+              <div class="number-input">
 
                 <input class="quantity" min="1" max="{{item.product.quantity}}" name="quantity"
                   value="{{item.quantity}}" type="number" disabled>
+                  
 
-                <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                <button id="up" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
                   <i class="material-icons">
                     keyboard_arrow_up
                   </i>
                 </button>
                 <br>
-                <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                <button id="down" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
                   <i class="material-icons">
                     keyboard_arrow_down
                   </i>
