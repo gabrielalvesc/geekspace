@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -16,6 +17,7 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private authService: AuthService,
     private router: Router,
+    private toast: ToastrService
   ) {
 
   }
@@ -30,10 +32,9 @@ export class LoginComponent implements OnInit {
 
   onSubmit(f: any) {
     this.authService.login(f.email, f.password).subscribe(r => {
-      console.log(r);
       this.router.navigate(['/dashboard']);
     }, error => {
-      console.log(error);
+      this.toast.error('E-mail e/ou senha inválidos', 'Tente  novamente')
     });
   }
 
