@@ -17,7 +17,7 @@ export class ShoppingCartComponent implements OnInit {
   total: number = 0;
   cart: Cart;
   items: Items[];
-  quantidade:number;
+  quantidade: number;
 
   constructor(
     private productService: ProductService,
@@ -28,7 +28,8 @@ export class ShoppingCartComponent implements OnInit {
   ngOnInit() {
 
     this.items = [];
-    this.getItems();   
+    
+    this.getItems();
   }
 
   // ngOnChanges(changes: SimpleChanges): void {
@@ -58,7 +59,7 @@ export class ShoppingCartComponent implements OnInit {
       this.ngOnInit();
     });
   }
-
+  
   getTotal (lista:Items[]) {
     this.total = 0;
     lista.forEach(e => {
@@ -81,5 +82,4 @@ export class ShoppingCartComponent implements OnInit {
     })
   }
 
-  
 }
