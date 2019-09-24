@@ -56,7 +56,7 @@ export class ShoppingCartService {
   }
 
   increaseQuantity(clientId:number, itemId: number){
-    return this.http.put(`${GEEK_API}/clients/${clientId}/decrease-quantity/${itemId}`, null)
+    return this.http.put(`${GEEK_API}/clients/${clientId}/increase-quantity/${itemId}`, null)
   }
   
   
