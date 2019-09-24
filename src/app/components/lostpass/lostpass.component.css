@@ -1,0 +1,41 @@
+#lost-pass {
+    margin-top: 5%;
+    font-family: Din;
+}
+
+input{
+    border-radius: 0px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+
+    border-color: #222222;
+
+    box-shadow: none!important;
+
+    outline: none;
+}
+
+.btn-custom {
+    width: 300px;
+
+    background-color: #222222;
+    color: #ffd933;
+    border-radius: 5px;
+
+    outline: none;
+
+    
+}
+
+.btn-custom:hover {
+    background-color: #323232;
+}
+
+.btn-custom:active{
+    background-color: #1f1f1f;
+}
+
+i {
+    color: green;
+}

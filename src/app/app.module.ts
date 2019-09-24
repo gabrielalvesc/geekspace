@@ -42,6 +42,7 @@ import { FiltroComponent } from './components/filtro/filtro.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MysalesComponent } from './components/mysales/mysales.component';
 import { AuthInterceptor } from './security/auth.interceptor';
+import { LostpassComponent } from './components/lostpass/lostpass.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { AuthInterceptor } from './security/auth.interceptor';
     AboutComponent,
     FiltroComponent,
     FooterComponent,
-    MysalesComponent
+    MysalesComponent,
+    LostpassComponent
 
   ],
   imports: [

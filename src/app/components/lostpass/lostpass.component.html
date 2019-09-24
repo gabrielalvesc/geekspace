@@ -1,0 +1,53 @@
+<div id="lost-pass">
+
+  <div class="d-flex justify-content-center">
+    <h1>Por favor informe seu e-mail</h1>
+
+  </div>
+
+  <div class="d-flex justify-content-center">
+    <form [formGroup]="formLogin">
+
+      <div class="form-group">
+        <label class="textcolor" for="email">E-mail</label>
+        <input class="form-control" type="email" name="email">
+      </div>
+
+      <button (click)="refresh()" type="button" class="btn-custom" data-toggle="modal" data-target="#exampleModalLong">Redefinir
+        Senha</button>
+
+    </form>
+
+  </div>
+
+
+  <!-- Modal -->
+  <div class="modal bounceIn" id="exampleModalLong" tabindex="2" role="dialog" aria-labelledby="exampleModalLongTitle"
+    aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered" role="document">
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <button [routerLink]="['/conta']" routerLinkActive="router-link-active" type="button" class="close"
+            data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body d-flex justify-content-center">
+
+          <h3>Verifique a caixa de entrada do seu e-mail.</h3>
+          <br>
+          <i class="material-icons">
+            check_circle
+          </i>
+
+        </div>
+
+        <button  type="button" class="btn-custom"> Voltar para página inicial </button>
+      </div>
+
+    </div>
+  </div>
+
+</div>

@@ -1,5 +1,4 @@
-input{   
-    justify-content: center;
+input{
     border-radius: 0px;
     border-top: none;
     border-right: none;
@@ -27,3 +26,8 @@ input{
 }
 
 
+a {
+    float: right; 
+    margin-top: 30px;
+    color: #222222;
+}
