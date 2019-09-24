@@ -4,6 +4,9 @@ import { ResquestModel } from 'src/app/models/request.model';
 import { UserService } from 'src/app/services/user.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { User } from 'src/app/models/user.model';
+import { Cart } from 'src/app/models/cart.model';
+import { Sale } from 'src/app/models/sale.model';
+import { Items } from 'src/app/models/items.model';
 
 
 @Component({
@@ -14,26 +17,28 @@ import { User } from 'src/app/models/user.model';
 export class RequestsComponent implements OnInit {
 
   user: User;
-  sales: any[];
+  requests: Sale[];
+  items: any[];
 
   constructor(
-    private requestService: RequestsService,
     private userService: UserService,
     private authService: AuthService
   ) {
-    // this.user = this.userService.getByEmail(this.authService.getUser())
    }
 
   ngOnInit() {
-    // this.sales = this.user.sales;
-    // for (let i = 0; i < this.sales.length; i++) {
-    //   this.items = this.sales[2][i];      
-    // }
-    console.log(this.sales)
+    this.requests = [];
+    this.userService.getRequests(this.authService.getUser()).subscribe(res => {
+      this.requests = res;
+      this.items = [];
+      
+      this.requests.forEach(e => {
+        this.items.push(e.shoppingCart.items[0])
+      });
+      console.log(this.items)
+    })
   }
 
-  // get requests(): ResquestModel[]{
-  //   return this.requestService.getRequests()
-  // }
+  
 
 }

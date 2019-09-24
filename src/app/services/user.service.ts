@@ -3,6 +3,7 @@ import { User } from '../models/user.model';
 import { ToastrService } from 'ngx-toastr';
 import { HttpClient } from '@angular/common/http';
 import { GEEK_API } from './geek.api';
+import { Sale } from '../models/sale.model';
 
 
 @Injectable({
@@ -21,6 +22,10 @@ export class UserService {
 
   getById(id:number) {
     return this.http.get<User>(`${GEEK_API}/clients/${id}`);
+  }
+
+  getRequests(clientId:number) {
+    return this.http.get<Sale[]>(`${GEEK_API}/clients/${clientId}/sales`)
   }
 }
 

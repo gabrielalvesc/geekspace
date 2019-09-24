@@ -13,13 +13,17 @@ import { Items } from '../models/items.model';
 export class ShoppingCartService {
   
   cart: Cart;
+  totalItems: number
 
   constructor(
     private http: HttpClient,
     private toastr: ToastrService,
     private userService: UserService,
     private authService: AuthService
-  ) { }
+  ) {
+    this.totalItems = 0; 
+    this.getTotalItems()
+  }
 
   createShoppingCart(id: number, cart:Cart) {
     return this.http.post(`${GEEK_API}/clients/${id}/create-cart`, cart);
@@ -29,8 +33,8 @@ export class ShoppingCartService {
     return this.http.get<Cart>(`${GEEK_API}/clients/${clientId}/shopping-cart`);
   }
 
-  addItem(clientId:number, item: Items) {
-    return this.http.post(`${GEEK_API}/clients/${clientId}/add-item`, item);
+  addItem(clientId:number, item: Items) {    return this.http.post(`${GEEK_API}/clients/${clientId}/add-item`, item);
+
   }
 
   removeItem(clientId: number, itemId:number) {
@@ -39,6 +43,12 @@ export class ShoppingCartService {
 
   editShoppingCart(clientId: number, shoppingCart: Cart) {
     return this.http.put(`${GEEK_API}/clients/${clientId}/shopping-cart/edit`, shoppingCart)
+  }
+
+  getTotalItems(){
+    this.http.get<Cart>(`${GEEK_API}/clients/${this.authService.getUser()}/shopping-cart`).subscribe(res => {
+      this.totalItems = res.items.length;
+    })
   }
   
   // setQuantity(id: number, quantity: number) {

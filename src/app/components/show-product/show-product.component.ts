@@ -112,7 +112,7 @@ export class ShowProductComponent implements OnInit {
   addCart() {
     if (this.authService.isLoggedIn()) {
       let item = new Items(this.product, this.quantity, this.product.price * this.quantity, 0);
-
+      this.cartService.getTotalItems();
       this.cartService.addItem(this.authService.getUser(), item).subscribe(res => {
         this.toastr.info('Produto adicionado ao carrinho', 'Adicionado com sucesso');
         this.router.navigate(['/carrinho']);
@@ -128,11 +128,13 @@ export class ShowProductComponent implements OnInit {
     if(this.authService.isLoggedIn()){
       let item = new Items(this.product, this.quantity, this.product.price * this.quantity, 0);
       this.cartService.addItem(this.authService.getUser(), item).subscribe(res => {
-        console.log(res)
+        this.cartService.getTotalItems();
         this.router.navigate(['/finalizar-pedido']);
       }, error => {
         console.log(error)
       })
+    } else {
+      this.router.navigate(['conta'])
     }
   }
 

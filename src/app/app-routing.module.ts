@@ -19,7 +19,7 @@ import { LostpassComponent } from './components/lostpass/lostpass.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'carrinho', component: ShoppingCartComponent},
+  {path: 'carrinho', component: ShoppingCartComponent, canActivate: [AuthGuard]},
   {path: 'produto/:id', component: ShowProductComponent},
   {path: 'conta', component: AccountComponent},
   {path: 'lost-password', component: LostpassComponent},

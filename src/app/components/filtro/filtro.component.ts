@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges, OnChanges } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
 import { GenericProduct } from 'src/app/models/product.model';
 import { Router, ActivatedRoute, Params } from '@angular/router';
@@ -67,7 +67,9 @@ export class FiltroComponent implements OnInit {
   // }
 
   setType(type: string) {
+    console.log(type)
     this.category = type;
+    console.log(this.category)
     this.getProducts();
   }
 

@@ -32,12 +32,13 @@ export class ShoppingCartComponent implements OnInit {
     this.shoppingCartService.getShoppingCart(this.authService.getUser()).subscribe(res => {
       this.cart = res;
       this.items = this.cart.items;
-      console.log(this.items);
+      this.shoppingCartService.getTotalItems();
     });
   }
 
   removeItem(itemId: number) {
     return this.shoppingCartService.removeItem(this.authService.getUser(), itemId).subscribe(res => {
+      this.shoppingCartService.getTotalItems();
       this.ngOnInit();
     });
   }

@@ -13,18 +13,18 @@
   </div>
 </ng-container>
 <ng-template #listTemplate>
-  <div *ngFor="let request of requests">
-  
+  <div *ngFor="let item of items">
+
     <div class="card shadow mb-2">
       <div class="card-body">
         <div class="row">
           <div class="col-md-1">
-            <img src="{{request.product.picture}}" class="img-card" style="width: 70px; height: 80px">
+            <img src="{{item.product.image}}" class="img-card" style="width: 70px; height: 80px">
           </div>
           <div class="col-md-4">
-            <div style="font-size: 30px">{{request.product.name}}</div>
-            <div style="font-size: 30px">{{request.product.price | currency:'BRL':'symbol':'0.0-2':'pt'}} x {{request.quantity}} <span
-                *ngIf="request.quantity > 1">unidades</span> <span *ngIf="request.quantity == 1">unidade</span> </div>
+            <div style="font-size: 30px">{{item.product.name}}</div>
+            <div style="font-size: 30px">{{item.product.price | currency:'BRL':'symbol':'0.0-2':'pt'}} x {{item.quantity}} <span
+                *ngIf="item.quantity > 1">unidades</span> <span *ngIf="item.quantity == 1">unidade</span> </div>
           </div>
           <div class="col-md-3">
             <div style="font-size: 30px">GeekSpace</div>
