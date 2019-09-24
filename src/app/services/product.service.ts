@@ -52,5 +52,9 @@ export class ProductService {
     return this.http.get<GenericProduct[]>(`${GEEK_API}/shirt-product/color-filter?color=${color}`)
   }
 
+  getByColorGenre(color: string, genre: string){
+    return this.http.get<GenericProduct[]>(`${GEEK_API}/shirt-product/color-genre-filter?genre=${genre}&color=${color}`)
+  }
+
 
 }

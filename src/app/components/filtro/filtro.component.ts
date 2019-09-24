@@ -15,6 +15,8 @@ export class FiltroComponent implements OnInit {
 
   category: string;
   products: GenericProduct[];
+  genre: string = null;
+  color: string = null;
 
   constructor(
     private productService: ProductService,
@@ -39,11 +41,11 @@ export class FiltroComponent implements OnInit {
     })
   }
 
-  filterGenre(genre: string){
-    this.productService.getByGenre(genre).subscribe(res => {
-      this.products = res;
-    })
-  }
+  // filterGenre(genre: string){
+  //   this.productService.getByGenre(genre).subscribe(res => {
+  //     this.products = res;
+  //   })
+  // }
 
   setType(type: string) {
     console.log(type)
@@ -52,10 +54,26 @@ export class FiltroComponent implements OnInit {
     this.getProducts();
   }
 
-  color(color:string) {
-    this.productService.getByColor(color).subscribe(res => {
-      this.products = res;
-    })
+  // color(color:string) {
+  //   this.productService.getByColor(color).subscribe(res => {
+  //     this.products = res;
+  //   })
+  // }
+
+  filterColorGenre() {
+    if(this.color != null && this.genre != null) {
+      this.productService.getByColorGenre(this.color, this.genre).subscribe(res => {
+        this.products = res;
+      })
+    } else if (this.color == null && this.genre != null) {
+      this.productService.getByGenre(this.genre).subscribe(res => {
+        this.products = res;
+      });
+    } else if (this.color != null && this.genre == null) {
+      this.productService.getByColor(this.color).subscribe(res => {
+        this.products = res;
+      })
+    }
   }
 
 }

@@ -160,16 +160,47 @@
         <!--Terceira Linha-->
         <!--COR-->
         <div class="row">
-          <div class="col">
-            <div class="form-group">
+          <div class="col-md-6">
+            <!-- <div class="form-group">
               <label for="formGroupExampleInput">Cor</label>
               <input formControlName="color" type="text" class="form-control form" id="formGroupExampleInput">
+            </div> -->
+            <label for="formGroupExampleInput">Cor</label>
+            <div class="custom-control custom-radio">
+              <input value="preto" formControlName="color" type="radio" id="preto" name="color"
+                class="custom-control-input">
+              <label class="custom-control-label" for="preto">Preto</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input value="vermelho" formControlName="color" type="radio" id="vermelho" name="color"
+                class="custom-control-input">
+              <label class="custom-control-label" for="vermelho">Vermelho</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input value="verde" formControlName="color" type="radio" id="verde" name="color"
+                class="custom-control-input">
+              <label class="custom-control-label" for="verde">Verde</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input value="amarelo" formControlName="color" type="radio" id="amarelo" name="color"
+                class="custom-control-input">
+              <label class="custom-control-label" for="amarelo">Amarelo</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input value="laranja" formControlName="color" type="radio" id="laranja" name="color"
+                class="custom-control-input">
+              <label class="custom-control-label" for="laranja">Laranja</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input value="branco" formControlName="color" type="radio" id="branco" name="color"
+                class="custom-control-input">
+              <label class="custom-control-label" for="branco">Branco</label>
             </div>
 
           </div>
 
           <!--Genero-->
-          <div class="col">
+          <div class="col-md-6">
             <label> Gênero</label>
             <select formControlName="genre" class="custom-select" id="inputGroupSelect01">
               <option selected> Masculino </option>
@@ -226,13 +257,13 @@
         <div style="display: flex; justify-content: center;">
           <img src="{{image}}" class="boxImg" alt="Imagem não inserida">
         </div>
-        
+
 
 
 
 
         <!--Botões-->
-        <div id="buttons"class="row btns mb-5" style="margin-top: 5%;">
+        <div id="buttons" class="row btns mb-5" style="margin-top: 5%;">
           <a class="btn btn-link" (click)="clear()">Cancelar</a>
           <button [disabled]="!productForm.valid" class="ml-auto btn btn-announce" type="submit">Anunciar</button>
         </div>
