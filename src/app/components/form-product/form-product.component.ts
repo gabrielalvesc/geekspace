@@ -74,6 +74,7 @@ export class FormProductComponent implements OnInit {
   onSubmit(f:any){
     if (this.tipo == 'camisa') {
       let shirtProduct = new ShirtProduct(f.name, f.description, f.specification, f.price, f.quantity, this.image, this.tipo, f.color, f.genre, 'M');
+      console.log(shirtProduct)
       this.productService.createShirtProduct(shirtProduct).subscribe(res => {
         this.productForm.reset();
         this.toastService.success('Camisa anunciada!!!', 'Novo produto')
