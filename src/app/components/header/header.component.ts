@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
@@ -12,6 +12,7 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 export class HeaderComponent implements OnInit {
 
   role: string;
+  items: number;
 
   constructor(
     private authService: AuthService,
@@ -22,6 +23,12 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.items = 0
+    this.getItems()
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+      this.getItems()
   }
 
   getRole() {
@@ -32,9 +39,14 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  items() {
-    // return this.cartService.items.length;
-    return 0;
+  getItems(){
+    this.cartService.getShoppingCart(this.authService.getUser()).subscribe(res => {
+      this.items = res.items.length;
+    })
+  }
+
+  get totalItems(){
+    return this.cartService.totalItems
   }
 
 }

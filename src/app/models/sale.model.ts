@@ -11,7 +11,9 @@ export class Sale {
         public number: number,
         public neighborhood: string,
         public complement: string,
-        public payment: string
+        public payment: string,
+        public shoppingCart?: Cart,
+        public client?: User
     ) {
         
     }

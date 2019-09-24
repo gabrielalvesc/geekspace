@@ -18,7 +18,7 @@ import { MysalesComponent } from './components/mysales/mysales.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'carrinho', component: ShoppingCartComponent},
+  {path: 'carrinho', component: ShoppingCartComponent, canActivate: [AuthGuard]},
   {path: 'produto/:id', component: ShowProductComponent},
   {path: 'conta', component: AccountComponent},
   {path: 'produtos/:filter', component: FiltroComponent},
