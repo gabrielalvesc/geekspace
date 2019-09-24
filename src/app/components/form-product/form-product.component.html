@@ -224,7 +224,7 @@
         </div>
 
         <div style="display: flex; justify-content: center;">
-          <img class="boxImg" alt="Imagem não inserida">
+          <img src="{{image}}" class="boxImg" alt="Imagem não inserida">
         </div>
         
 
@@ -233,7 +233,7 @@
 
         <!--Botões-->
         <div id="buttons"class="row btns mb-5" style="margin-top: 5%;">
-          <a href="#" class="btn btn-link" (click)="clear()">Cancelar</a>
+          <a class="btn btn-link" (click)="clear()">Cancelar</a>
           <button [disabled]="!productForm.valid" class="ml-auto btn btn-announce" type="submit">Anunciar</button>
         </div>
 

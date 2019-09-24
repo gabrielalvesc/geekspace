@@ -31,7 +31,7 @@ export class FormProductComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    
+      this.image = '../../../assets/images/default-product.jpg'
       this.productForm = this.formBuilder.group({ 
         name: ['', Validators.required],
         quantity: ['', Validators.required],
@@ -88,6 +88,7 @@ export class FormProductComponent implements OnInit {
   }
 
   clear() {
+    this.image = '../../../assets/images/default-product.jpg';
     this.productForm.reset();
     this.productForm2.reset();
   }
