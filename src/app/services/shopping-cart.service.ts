@@ -46,10 +46,19 @@ export class ShoppingCartService {
   }
 
   getTotalItems(){
-    this.http.get<Cart>(`${GEEK_API}/clients/${this.authService.getUser()}/shopping-cart`).subscribe(res => {
+    return this.http.get<Cart>(`${GEEK_API}/clients/${this.authService.getUser()}/shopping-cart`).subscribe(res => {
       this.totalItems = res.items.length;
     })
   }
+
+  decreaseQuantity(clientId:number, itemId: number){
+    return this.http.put(`${GEEK_API}/clients/${clientId}/decrease-quantity/${itemId}`, null)
+  }
+
+  increaseQuantity(clientId:number, itemId: number){
+    return this.http.put(`${GEEK_API}/clients/${clientId}/decrease-quantity/${itemId}`, null)
+  }
+  
   
   // setQuantity(id: number, quantity: number) {
   //   const item = this.items.filter(todo => todo.product.idProduct === id).pop();

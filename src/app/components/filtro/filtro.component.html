@@ -1,7 +1,7 @@
 <div class="container mt-5" id="filter">
   <div class="row">
-    <div class="col-md-3 mb-5">    
-      
+    <div class="col-md-3 mb-5">
+
       <div class="card shadow">
         <div class="card-body">
           <div class="container">
@@ -23,12 +23,63 @@
                 <option value="sticker">Sticker</option>
               </select>
             </div>
+
+            <div *ngIf="category == 'camisa'" class="row" style="margin-top: 20%">
+              <label for="types">Filtre por gênero:</label>
+              <select #genre (change)="filterGenre(genre.value)" class="custom-select">
+                <option selected disabled>Escolha...</option>
+                <option value="masculino"> Masculino</option>
+                <option value="feminino">Feminino</option>
+              </select>
+            </div>
+
+            <div *ngIf="category == 'camisa'" class="row" style="margin-top: 20%">
+              <label for="types">Filtre por cor:</label>
+              <div class="col-md-12">
+                <div class="custom-control custom-radio">
+                  <input (click)="color('Preta')" type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+                  <label class="custom-control-label" for="customRadio1">Preto</label>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="custom-control custom-radio">
+                  <input (click)="color('vermelho')" type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+                  <label class="custom-control-label" for="customRadio2">Vermelho</label>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="custom-control custom-radio">
+                  <input (click)="color('verde')" type="radio" id="customRadio3" name="customRadio" class="custom-control-input">
+                  <label class="custom-control-label" for="customRadio3">Verde</label>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="custom-control custom-radio">
+                  <input (click)="color('amarelo')" type="radio" id="customRadio4" name="customRadio" class="custom-control-input">
+                  <label class="custom-control-label" for="customRadio4">Amarelo</label>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="custom-control custom-radio">
+                  <input (click)="color('laranja')" type="radio" id="customRadio5" name="customRadio" class="custom-control-input">
+                  <label class="custom-control-label" for="customRadio5">Laranja</label>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="custom-control custom-radio">
+                  <input (click)="color('branco')" type="radio" id="customRadio6" name="customRadio" class="custom-control-input">
+                  <label class="custom-control-label" for="customRadio6">Branco</label>
+                </div>
+              </div>
+            </div>
+
+
           </div>
         </div>
       </div>
 
     </div>
-    <div class="col-md-8 offset-md-1" >
+    <div class="col-md-8 offset-md-1">
       <div *ngIf="products.length == 0" class="alert alert-warning text-center" role="alert" style="font-size: 30px">
         <i class="fas fa-exclamation-triangle"></i>
         <span>
@@ -46,7 +97,8 @@
                 </a>
               </div>
               <div class="col-md-6">
-                <div style="font-size: 30px" id="name"><a [routerLink]="[ '/produto', product.id ]">{{product.name}}</a></div>
+                <div style="font-size: 30px" id="name"><a [routerLink]="[ '/produto', product.id ]">{{product.name}}</a>
+                </div>
                 <div style="font-size: 30px">{{product.price | currency:'BRL':'symbol':'0.0-2':'pt'}} </div>
                 <span class="badge badge-success text-white">FRETE GRÁTIS</span>
               </div>

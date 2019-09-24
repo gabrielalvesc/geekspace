@@ -26,6 +26,8 @@ export class LostpassComponent implements OnInit {
     this.userService.recoveryPassword(recovery).subscribe(res => {
       this.toast.info('Verifique sua caixa de entrada', 'E-mail recuperado')
       this.router.navigate(['/'])
+    }, error => {
+      this.toast.error('Esse cliente não existe', 'E-mail inexistente')
     })
   }
 

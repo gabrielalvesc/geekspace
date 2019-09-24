@@ -44,4 +44,13 @@ export class ProductService {
     return this.http.get<GenericProduct[]>(`${GEEK_API}/all-product/category-filter?category=${category}`)
   }
 
+  getByGenre(genre: string) {
+    return this.http.get<GenericProduct[]>(`${GEEK_API}/shirt-product/genre-filter?genre=${genre}`)
+  }
+  
+  getByColor(color: string) {
+    return this.http.get<GenericProduct[]>(`${GEEK_API}/shirt-product/color-filter?color=${color}`)
+  }
+
+
 }

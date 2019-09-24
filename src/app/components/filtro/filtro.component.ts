@@ -39,38 +39,23 @@ export class FiltroComponent implements OnInit {
     })
   }
 
-  // addOrRemoveFavorite(product: GenericProduct) {
-  //   if(this.authService.isLoggedIn()){
-  //     this.favoriteService.getFavorites(this.authService.getUser()).subscribe(res => {
-  //       let bool: boolean = false;
-  //       res.forEach(e => {
-  //         if (e.id == product.id) {
-  //           bool = true;
-  //         }
-  //       });
-  //       if (bool) {
-  //         this.favoriteService.removeFavorite(product.id);
-  //         const heart = document.getElementById('heart');
-  //         heart.classList.add('far');
-  //         heart.classList.remove('fas');
-  //       } else {
-  //         this.favoriteService.addFavorite(product.id);
-  //         const heart = document.getElementById('heart');
-  //         heart.classList.add('fas');
-  //         heart.classList.remove('far');
-  //       }
-  //     })
-  //   } else {
-  //     this.router.navigate(['/conta'])
-  //   }
-    
-  // }
+  filterGenre(genre: string){
+    this.productService.getByGenre(genre).subscribe(res => {
+      this.products = res;
+    })
+  }
 
   setType(type: string) {
     console.log(type)
     this.category = type;
     console.log(this.category)
     this.getProducts();
+  }
+
+  color(color:string) {
+    this.productService.getByColor(color).subscribe(res => {
+      this.products = res;
+    })
   }
 
 }

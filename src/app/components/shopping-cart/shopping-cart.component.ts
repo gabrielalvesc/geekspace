@@ -17,6 +17,7 @@ export class ShoppingCartComponent implements OnInit {
   total: number;
   cart: Cart;
   items: Items[];
+  quantidade:number;
 
   constructor(
     private productService: ProductService,
@@ -25,6 +26,8 @@ export class ShoppingCartComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
+    this.items = [];
     this.getItems();    
   }
 
@@ -33,6 +36,8 @@ export class ShoppingCartComponent implements OnInit {
       this.cart = res;
       this.items = this.cart.items;
       this.shoppingCartService.getTotalItems();
+      console.log(this.cart);
+      console.log(this.items);
     });
   }
 
@@ -43,21 +48,7 @@ export class ShoppingCartComponent implements OnInit {
     });
   }
 
-  // addItem(item: any) {
-  //   this.shoppingCartService.addItem(item);
-  // }
+  // qua
 
-  // get total() {
-  //   return this.shoppingCartService.total();
-  // }
-  /*
-  frete(frete:any){
-    if(frete == 'pac') {
-      this.valorFrete = 52.85;
-    } else if (frete == 'sedex') {
-      this.valorFrete = 72.85;
-    }
-  }*/
-
-
+  
 }
