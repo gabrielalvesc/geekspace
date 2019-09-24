@@ -43,8 +43,27 @@
             </td>
 
             <td class="col-md-1">
-              <input #qtd (change)="quantity(qtd.value, item.product.idProduct)" class="inputQtd" type="number" min="1"
-                max="{{item.product.quantity}}" value="{{item.quantity}}" required>
+              <!-- <input #qtd (change)="quantity(qtd.value, item.product.idProduct)" class="inputQtd" type="number" min="1"
+                max="{{item.product.quantity}}" value="{{item.quantity}}" required> -->
+
+              <div class="number-input row">
+
+                <input class="quantity" min="1" max="{{item.product.quantity}}" name="quantity"
+                  value="{{item.quantity}}" type="number" disabled>
+
+                <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                  <i class="material-icons">
+                    keyboard_arrow_up
+                  </i>
+                </button>
+                <br>
+                <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                  <i class="material-icons">
+                    keyboard_arrow_down
+                  </i>
+                </button>
+
+              </div>
             </td>
 
             <td class="col-md-1">
@@ -53,7 +72,8 @@
             </td>
 
             <td class="col-md-1">
-              <button (click)="removeItem(item.id)" placement="top" ngbTooltip="Remover" style="color:black" class="material-icons btn-cart">remove_shopping_cart</button>
+              <button (click)="removeItem(item.id)" placement="top" ngbTooltip="Remover" style="color:black"
+                class="material-icons btn-cart">remove_shopping_cart</button>
             </td>
           </tr>
 
