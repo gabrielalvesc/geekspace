@@ -48,17 +48,22 @@
 
               <div class="number-input">
 
-                <input #qtd class="quantity" min="1" max="{{item.product.quantity}}" name="quantity"
+                <input  class="quantity" min="1" max="{{item.product.quantity}}" name="quantity"
                   value="{{item.quantity}}" type="number" disabled>
                   
 
-                <button id="up" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                <button id="up" (click)="increaseQuantity(item.id)" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+
                   <i class="material-icons">
                     keyboard_arrow_up
                   </i>
                 </button>
                 <br>
+
+                <button id="down" (click)="decreaseQuantity(item.id)" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+
                 <button id="down" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+
                   <i class="material-icons">
                     keyboard_arrow_down
                   </i>
@@ -106,7 +111,7 @@
       <hr>
 
       <span style="font-size: 25px">
-        Total do pedido R$ {{cart.total | number : '1.2-2'}}
+        Total do pedido R$ {{total | number : '1.2-2'}}
       </span>
       <br>
 

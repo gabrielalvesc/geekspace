@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges, OnChanges } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 import { Cart } from 'src/app/models/cart.model';
@@ -14,7 +14,7 @@ import { Items } from 'src/app/models/items.model';
 
 export class ShoppingCartComponent implements OnInit {
 
-  total: number;
+  total: number = 0;
   cart: Cart;
   items: Items[];
   quantidade: number;
@@ -28,16 +28,28 @@ export class ShoppingCartComponent implements OnInit {
   ngOnInit() {
 
     this.items = [];
+    
     this.getItems();
   }
+
+  // ngOnChanges(changes: SimpleChanges): void {
+  //   console.log("changes: "+changes)
+  //   //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
+  //   //Add '${implements OnChanges}' to the class.
+  //   if (this.items.length == 0) {
+  //     this.total = 0
+  //   } else {
+  //     this.getTotal(this.items);
+  //   }
+  // }
 
   getItems() {
     this.shoppingCartService.getShoppingCart(this.authService.getUser()).subscribe(res => {
       this.cart = res;
       this.items = this.cart.items;
       this.shoppingCartService.getTotalItems();
-      console.log(this.cart);
-      console.log(this.items);
+      this.getTotal(res.items);
+      console.log(res.items);
     });
   }
 
@@ -47,6 +59,27 @@ export class ShoppingCartComponent implements OnInit {
       this.ngOnInit();
     });
   }
+  
+  getTotal (lista:Items[]) {
+    this.total = 0;
+    lista.forEach(e => {
+      this.total += (e.product.price * e.quantity);      
+    });
+    console.log("total"+this.total);
+  }
 
-  // qua
+  increaseQuantity(itemId:number){
+    this.shoppingCartService.increaseQuantity(this.authService.getUser(), itemId).subscribe(res => {
+      this.getItems();
+      this.getTotal(this.items);
+    })
+  }
+
+  decreaseQuantity(itemId:number){
+    this.shoppingCartService.decreaseQuantity(this.authService.getUser(), itemId).subscribe(res => {
+      this.getItems();
+      this.getTotal(this.items);
+    })
+  }
+
 }
