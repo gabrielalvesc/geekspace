@@ -17,7 +17,7 @@ export class ShoppingCartComponent implements OnInit {
   total: number;
   cart: Cart;
   items: Items[];
-  quantidade:number;
+  quantidade: number;
 
   constructor(
     private productService: ProductService,
@@ -28,7 +28,7 @@ export class ShoppingCartComponent implements OnInit {
   ngOnInit() {
 
     this.items = [];
-    this.getItems();    
+    this.getItems();
   }
 
   getItems() {
@@ -49,6 +49,4 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   // qua
-
-  
 }
