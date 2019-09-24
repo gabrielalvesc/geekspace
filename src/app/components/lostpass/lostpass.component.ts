@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lostpass',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LostpassComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit() {
+  }
+
+
+  refresh() {
+
+    setTimeout(this.navigateToHome.bind(this), 5000);
+    console.log('Gabriel CP');
+  }
+
+  navigateToHome() {
+    this.router.navigate(['/']);
+    window.location.reload();
   }
 
 }
