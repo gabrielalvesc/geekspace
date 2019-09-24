@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { HttpClient } from '@angular/common/http';
 import { GEEK_API } from './geek.api';
 import { Sale } from '../models/sale.model';
+import { Recovery } from '../models/recovery.model';
 
 
 @Injectable({
@@ -26,6 +27,10 @@ export class UserService {
 
   getRequests(clientId:number) {
     return this.http.get<Sale[]>(`${GEEK_API}/clients/${clientId}/sales`)
+  }
+
+  recoveryPassword(recovery: Recovery) {
+    return this.http.post(`${GEEK_API}/clients/recovery`, recovery)
   }
 }
 
