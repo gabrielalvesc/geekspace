@@ -1,8 +1,7 @@
-import { Component, OnInit, SimpleChanges, OnChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
 import { GenericProduct } from 'src/app/models/product.model';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
 import { FavoritesService } from 'src/app/services/favorites.service';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -21,9 +20,6 @@ export class FiltroComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute,
-    private router: Router,
-    private favoriteService: FavoritesService,
-    private authService: AuthService
   ) { }
 
   ngOnInit() {
@@ -41,24 +37,15 @@ export class FiltroComponent implements OnInit {
     })
   }
 
-  // filterGenre(genre: string){
-  //   this.productService.getByGenre(genre).subscribe(res => {
-  //     this.products = res;
-  //   })
-  // }
 
   setType(type: string) {
-    console.log(type)
+    
     this.category = type;
-    console.log(this.category)
+    
     this.getProducts();
   }
 
-  // color(color:string) {
-  //   this.productService.getByColor(color).subscribe(res => {
-  //     this.products = res;
-  //   })
-  // }
+  
 
   filterColorGenre() {
     if(this.color != null && this.genre != null) {

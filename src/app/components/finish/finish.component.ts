@@ -85,7 +85,7 @@ export class FinishComponent implements OnInit {
     this.cartService.getShoppingCart(this.authService.getUser()).subscribe(res => {
       this.cart = res;
       this.items = this.cart.items;
-      console.log(this.items);
+      console.log(this.cart);
     })
   }
 
