@@ -10,6 +10,7 @@ import { Cart } from 'src/app/models/cart.model';
 import { ToastrService } from 'ngx-toastr';
 import { Items } from 'src/app/models/items.model';
 import { AuthService } from 'src/app/services/auth.service';
+import { $ } from 'protractor';
 
 
 @Component({
@@ -42,7 +43,7 @@ export class ShowProductComponent implements OnInit {
     this.favoriteService.getFavorites(this.authService.getUser()).subscribe(res => {
       console.log(res);
       res.forEach(e => {
-        if (this.product.id == e.id) {
+        if (this.product.id === e.id) {
           const heart = document.getElementById('heart');
           heart.classList.add('fas');
           heart.classList.remove('far');
@@ -88,9 +89,9 @@ export class ShowProductComponent implements OnInit {
 
   addOrRemoveFavorite() {
     this.favoriteService.getFavorites(this.authService.getUser()).subscribe(res => {
-      let bool: boolean = false;
+      let bool = false;
       res.forEach(e => {
-        if (e.id == this.product.id) {
+        if (e.id === this.product.id) {
           bool = true;
         }
       });
@@ -105,18 +106,18 @@ export class ShowProductComponent implements OnInit {
         heart.classList.add('fas');
         heart.classList.remove('far');
       }
-    })
+    });
   }
 
 
   addCart() {
     if (this.authService.isLoggedIn()) {
-      let item = new Items(this.product, this.quantity, this.product.price * this.quantity, 0);
+      const item = new Items(this.product, this.quantity, this.product.price * this.quantity, 0);
       this.cartService.getTotalItems();
       this.cartService.addItem(this.authService.getUser(), item).subscribe(res => {
         this.toastr.info('Produto adicionado ao carrinho', 'Adicionado com sucesso');
         this.router.navigate(['/carrinho']);
-      })
+      });
 
     } else {
       this.router.navigate(['/conta']);
@@ -125,21 +126,23 @@ export class ShowProductComponent implements OnInit {
   }
 
   buy() {
-    if(this.authService.isLoggedIn()){
-      let item = new Items(this.product, this.quantity, this.product.price * this.quantity, 0);
+    if (this.authService.isLoggedIn()) {
+      const item = new Items(this.product, this.quantity, this.product.price * this.quantity, 0);
       this.cartService.addItem(this.authService.getUser(), item).subscribe(res => {
         this.cartService.getTotalItems();
         this.router.navigate(['/finalizar-pedido']);
       }, error => {
-        console.log(error)
-      })
+        console.log(error);
+      });
     } else {
-      this.router.navigate(['conta'])
+      this.router.navigate(['conta']);
     }
   }
 
   setQuantity() {
     // this.cartService.setQuantity(this.product.idProduct, this.quantity);
   }
+
+
 
 }

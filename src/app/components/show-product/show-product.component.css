@@ -29,6 +29,16 @@
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
     border-right: none;
+    outline: none;
+}
+
+.btn-quantity-less:hover {
+    background-color: #8e8e8e;
+    color: white;
+}
+
+.btn-quantity-less:active {
+    background-color: #707070;
 }
 
 
@@ -37,7 +47,7 @@
     padding-right: 30px;
     padding-left: 30px;
     padding-top: 5px;
-    padding-bottom: 5px;
+    padding-bottom: 6px;
 }
 
 .btn-quantity-more {
@@ -49,6 +59,16 @@
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
     border-left: none;
+    outline: none;
+}
+
+.btn-quantity-more:hover {
+    background-color: #8e8e8e;
+    color: white;
+}
+
+.btn-quantity-more:active {
+    background-color: #707070;
 }
 
 .stock {
@@ -62,24 +82,45 @@
     color: #575757;
 }
 
+
+
 .btn-comprar {
+    width: 300px;
+
     background-color: #222222;
-    color: #FFD933;
-    border-radius: 4px;
-    padding: 10px 30px 10px 30px;
-    font-size: 22px;
-    text-align: center;
-    text-decoration: none;
+    color: #ffd933;
+    border-radius: 5px;
+
+    outline: none;
+
+    
+}
+
+.btn-comprar:hover {
+    background-color: #323232;
+}
+
+.btn-comprar:active{
+    background-color: #1f1f1f;
 }
 
 .btn-carrinho {
+    border-radius: 5px;
+
+    outline: none;
+
     border: 2px solid #FFD933;
     color: #222222;
-    border-radius: 4px;
-    padding: 10px 30px 10px 30px;
-    font-size: 22px;
-    text-align: center;
-    text-decoration: none;
+
+}
+
+.btn-carrinho:hover {
+    background-color: #FFD933;
+    color: #222222;
+}
+
+.btn-carrinho:active {
+    background-color: rgb(193, 163, 28);
 }
 
 .description {

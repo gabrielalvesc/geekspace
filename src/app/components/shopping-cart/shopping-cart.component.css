@@ -9,15 +9,15 @@ img{
     height: 80px;
 }
 
-.inputQtd{
+/* .inputQtd{
     border-top: none;
     border-right: none;
     border-left: none;
 
     border-color: black;
 
-    /* width: 40px; */
-}
+    /* width: 40px;
+} */
 
 .inputCep{
     border-top: none;
@@ -39,6 +39,15 @@ img{
     border-radius: 5px;
     font-size: 22px;
     text-align: center;
+    outline: none;
+}
+
+.btn-finished:hover {
+    background-color: #323232;
+}
+
+.btn-finished:active{
+    background-color: #1f1f1f;
 }
 
 #carrinho button{
@@ -63,6 +72,17 @@ input[type="number"] {
   .number-input,
   .number-input * {
     box-sizing: border-box;
+    display: inline-flex;
+  }
+
+  #up {
+      margin-top: -15px;
+  }
+
+  #down {
+      position: relative;
+      margin-top: 0px;
+      margin-left: -40px;
   }
   
   .number-input button {

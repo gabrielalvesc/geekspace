@@ -19,7 +19,7 @@ export class ShoppingCartComponent implements OnInit {
   total: number = 0;
   cart: Cart;
   items: Items[];
-  quantidade:number;
+  quantidade: number;
 
   constructor(
     private productService: ProductService,
@@ -31,7 +31,8 @@ export class ShoppingCartComponent implements OnInit {
   ngOnInit() {
 
     this.items = [];
-    this.getItems();   
+    
+    this.getItems();
   }
 
   getItems() {
@@ -49,7 +50,7 @@ export class ShoppingCartComponent implements OnInit {
       this.ngOnInit();
     });
   }
-
+  
   getTotal (lista:Items[]) {
     this.total = 0;
     lista.forEach(e => {
@@ -71,15 +72,12 @@ export class ShoppingCartComponent implements OnInit {
     })
   }
 
+
   finishingRequest() {
-    // let cartUpdate = new Cart(this.cart.client, this.cart.items, this.total, this.cart.id);
-    // console.log(cartUpdate)
     let total = new Total(this.total)
     this.shoppingCartService.setTotal(this.authService.getUser(), this.cart.id, total).subscribe(res => {
-      console.log(res)
-      
+        
     })
   }
 
-  
 }
