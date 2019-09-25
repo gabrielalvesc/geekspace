@@ -43,31 +43,27 @@
             </td>
 
             <td class="col-md-1">
-              <!-- <input #qtd (change)="quantity(qtd.value, item.product.idProduct)" class="inputQtd" type="number" min="1"
-                max="{{item.product.quantity}}" value="{{item.quantity}}" required> -->
+              
 
               <div class="number-input">
 
                 <input  class="quantity" min="1" max="{{item.product.quantity}}" name="quantity"
                   value="{{item.quantity}}" type="number" disabled>
-                  
 
-                <button id="up" (click)="increaseQuantity(item.id)" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                  <button id="up" (click)="increaseQuantity(item.id)" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
 
-                  <i class="material-icons">
-                    keyboard_arrow_up
-                  </i>
-                </button>
-                <br>
+                    <i class="material-icons">
+                      keyboard_arrow_up
+                    </i>
+                  </button>
+                  <br>
 
-                <button id="down" (click)="decreaseQuantity(item.id)" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                  <button id="down" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
 
-                <button id="down" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-
-                  <i class="material-icons">
-                    keyboard_arrow_down
-                  </i>
-                </button>
+                    <i class="material-icons">
+                      keyboard_arrow_down
+                    </i>
+                  </button>
 
               </div>
             </td>
@@ -82,8 +78,6 @@
                 class="material-icons btn-cart">remove_shopping_cart</button>
             </td>
           </tr>
-
-
 
 
 
@@ -124,4 +118,4 @@
     </div><!-- Column 2 end -->
 
   </div>
-</div>
+</div> 
