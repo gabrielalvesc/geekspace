@@ -6,6 +6,7 @@ import { AuthService } from './auth.service';
 import { HttpClient } from '@angular/common/http';
 import { GEEK_API } from './geek.api';
 import { Items } from '../models/items.model';
+import { Total } from '../models/total.model';
 
 @Injectable({
   providedIn: 'root'
@@ -42,6 +43,7 @@ export class ShoppingCartService {
   }
 
   editShoppingCart(clientId: number, shoppingCart: Cart) {
+    console.log(this.cart)
     return this.http.put(`${GEEK_API}/clients/${clientId}/shopping-cart/edit`, shoppingCart)
   }
 
@@ -58,6 +60,13 @@ export class ShoppingCartService {
   increaseQuantity(clientId:number, itemId: number){
     return this.http.put(`${GEEK_API}/clients/${clientId}/increase-quantity/${itemId}`, null)
   }
+
+  setTotal(clientId:number, shoppingcartId:number, total:Total){
+    console.log(clientId, shoppingcartId, total)
+    return this.http.put(`${GEEK_API}/clients/${clientId}/shopping-cart/total`, total)
+  }
+
+
   
   
   // setQuantity(id: number, quantity: number) {

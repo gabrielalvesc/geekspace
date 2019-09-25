@@ -111,7 +111,7 @@
 
       <div class="mt-2">
         <a *ngIf="items.length == 0" [routerLink]="[ '/' ]" class="btn-finished btn">ADICIONE NO CARRINHO</a>
-        <a *ngIf="items.length != 0" [routerLink]="[ '/finalizar-pedido' ]" class="btn-finished btn">FINALIZAR
+        <a *ngIf="items.length != 0" [routerLink]="[ '/finalizar-pedido' ]" (click)="finishingRequest()" class="btn-finished btn">FINALIZAR
           PEDIDO</a>
       </div>
 
